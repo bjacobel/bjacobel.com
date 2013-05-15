@@ -1,1 +1,13 @@
-../homepage/robots.txt
+User-agent: *
+Allow: /
+Allow: /html/contact.html
+Allow: /html/about.html
+Allow: /html/research.html
+Allow: /html/projects.html
+Disallow: /*/*
+Disallow: /errors/
+Disallow: /sqlbuddy/
+Disallow: /exclude.html
+Disallow: /phpinfo.php
+Disallow: /2013.css
+Disallow: /js/

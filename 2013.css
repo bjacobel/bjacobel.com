@@ -1,1 +1,284 @@
-../homepage/2013.css
+@media all {
+	
+	/** Fiddly Stuff **/
+
+	html { -webkit-font-smoothing: antialiased; }
+	body {
+		background-image:url('/images/triangles.png');
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+	.unhighlightable {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	/** Title Block **/
+	#titleblock {
+		height:16%;
+	}
+	#title {
+		font-family: ubuntu-condensed, sans-serif;
+		width:50%;
+		margin-left:4%;
+		margin-top:2%;
+		color:rgb(75,75,75);
+		font-size:300%;
+		position:absolute;
+	}
+	#title:before, #title:after {
+		content: "BRIAN JACOBEL";
+		color: rgba(255,255,255,.1);
+		position:absolute;
+	}
+	#title:before { top: 1px; left: 1px }
+	#title:after  { top: 2px; left: 2px }
+
+	/** Nav Bar **/
+	.bottomshadow {
+		box-shadow: inset 0em -.5em .75em rgba(0,0,0,.5);
+		border-bottom: 1px solid rgba(200,200,200,0.5);
+	}
+
+	#navbar {
+		background-image:url('images/linen_hires.png');
+		width:100%;
+		height:30%;
+		box-shadow: inset 0em .5em 1em rgba(0,0,0,.5);
+		border-top: 1px solid rgba(200,200,200,0.5);
+		overflow:hidden;
+	}
+	#navshadow {
+		width:100%;
+		height:100%;
+		-webkit-transition: all 0s ease;
+		-moz-transition: all 0s ease;
+		-o-transition: all 0s ease;
+		transition: all 0s ease;
+	}
+
+	/** Nav Tiles **/
+	.navitem {
+		height:73%;
+		width:23%;
+		margin-left:1%;
+		margin-right:1%;
+		margin-top:2%;
+		margin-bottom:2%;
+		float:left;
+		display:inline-block;
+		background-size:cover;
+		box-shadow: 5px 5px 10px black;
+		-webkit-transition:all .25s ease;
+		-moz-transition:all .25s ease;
+		-o-transition:all .25s ease;
+		transition:all .25s ease;
+		overflow:hidden;
+	}
+	.navitem:hover{
+		height:80%;
+		width:24%;
+		margin-left:.5%;
+		margin-right:.5%;
+		margin-top:1.5%;
+		margin-bottom:1.5%;
+	}
+	.navtitle {
+		font-family:droid-sans, sans-serif;
+		font-size:220%;
+		color:white;
+		margin-top:3%;
+		margin-left:5%;
+		text-shadow: black 2px 2px 12px, black -2px -2px 12px, black -2px 2px 12px, black 2px -2px 12px;
+	}
+	#biotile {
+		background-image:url('/images/me.jpg');
+	}
+	#contacttile {
+		background-image:url('/images/contact.png');
+	}
+	#projectstile {
+		background-image:url('/images/projects.png');
+	}
+	#researchtile {
+		background-image:url('/images/robocup.jpg');
+	}
+
+
+	/** Content Drawer **/
+	.contentbackdrop {
+		position: relative;
+		top:5%;
+		left:1%;
+		right:1%;
+		bottom:4%;
+		height: 0%;
+		width: 98%;
+		box-shadow: 5px 5px 10px black;
+		background-image:url('/images/whitelinen.png');
+		border-radius: 6px;
+		-webkit-transition: height .25s ease;
+		-moz-transition: height .25s ease;
+		-o-transition: height .25s ease;
+		transition: height .25s ease;
+	}
+	.contentbackdrop .arrow {
+		visibility: hidden;
+		position: absolute;
+		top: -5%;
+		border-top: 0;
+		border-left: 1.7em solid transparent;
+		border-right: 1.7em solid transparent;
+		border-bottom: 1.7em solid #fafafa;
+		width: 0;
+		height: 0;
+		-webkit-transition: left .25s ease;
+		-moz-transition: left .25s ease;
+		-o-transition: left .25s ease;
+		transition: left .25s ease;
+	}
+	#contentdrawer {
+		background-image:url('images/linen_hires.png');
+		width:100%;
+		height:0%;
+		-webkit-transition: all .25s ease;
+		-moz-transition: all .25s ease;
+		-o-transition: all .25s ease;
+		transition: all .25s ease;
+		overflow:hidden;
+	}
+
+	/** In-Drawer Content **/
+	div.content {
+		height: 100%;
+		width: 100%;
+		overflow:hidden;
+		display:inline-block;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	h2.content {
+		font-family:droid-sans, sans-serif;
+		font-size:1.5em;
+		color: rgb(75,75,75);
+		margin:0;
+		position:absolute;
+		top:6%;
+		left:2%;
+	}
+	p.content{
+		font-family:droid-sans, sans-serif;
+		font-size:1em;
+		color: rgb(75,75,75);
+		margin:0;
+		position:absolute;
+		top:27%;
+		left:2%;
+	}
+	.leftcontent{
+		height:100%;
+		width:25%;
+		overflow:hidden;
+		float:left;
+	}
+	.rightcontent{
+		height:100%;
+		width:73%;
+		float:right;
+		overflow:hidden;
+	}
+	.linkwrapper {
+		width:25%;
+		height:50%;
+	}
+	.projectwrapper{
+		width:50%;
+		height:50%;
+	}
+	.linktable {
+		width:98%;
+		height:98%;
+		padding:1%;
+	}
+	.link {
+		color:rgb(75,75,75);
+		font-family:droid-sans, sans-serif;
+		text-decoration:none;
+		width:100%;
+		height:100%;
+		display:inline-block;
+	}
+	.linkimg {
+		height:3em;width:3em;
+	}
+	.linktitle {
+		margin:0;
+		position:relative;
+		top:1em;
+		width:50%;
+		right:20%;
+		float:right;
+	}
+	.project {
+		color:rgb(75,75,75);
+		font-family:droid-sans, sans-serif;
+		text-decoration:none;
+		width:100%;
+		height:100%;
+		display:inline-block;
+	}
+	.projectimg {
+		height:5em;width:5em;
+		position:relative;
+		top:-1em;
+	}
+	.projecttitle {
+		margin:0;
+		position:relative;
+		width:75%;
+		right:5%;
+		float:right;
+		font-size:.9em;
+		top:-.5em;
+		word-wrap:normal;
+	}
+	.researchtitle {
+		margin:0;
+		position:relative;
+		width:85%;
+		right:5%;
+		float:right;
+		font-size:.9em;
+		top:-.5em;
+		word-wrap:normal;
+		line-height:150%;
+	}
+	.abouttext {
+		margin:0;
+		position:relative;
+		width:90%;
+		top:10%;
+		left:0;
+		float:left;
+		font-size:.9em;
+		word-wrap:normal;
+		line-height:150%;
+		color:rgb(75,75,75);
+		font-family:droid-sans, sans-serif;
+		text-decoration:none;
+		display:inline-block;
+		padding-left:4em;
+	}
+	#swipeview-wrapper{
+		overflow: hidden; 
+		position: relative;
+		height:100%;
+		width:100%;
+	}
+}

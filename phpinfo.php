@@ -1,1 +1,1 @@
-../homepage/phpinfo.php
+<?php phpinfo() ?>
