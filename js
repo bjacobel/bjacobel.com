@@ -1,1 +1,1 @@
-./js
+../homepage/js

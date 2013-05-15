@@ -1,1 +1,1 @@
-./phpinfo.php
+../homepage/phpinfo.php
