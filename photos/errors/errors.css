@@ -1,0 +1,46 @@
+@media all {
+    body {
+	background-image:url("../images/whitelinen.png");
+    }
+    a {
+	color: rgb(85,100,255);
+	text-decoration:none;
+    }
+    a:hover {
+	color: #6600FF;
+    }
+    a:visited {
+	color: rgb(90,0,220);
+    }
+    div.wrapper{
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	overflow:hidden;
+    }
+    #fourohfour{
+	font-family:open-sans, sans-serif;
+	font-size:7.5em;
+	color:rgb(125,125,125);
+	position:absolute;
+	left:15%;
+	top:10%;
+	margin:0;
+	padding:0;
+    }
+    #fourohfour:before, #fourohfour:after {
+	content: attr(title);
+	color: rgba(255,255,255,.1);
+	position: absolute;
+    }
+    #fourohfour:before { top: 1px; left: 1px }
+    #fourohfour:after  { top: 2px; left: 2px }
+    #text {
+	font-family: open-sans, sans-serif;
+	color:rgb(100,100,100);
+	position:absolute;
+	left:15%;
+	top:40%;
+    }
+}
