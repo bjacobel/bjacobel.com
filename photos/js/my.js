@@ -1,13 +1,14 @@
 $(window).load(function() {
+    $("img.lazyload").lazyload();
     var $wrapper = $('div.wrapper');
-    $wrapper.css("width",parseInt($('body').css("width"))-getScrollbarWidth());
+    $wrapper.css("width",parseInt($('body').css("width")) - getScrollbarWidth());
     $wrapper.imagesLoaded(function(){
 	$wrapper.masonry({
-	    itemSelector : '.picdiv',
-	    isAnimated: !Modernizr.csstransitions,
-	    columnWidth: function( containerWidth ) {
-		return (containerWidth / 4);
-	    }
+        itemSelector : '.picdiv',
+        isAnimated: !Modernizr.csstransitions,
+        columnWidth: function( containerWidth ) {
+    	return (containerWidth / 4);
+        }
 	});
     });
     //kill the loading bar
@@ -18,12 +19,13 @@ $(window).load(function() {
     });
 });
 
-function jsonFlickrApi(o){
+function  FlickrApi(o){
     $(document).ready(function() {
 	for (var i=0; o.photos.photo[i]; i++){
-	    var image_big = o.photos.photo[i].url_l;
-	    var newhtml = '<div class="picdiv"><a class="pic" href="' + image_big + '" rel="lightbox[slideshow]"><img class="pic" src="' + image_big + '"></div>';
-	    $('div.wrapper').append(newhtml);
+        var image_big = o.photos.photo[i].url_l;
+        var image_small = o.photos.photo[i].url_s;
+        var newhtml = '<div class="picdiv"><a class="pic" href="' + image_big + '" rel="lightbox[slideshow]"><img class="pic lazyload" src="' + image_small + ' data-original="' +image_big+ '"></div>';
+        $('div.wrapper').append(newhtml);
 	}
     });
 }
@@ -34,17 +36,17 @@ $(document).ready(function(){
     sessionStorage.setItem("aboutCollapsed",1);
     $("div#about").click(function(){
 	if (sessionStorage.getItem("aboutCollapsed")==1) { //about box is collapsed
-	    //expand it, put in longer text
-	    $("p#shortabout").css("visibility", "hidden");
-	    $("p#longabout").css("visibility", "visible");
-	    $("div#about").addClass("expandabout");
-	    sessionStorage.setItem("aboutCollapsed",0);
+        //expand it, put in longer text
+        $("p#shortabout").css("visibility", "hidden");
+        $("p#longabout").css("visibility", "visible");
+        $("div#about").addClass("expandabout");
+        sessionStorage.setItem("aboutCollapsed",0);
 	} else {
-	    //collapse it, hide text
-	    $("p#shortabout").css("visibility", "visible");
-	    $("p#longabout").css("visibility", "hidden");
-	    $("div#about").removeClass("expandabout");
-	    sessionStorage.setItem("aboutCollapsed",1);
+        //collapse it, hide text
+        $("p#shortabout").css("visibility", "visible");
+        $("p#longabout").css("visibility", "hidden");
+        $("div#about").removeClass("expandabout");
+        sessionStorage.setItem("aboutCollapsed",1);
 	}
     });
 });
