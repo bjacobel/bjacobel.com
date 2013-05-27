@@ -3,7 +3,7 @@ $(window).load(function() {
         effect : "fadeIn"
     });
     $(window).resize();
-    
+
     var $wrapper = $('div.wrapper');
     $wrapper.css("width",parseInt($('body').css("width")) - getScrollbarWidth());
     $wrapper.imagesLoaded(function(){
@@ -19,10 +19,12 @@ $(window).load(function() {
 
 function jsonFlickrApi(o){
     $(document).ready(function() {
+    // alert(o.photos.photo[1].width_l/o.photos.photo[1].height_l);
+    // alert(((parseInt($('body').css("width"))-getScrollbarWidth())*0.225)/(o.photos.photo[1].height_l*(parseInt($('body').css("width"))-getScrollbarWidth())*0.225/o.photos.photo[1].width_l));
     for (var i=0; o.photos.photo[i]; i++){
         var image_big = o.photos.photo[i].url_l;
         var image_width = o.photos.photo[i].width_l;
-        var image_widthRatio = parseInt($('body').css("width"))*0.225/image_width;
+        var image_widthRatio = (parseInt($('body').css("width"))-getScrollbarWidth())*0.225/image_width;
         var image_height = o.photos.photo[i].height_l*image_widthRatio;
         var newhtml = '<div class="picdiv"><a class="pic" href="' + image_big + '" rel="lightbox[slideshow]"><img class="pic" src="images/clear.png" data-original="' + image_big + '" style="height:'+image_height+'px"></div>';
         $('div.wrapper').append(newhtml);
