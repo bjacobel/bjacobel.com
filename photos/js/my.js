@@ -1,5 +1,7 @@
 $(window).load(function() {
-    $("img.pic").lazyload({effect : "fadeIn"});
+    $("img.pic").lazyload({
+        effect : "fadeIn"
+    });
     var $wrapper = $('div.wrapper');
     $wrapper.css("width",parseInt($('body').css("width")) - getScrollbarWidth());
     $wrapper.imagesLoaded(function(){
@@ -11,6 +13,7 @@ $(window).load(function() {
     }
     });
     });
+    scrollTo(1);
 });
 
 function jsonFlickrApi(o){
