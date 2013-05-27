@@ -17,9 +17,6 @@
        box-shadow: 0em 0em 1em .15em rgba(100,100,100,0.7);
        
    }
-   img.pic.shadowed{
-       
-   }
    .unhighlightable {
        -webkit-touch-callout: none;
        -webkit-user-select: none;
