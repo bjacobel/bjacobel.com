@@ -1,36 +1,30 @@
 $(window).load(function() {
-    $("img.lazyload").lazyload();
+    $("img.pic").lazyload({effect : "fadeIn"});
     var $wrapper = $('div.wrapper');
     $wrapper.css("width",parseInt($('body').css("width")) - getScrollbarWidth());
     $wrapper.imagesLoaded(function(){
-	$wrapper.masonry({
+    $wrapper.masonry({
         itemSelector : '.picdiv',
         isAnimated: !Modernizr.csstransitions,
         columnWidth: function( containerWidth ) {
-    	return (containerWidth / 4);
-        }
-	});
+            return (containerWidth / 4);
+    }
     });
-    //kill the loading bar
-    $("#loading").fadeOut();
-    //fade in
-    $("div.picdiv").each(function(i) {
-	$(this).fadeIn(800);
     });
 });
 
-function  FlickrApi(o){
+function jsonFlickrApi(o){
     $(document).ready(function() {
-	for (var i=0; o.photos.photo[i]; i++){
+    for (var i=0; o.photos.photo[i]; i++){
         var image_big = o.photos.photo[i].url_l;
-        var image_small = o.photos.photo[i].url_s;
-        var newhtml = '<div class="picdiv"><a class="pic" href="' + image_big + '" rel="lightbox[slideshow]"><img class="pic lazyload" src="' + image_small + ' data-original="' +image_big+ '"></div>';
+        var image_width = o.photos.photo[i].width_l;
+        var image_widthRatio = parseInt($('body').css("width"))*0.225/image_width;
+        var image_height = o.photos.photo[i].height_l*image_widthRatio;
+        var newhtml = '<div class="picdiv"><a class="pic" href="' + image_big + '" rel="lightbox[slideshow]"><img class="pic" src="images/clear.png" data-original="' + image_big + '" style="height:'+image_height+'px"></div>';
         $('div.wrapper').append(newhtml);
-	}
+    }
     });
 }
-
-
 
 $(document).ready(function(){
     sessionStorage.setItem("aboutCollapsed",1);
@@ -41,34 +35,27 @@ $(document).ready(function(){
         $("p#longabout").css("visibility", "visible");
         $("div#about").addClass("expandabout");
         sessionStorage.setItem("aboutCollapsed",0);
-	} else {
+    } else {
         //collapse it, hide text
         $("p#shortabout").css("visibility", "visible");
         $("p#longabout").css("visibility", "hidden");
         $("div#about").removeClass("expandabout");
         sessionStorage.setItem("aboutCollapsed",1);
-	}
+    }
     });
 });
 
 function getScrollbarWidth()
 {
     if(window.navigator.platform!="MacIntel"){
-	var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div></div>');
-	$('body').append(div);
-	var w1 = $('div', div).innerWidth();
-	div.css('overflow-y', 'auto');
-	var w2 = $('div', div).innerWidth();
-	$(div).remove();
-	return(w1 - w2);
+        var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div></div>');
+        $('body').append(div);
+        var w1 = $('div', div).innerWidth();
+        div.css('overflow-y', 'auto');
+        var w2 = $('div', div).innerWidth();
+        $(div).remove();
+        return(w1 - w2);
     } else {
-	return(0);
+        return(0);
     }
 }
-
-//animate the loading banner
-i = 0;
-setInterval(function() {
-    i = ++i % 4;
-    $("#loading").html("LOADING"+Array(i+1).join("."));
-}, 500);
