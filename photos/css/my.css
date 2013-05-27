@@ -31,10 +31,10 @@
        float:left;
        overflow:hidden;
    }
-   .picdiv:hover {
+   /*.picdiv:hover {
        width:23.5%;
        padding:.75%;
-   }
+   }*/
    #loading{
        position:absolute;
        top:38%;
