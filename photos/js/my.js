@@ -30,7 +30,7 @@ function jsonFlickrApi(o){
             $('div.wrapper').append(newhtml);
         }
         $("img.pic").mouseover(function() {
-            $(this).transition({ scale:1.05 }, 250);
+            $(this).transition({ scale:1.03 }, 250);
         });
         $("img.pic").mouseout(function() {
             $(this).transition({ scale:1.00 }, 250);
