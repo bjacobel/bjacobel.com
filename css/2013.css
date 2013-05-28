@@ -46,7 +46,7 @@
 	}
 
 	#navbar {
-		background-image:url('images/linen_hires.png');
+		background-image:url('/images/linen_hires.png');
 		width:100%;
 		height:30%;
 		box-shadow: inset 0em .5em 1em rgba(0,0,0,.5);
@@ -143,7 +143,7 @@
 		transition: left .25s ease;
 	}
 	#contentdrawer {
-		background-image:url('images/linen_hires.png');
+		background-image:url('/images/linen_hires.png');
 		width:100%;
 		height:0%;
 		-webkit-transition: all .25s ease;
