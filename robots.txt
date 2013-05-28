@@ -4,10 +4,11 @@ Allow: /html/contact.html
 Allow: /html/about.html
 Allow: /html/research.html
 Allow: /html/projects.html
-Disallow: /*/*
+Allow: /photos/
 Disallow: /errors/
 Disallow: /sqlbuddy/
 Disallow: /exclude.html
-Disallow: /phpinfo.php
-Disallow: /2013.css
+Disallow: /css/
 Disallow: /js/
+Disallow: /photos/css/
+Disallow: /photos/js/
