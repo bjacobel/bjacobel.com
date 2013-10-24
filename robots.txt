@@ -6,7 +6,6 @@ Allow: /html/research.html
 Allow: /html/projects.html
 Allow: /photos/
 Disallow: /errors/
-Disallow: /sqlbuddy/
 Disallow: /exclude.html
 Disallow: /css/
 Disallow: /js/
