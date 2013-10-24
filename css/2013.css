@@ -2,12 +2,8 @@
 	
 	/** Fiddly Stuff **/
 
-	html { -webkit-font-smoothing: antialiased; }
-	body {
-		background-image:url('/images/triangles.png');
-		margin-left:0px;
-		margin-right:0px;
-	}
+	body { margin: 0; }
+	a { text-decoration: none;}
 
 	.unhighlightable {
 		-webkit-touch-callout: none;
@@ -19,122 +15,107 @@
 	}
 
 	/** Title Block **/
-	#titleblock {
+	#title-block {
 		height:16%;
 	}
+
 	#title {
 		font-family: ubuntu-condensed, sans-serif;
-		width:50%;
-		margin-left:4%;
-		margin-top:2%;
+		width:100%;
 		color:rgb(75,75,75);
 		font-size:300%;
 		position:absolute;
+		left:1%;
 	}
+
 	#title:before, #title:after {
 		content: "BRIAN JACOBEL";
 		color: rgba(255,255,255,.1);
 		position:absolute;
 	}
+
 	#title:before { top: 1px; left: 1px }
 	#title:after  { top: 2px; left: 2px }
 
-	/** Nav Bar **/
-	.bottomshadow {
-		box-shadow: inset 0em -.5em .75em rgba(0,0,0,.5);
-		border-bottom: 1px solid rgba(200,200,200,0.5);
-	}
 
-	#navbar {
-		background-image:url('/images/linen_hires.png');
+	/* Nav Bar */
+	#nav-bar {
 		width:100%;
 		height:30%;
-		box-shadow: inset 0em .5em 1em rgba(0,0,0,.5);
-		border-top: 1px solid rgba(200,200,200,0.5);
-		overflow:hidden;
-	}
-	#navshadow {
-		width:100%;
-		height:100%;
-		-webkit-transition: all 0s ease;
-		-moz-transition: all 0s ease;
-		-o-transition: all 0s ease;
-		transition: all 0s ease;
 	}
 
-	/** Nav Tiles **/
-	.navitem {
+	.nav-item {
 		height:73%;
 		width:23%;
-		margin-left:1%;
-		margin-right:1%;
-		margin-top:2%;
-		margin-bottom:2%;
+
+		margin:2% 1%;
+
 		float:left;
 		display:inline-block;
+
 		background-size:cover;
-		box-shadow: 5px 5px 10px black;
-		-webkit-transition:all .25s ease;
-		-moz-transition:all .25s ease;
-		-o-transition:all .25s ease;
-		transition:all .25s ease;
+		background-position:center;
 		overflow:hidden;
+
+		-webkit-transition:width .25s ease, height .25s ease, margin .25s ease;
+		-moz-transition:width .25s ease, height .25s ease, margin .25s ease;
+		-o-transition:width .25s ease, height .25s ease, margin .25s ease;
+		transition:width .25s ease, height .25s ease, margin .25s ease;
+
+		cursor:hand;
 	}
-	.navitem:hover{
+
+	.nav-item:hover{
 		height:80%;
 		width:24%;
-		margin-left:.5%;
-		margin-right:.5%;
-		margin-top:1.5%;
-		margin-bottom:1.5%;
+
+		margin: 1.5% .5%;
 	}
-	.navtitle {
+	.nav-title {
 		font-family:droid-sans, sans-serif;
 		font-size:220%;
 		color:white;
 		margin-top:3%;
 		margin-left:5%;
-		text-shadow: black 2px 2px 12px, black -2px -2px 12px, black -2px 2px 12px, black 2px -2px 12px;
+		text-shadow: black 1.5px 1.5px 8px, black -1.5px -1.5px 8px, black -1.5px 1.5px 8px, black 1.5px -1.5px 8px;
 	}
-	#biotile {
+	#bio-tile {
 		background-image:url('/images/me.jpg');
 	}
-	#contacttile {
+	#contact-tile {
 		background-image:url('/images/contact.png');
 	}
-	#projectstile {
+	#projects-tile {
 		background-image:url('/images/projects.png');
 	}
-	#researchtile {
+	#research-tile {
 		background-image:url('/images/robocup.jpg');
 	}
 
 
 	/** Content Drawer **/
-	.contentbackdrop {
+	.content-backdrop {
 		position: relative;
 		top:5%;
 		left:1%;
 		right:1%;
 		bottom:4%;
-		height: 0%;
+		height: 0;
 		width: 98%;
-		box-shadow: 5px 5px 10px black;
-		background-image:url('/images/whitelinen.png');
 		border-radius: 6px;
 		-webkit-transition: height .25s ease;
 		-moz-transition: height .25s ease;
 		-o-transition: height .25s ease;
 		transition: height .25s ease;
 	}
-	.contentbackdrop .arrow {
+	.content-backdrop .arrow {
 		visibility: hidden;
 		position: absolute;
 		top: -5%;
 		border-top: 0;
 		border-left: 1.7em solid transparent;
 		border-right: 1.7em solid transparent;
-		border-bottom: 1.7em solid #fafafa;
+		border-bottom: 1.7em solid white;
 		width: 0;
 		height: 0;
 		-webkit-transition: left .25s ease;
@@ -142,10 +123,10 @@
 		-o-transition: left .25s ease;
 		transition: left .25s ease;
 	}
-	#contentdrawer {
-		background-image:url('/images/linen_hires.png');
+
+	#content-drawer {
 		width:100%;
-		height:0%;
+		height:0;
 		-webkit-transition: all .25s ease;
 		-moz-transition: all .25s ease;
 		-o-transition: all .25s ease;
@@ -154,54 +135,50 @@
 	}
 
 	/** In-Drawer Content **/
-	div.content {
-		height: 100%;
-		width: 100%;
-		overflow:hidden;
-		display:inline-block;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-	h2.content {
+	.left-title {
 		font-family:droid-sans, sans-serif;
 		font-size:1.5em;
 		color: rgb(75,75,75);
+
 		margin:0;
 		position:absolute;
+
 		top:6%;
 		left:2%;
 	}
-	p.content{
+	.left-subhead {
 		font-family:droid-sans, sans-serif;
 		font-size:1em;
 		color: rgb(75,75,75);
+
 		margin:0;
 		position:absolute;
+
 		top:27%;
 		left:2%;
+		width:20%;
 	}
-	.leftcontent{
+	.left-content{
 		height:100%;
 		width:25%;
 		overflow:hidden;
 		float:left;
 	}
-	.rightcontent{
+	.right-content{
 		height:100%;
 		width:73%;
 		float:right;
 		overflow:hidden;
 	}
-	.linkwrapper {
+	.link-wrapper {
 		width:25%;
 		height:50%;
 	}
-	.projectwrapper{
+	.project-wrapper{
 		width:50%;
 		height:50%;
 	}
-	.linktable {
+	.link-table {
 		width:98%;
 		height:98%;
 		padding:1%;
@@ -214,10 +191,10 @@
 		height:100%;
 		display:inline-block;
 	}
-	.linkimg {
+	.link-img {
 		height:3em;width:3em;
 	}
-	.linktitle {
+	.link-title {
 		margin:0;
 		position:relative;
 		top:1em;
@@ -233,12 +210,12 @@
 		height:100%;
 		display:inline-block;
 	}
-	.projectimg {
+	.project-img {
 		height:5em;width:5em;
 		position:relative;
 		top:-1em;
 	}
-	.projecttitle {
+	.project-title {
 		margin:0;
 		position:relative;
 		width:75%;
@@ -248,7 +225,7 @@
 		top:-.5em;
 		word-wrap:normal;
 	}
-	.researchtitle {
+	.research-title {
 		margin:0;
 		position:relative;
 		width:85%;
@@ -259,7 +236,7 @@
 		word-wrap:normal;
 		line-height:150%;
 	}
-	.abouttext {
+	.about-text {
 		margin:0;
 		position:relative;
 		width:90%;
@@ -274,11 +251,5 @@
 		text-decoration:none;
 		display:inline-block;
 		padding-left:4em;
-	}
-	#swipeview-wrapper{
-		overflow: hidden; 
-		position: relative;
-		height:100%;
-		width:100%;
 	}
 }
