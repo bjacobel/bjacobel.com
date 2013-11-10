@@ -1,9 +1,8 @@
 //jQuery to expand the content drawer and fade elements
 $(document).ready(function(){
-    $(".nav-item").click(function() {
-        //read which tile is active from session storage
-        var activeTile = sessionStorage.getItem("activeTile");
+    var activeTile = -1;
 
+    $(".nav-item").click(function() {
         //if expanded & the active tile is clicked on again, close it, set everyone back to bright
         if ($("#content-drawer").css("height")!="0px" && $(this).attr("tag")==activeTile){
             //collapse the backdrop
@@ -21,12 +20,11 @@ $(document).ready(function(){
             }, 130);
 
             //set no tile as active
-            sessionStorage.setItem("activeTile", -1);
+            activeTile = -1;
         }
 
         //if not expanded and no other tile is active, open it
         else if ($("#content-drawer").css("height")=="0px" && activeTile==-1) {
-            console.log("asdf");
             //open the drawer
             $("#content-drawer").css("height", "40%");
 
@@ -44,7 +42,7 @@ $(document).ready(function(){
             }, 150);
 
             //set this tile as active
-            sessionStorage.setItem("activeTile", $(this).attr("tag"));
+            activeTile = $(this).attr("tag");
         }
 
         //if expanded & a new tile is clicked, switch the tile focus but don't do anything to the drawer
@@ -58,16 +56,11 @@ $(document).ready(function(){
             $(".content").load($(thistile).attr("exthtml"));
 
             //set this tile as active
-            sessionStorage.setItem("activeTile", $(this).attr("tag"));
+            activeTile = $(this).attr("tag");
         }
 
     });
 });
-
-//stores a local variable... shitty coding alert (but it works)
-function setupStorage() {
-    sessionStorage.setItem("activeTile", -1);
-}
 
 function arrowPos(tile) {
     switch (tile) {
