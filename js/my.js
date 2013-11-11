@@ -3,43 +3,31 @@ $(document).ready(function(){
     var activeTile = -1;
 
     $(".nav-item").click(function() {
-        //if expanded & the active tile is clicked on again, close it, set everyone back to bright
+        // if expanded & the active tile is clicked on again, close it, set everyone back to bright
         if ($("#content-drawer").css("height")!="0px" && $(this).attr("tag")==activeTile){
-            //collapse the backdrop
+            // collapse the backdrop
             $(".content-backdrop").css("height", "0%");
 
-            //get rid of the arrow
-            $(".arrow").css("visibility","hidden");
+            // collapse the drawer
+            $("#content-drawer").css("height", "0px");
 
-            setTimeout(function() {
-                //collapse the drawer after the content is gone
-                $("#content-drawer").css("height", "0px");
+            // hide all content - set html equal to ""
+            $(".content").html("");
 
-                //hide all content - set html equal to ""
-                $(".content").html("");
-            }, 130);
-
-            //set no tile as active
+            // set no tile as active
             activeTile = -1;
         }
 
         //if not expanded and no other tile is active, open it
         else if ($("#content-drawer").css("height")=="0px" && activeTile==-1) {
             //open the drawer
-            $("#content-drawer").css("height", "40%");
+            $("#content-drawer").css("height", "50%");
 
-            thistile = $(this);
+            // put up the backdrop
+            $(".content-backdrop").css("height", "100%");
 
-            //only do this stuff after the drawer is open
-            setTimeout(function() {
-                //put up the backdrop and make the arrow visible on the correct tab
-                $(".content-backdrop").css("height", "82%");
-                $(".arrow").css("left", arrowPos($(thistile).attr("tag")));
-                $(".arrow").css("visibility", "visible");
-
-                //make the right content visible
-                $(".content").load($(thistile).attr("exthtml"));
-            }, 150);
+            // make the correct content visible
+            $(".content").load($(this).attr("exthtml"));
 
             //set this tile as active
             activeTile = $(this).attr("tag");
@@ -47,32 +35,12 @@ $(document).ready(function(){
 
         //if expanded & a new tile is clicked, switch the tile focus but don't do anything to the drawer
         else if ($("#content-drawer").css("height")!="0px" && activeTile!=-1 && activeTile!=$(this).attr("tag")){
-            //move the arrow
-            $(".arrow").css("left", arrowPos($(this).attr("tag")));
+            // make the correct content visible
+            $(".content").load($(this).attr("exthtml"));
 
-            thistile = $(this);
-
-            //make the right content visible
-            $(".content").load($(thistile).attr("exthtml"));
-
-            //set this tile as active
+            // set this tile as active
             activeTile = $(this).attr("tag");
         }
 
     });
 });
-
-function arrowPos(tile) {
-    switch (tile) {
-        case "0":
-            return "10%";
-        case "1":
-            return "35.5%";
-        case "2":
-            return "61%";
-        case "3":
-            return "87%";
-        default:
-            return null;
-    }
-}
