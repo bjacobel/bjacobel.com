@@ -3,7 +3,8 @@ layout: default
 ---
 
 <p class="date meta">{{ page.date | date_to_string }}</p>
-<p class="text text-1">{{ page.title }}</p>
-<div class="text text-2">
+<p class="posttitle">{{ page.title }}</p>
+<div class="body body-2">
     {{ content }}
 </div>
+<p onClick="window.location='/';" class="hand text">⇽&nbsp;Back to posts</p>

@@ -1,4 +1,11 @@
 name: Brian Jacobel
 markdown: redcarpet
-highlighter: rouge
-pygments: false
+timezone: America/New_York
+highlighter: pygments
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      author: "Brian"
