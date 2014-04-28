@@ -1,0 +1,43 @@
+body{background-color:rgb(255, 255, 255);font:300 1em/1.38 'Merriweather Sans';color:rgb(255, 255, 255);}
+
+.container{float:left;clear:both;}
+
+.container .element{position:relative;clear:both;z-index:2;width:308px;height:3px;margin:-17px 0 0 1.5337423312%;background-color:rgb(34, 143, 196);}
+
+.element{float:left;}
+
+.header{position:relative;float:left;z-index:0;width:100%;height:346px;background:url('../images/header2.jpg') rgb(255, 255, 255);background-repeat:no-repeat;background-size:auto auto;background-position:center top;}
+
+.sidebar{position:relative;float:left;width:163px;height:599px;margin:57px 0 0 40px;border-right:2px solid rgb(34, 143, 196);}
+
+.sidebar .container{width:59.0062111801%;height:219px;margin:12px 0 0 16.7701863354%;border-bottom:2px solid rgb(34, 143, 196);}
+
+.sidebar .text{width:100%;min-height:20px;font:1.375em Lato;color:rgb(0,0,0);}
+
+.socialbuttons{position:absolute;top:403px;left:49px;z-index:9;width:31.6770186335%;height:183px;}
+
+.socialbuttons .element{background-repeat:no-repeat;background-size:contain;background-position:center center;background-color:rgb(255, 255, 255);}
+
+.text{float:left;text-align:center;}
+
+._container{position:relative;z-index:4;width:27.1666666666%;height:89px;margin:-204px 0 0 36.4166666666%;}
+
+.element-2{width:144px;height:144px;border-radius:500px;background:url('../images/me.jpg') rgb(222, 222, 222);background-repeat:no-repeat;background-size:cover;background-position:center center;}
+
+.element-3{width:52px;height:53px;margin-left:-2px;background-image:url('../images/github.svg');}
+
+.element-4{clear:both;width:44px;height:45px;margin:16px 0 0 3px;background-image:url('../images/twitter.svg');}
+
+.element-5{clear:both;width:52px;height:53px;margin:16px 0 0 -2px;background-image:url('../images/linkedin.svg');}
+
+.text-1{position:relative;z-index:1;width:326px;min-height:73px;text-shadow:0 3px 5px rgba(0, 0, 0, .5);font-size:2.5em;color:rgb(255, 255, 255);}
+
+.text-2{position:relative;z-index:3;width:312px;min-height:23px;margin:-7px 0 0 2.1472392638%;text-shadow:0 3px 5px rgba(0, 0, 0, .5);letter-spacing:1px;color:rgb(255, 255, 255);}
+
+.text-3{margin-top:11px;}
+
+.text-4{clear:both;margin-top:20px;}
+
+.text-5{clear:both;margin-top:21px;}
+
+.text-6{clear:both;margin-top:22px;}
