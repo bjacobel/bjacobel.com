@@ -1,3 +1,3 @@
 bjacobel.github.io
 =========
-Hosting of my personal website on Github Pages.
+My personal website and blog, hosted on GitHub Pages. Made with Jekyll and Macaw.

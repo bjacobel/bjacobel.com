@@ -1,48 +1,13 @@
-<html>
-<head>
-    <title>Home - Brian Jacobel</title>
-    <meta name="description" content="Homepage of Brian Jacobel '14, Bowdoin College"/>
-    <meta name="keywords" content="Brian Jacobel, Bowdoin, Brian, Jacobel, bjacobel"/>
-    <meta name="author" content="Brian Jacobel"/>
-    <meta name="revised" content="November 2013"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="google-site-verification" content="CR5WZO1Ek9ST1t8hNJyZkNVn3brfm0dP2bdewmGX5Q8" />
-    
-    <link rel="stylesheet" type="text/css" href="/css/2014.css" media="screen"/>
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="image_src" href="/images/preview.jpg"/>
-    <link rel="apple-touch-icon" href="/images/favicon.png"/>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="js/fallback.js"></script>
-    <script src="js/my.js"></script>
-    <script src="js/GoogleAnalytics.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-</head>
+---
+layout: default
+title: Home
+---
 
-<body class="lato">
-    <div id="title-block">
-        <p id="title">BRIAN JACOBEL</p>
-    </div>
-    <div id="nav-bar">
-        <div class="item-wrapper unhighlightable">
-            <p class="nav-title">ABOUT</p>
-            <div class="nav-item" id="bio-tile" tag="0" exthtml="/html/about.html"></div>
-        </div>
-        <div class="item-wrapper unhighlightable">
-            <p class="nav-title">CONTACT</p>
-            <div class="nav-item" id="contact-tile" tag="1" exthtml="/html/contact.html"></div>
-        </div>
-        <div class="item-wrapper unhighlightable">
-            <p class="nav-title">PROJECTS</p>
-            <div class="nav-item" id="projects-tile" tag="2" exthtml="/html/projects.html"></div>
-        </div>
-        <div class="item-wrapper unhighlightable">
-            <p class="nav-title">RESUME</p>
-            <div class="nav-item" id="work-tile" tag="3" exthtml="/html/work.html"></div>
-        </div>
-    </div>
-    <div class="content"></div>
-</body>
-</html>
-
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
