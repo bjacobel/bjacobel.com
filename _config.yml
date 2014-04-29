@@ -2,6 +2,7 @@ name: Brian Jacobel
 markdown: redcarpet
 timezone: America/New_York
 highlighter: pygments
+permalink: pretty
 
 defaults:
   -
