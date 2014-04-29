@@ -22,6 +22,12 @@ body{background-color:rgb(255, 255, 255);font:300 1.125em/1.38 'Merriweather San
 
 .headshot{float:left;width:137px;height:137px;margin-left:12px;border-radius:500px;background:url('/images/me.jpg') rgb(222, 222, 222);background-repeat:no-repeat;background-size:cover;background-position:center center;}
 
+.list li{position:relative;margin:40px 20px;min-height:150px;}
+
+.list-img{width:100px;height:100px;float:left;display:inline-block;background-size:contain;background-repeat:no-repeat;}
+
+.list-text{position:relative;top:0;max-width:700px;float:right;display:inline-block;}
+
 .posttitle{float:left;clear:both;width:100%;min-height:61px;font:400 1.667em/1.38 Lato;color:rgb(0,0,0);}
 
 .sidebar{position:relative;float:left;z-index:15;width:169px;height:619px;margin:50px 0 0 43px;padding-bottom:50px;border-right:2px solid rgb(34, 143, 196);overflow:hidden;}
