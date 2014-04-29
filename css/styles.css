@@ -1,3 +1,7 @@
+a{color:rgb(34, 143, 196);}
+
+a:visited{color:#2C3E50;}
+
 body{background-color:rgb(255, 255, 255);font:300 1.125em/1.38 'Merriweather Sans';color:rgb(0,0,0);}
 
 .body-2 p{margin-bottom:1em;}
