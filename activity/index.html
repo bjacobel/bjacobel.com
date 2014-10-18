@@ -3,6 +3,8 @@ layout: default
 title: Activity
 ---
 
+<script type="text/javascript" src="/js/moment.min.js"></script>
+
 <div class="body body-2">
     <p class="posttitle">Here's what I'm working on, right now:</p>
     <div class="events">
@@ -36,7 +38,8 @@ title: Activity
         commit_s = (num == 1 ? "commit" : "commits");
         repolink = "<a href='https://github.com/"+reponame+"'>"+reponame+"</a>.";
         branchlink = "<a href='https://github.com/"+reponame+"/tree/"+ref+"'>"+ref+"</a>";
-        summary = "<p>Pushed "+num+" "+commit_s+" to "+branchlink+" at "+repolink+"</p>";
+        timestamp = "<p class='timestamp'>"+moment(timestamp).fromNow()+"</p>"
+        summary = timestamp+"<p>Pushed "+num+" "+commit_s+" to "+branchlink+" at "+repolink+"</p>";
 
         commits.forEach(function(element, index, array){
             summary += "<p class='code'><a href='https://github.com/"+reponame+"/commit/"+element.sha+"'>"+element.sha.slice(0,8)+"</a>: "+element.message+"</p>";
@@ -51,5 +54,10 @@ title: Activity
         font-family:"Courier New", Courier, monospace;
         font-size:11pt;
         margin-left:10px;
+    }
+    .timestamp {
+        font-size:9pt;
+        color:#7f7f7f;
+        margin-bottom:2px;
     }
 </style>

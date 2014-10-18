@@ -50,7 +50,7 @@ body {
     float:left;
     clear:both;
     width:82.0359281437%;
-    height:219px;
+    height:255px;
     margin:15px 0 0 12px;
     border-bottom:2px solid rgb(34, 143, 196);
 }
@@ -138,6 +138,7 @@ body {
     min-height:61px;
     font:400 1.667em/1.38 Lato;
     color:rgb(0,0,0);
+    margin-bottom:15px !important;
 }
 
 .sidebar {
@@ -154,7 +155,7 @@ body {
 
 .socialbuttons {
     position:absolute;
-    top:395px;
+    top:430px;
     left:43px;
     z-index:8;
     width:43.113772455%;
