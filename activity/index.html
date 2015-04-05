@@ -5,12 +5,10 @@ title: Activity
 
 <script type="text/javascript" src="/js/moment.min.js"></script>
 
-<div class="body body-2">
-    <p class="posttitle">Here's what I'm working on, right now:</p>
-    <div class="events">
-    </div>
-    <p><i>(data via the <a href="https://developer.github.com/v3/activity/events/">github public api</a>)</i>
+<p class="post-title">Here's what I'm working on, right now:</p>
+<div class="events">
 </div>
+<p><i>(data via the <a href="https://developer.github.com/v3/activity/events/">github public api</a>)</i></p>
 
 <!-- lol, inlined JS and CSS. Don't judge me, it's fast! -->
 
@@ -21,7 +19,6 @@ title: Activity
             console.error(textStatus);
         },
     }).done(function(data){
-        console.log(data);
         data.forEach(function(element, index, array){
             if(element.type == "PushEvent"){
                 mkcommits(
@@ -61,5 +58,8 @@ title: Activity
         font-size:9pt;
         color:#7f7f7f;
         margin-bottom:2px;
+    }
+    .events {
+        margin-bottom: 25px;
     }
 </style>

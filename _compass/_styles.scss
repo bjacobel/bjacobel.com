@@ -6,70 +6,6 @@ a:visited {
     color:rgb(32, 54, 161);
 }
 
-.bodytext {
-    position:absolute;
-    top:50px;
-    left:0;
-    z-index:4;
-    width:100%;
-    padding-right:90px;
-    padding-left:230px;
-}
-
-.bodytext {
-    float:left;
-    clear:both;
-    width:100%;
-    min-height:48px;
-    margin-top:16px;
-    font-size:1em;
-    line-height:1.38;
-}
-
-.bodytext .text {
-    clear:both;
-    width:100%;
-    min-height:43px;
-    margin-top:21px;
-    font:italic 1em Lato;
-    color:rgb(80, 80, 80);
-}
-
-.date {
-    float:left;
-    width:100%;
-    min-height:39px;
-    font:italic 1.111em/1.38 Lato;
-    color:rgb(85, 85, 85);
-}
-
-.list-item{
-    margin:40px 20px 80px 20px;
-}
-
-.list-img {
-    width:100px;
-    height:100px;
-    float:left;
-    display:inline-block;
-    background-size:contain;
-    background-repeat:no-repeat;
-}
-
-.list-text {
-    position:relative;
-    top:0;
-    max-width:700px;
-    float:right;
-    display:inline-block;
-}
-
-ul.posts li {
-    padding-bottom:10px;
-    border-bottom:2px solid rgb(34, 143, 196);
-    margin-bottom:35px;
-}
-
 body {
     font:300 1.125em/1.38 'Merriweather Sans';
     width:100%;
@@ -224,13 +160,52 @@ body {
             margin-top: 50px;
             padding: 0 30px;
 
-            .post-title {
+            .date {
+                font:italic 1.111em/1.38 Lato;
+                color:rgb(85, 85, 85);
+                margin-bottom: 10px;
+            }
+
+            .post-title, .posttitle {  // Can't change the Jekyll default class so have to specify both
                 font:400 1.667em/1.38 Lato;
                 margin-bottom: 25px;
             }
+
             .post-content {
                 margin-bottom:25px;
+
+                p {
+                    line-height:1.4;
+                    margin-bottom: 20px;
+                }
             }
+
+            ul.posts li {
+                padding-bottom:10px;
+                border-bottom:2px solid rgb(34, 143, 196);
+                margin-bottom:35px;
+            }
+
+            .list-item{
+                margin:40px 0;
+
+                div {
+                    display:inline-block;
+                }
+
+                .list-img {
+                    width:100px;
+                    height:100px;
+                    background-size:contain;
+                    background-repeat:no-repeat;
+                }
+
+                .list-text {
+                    width: calc(100% - 150px);
+                    margin-left: 40px;
+                }
+            }
+
         }
     }
 }
@@ -261,10 +236,20 @@ body {
     }
 }
 
-@media(max-width: 1200px)  {
-    .list-img {
-        width: 100%;
-        background-position: center;
-        margin-bottom: 20px;
+@media(max-width: 850px)  {
+    body .main .body-content .list-item {
+        margin: 20px 0;
+
+        .list-img {
+            display: block;
+            width: 100%;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+
+        .list-text {
+            width: 100%;
+            margin-left: 0;
+        }
     }
 }
