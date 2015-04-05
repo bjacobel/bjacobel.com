@@ -12,7 +12,7 @@ defaults:
       author: "Brian"
 
 gems:
-  - sass
+  - jekyll-sass-converter
 
 sass:
   style: compressed
