@@ -1,0 +1,44 @@
+- title: bongo
+  image: /images/orient.png
+  description: |
+    Bongo is the third version of the Bowdoin Orient's newsroom CMS. The project aims to bring the Orient up to date with modern web application practices like unit testing and intelligent asset management. It also incorporates many fresh ideas from other digital journalism properties launched in 2013 and 2014, promoting longform and interactive content as first-class citizens. This project is under active development.
+  site: bowdoinorient.bjacobel.com
+  site_title: "Beta:"
+  source: http://github.com/bowdoinorient/bongo
+  source_title: GitHub
+
+- title: timewarp
+  image: /images/timewarp.png
+  description: |
+    Timewarp is a JavaScript web application I built over two days in 2014. The site uses <a href="http://archive.org">Archive.org</a> to find a newsreel published on this date in history, with the option to select any day of the year. The results are entertaining and often surprising.
+  site: bjacobel.com/timewarp
+  site_title: "Site:"
+  source: github.com/bjacobel/timewarp
+  source_title: GitHub
+
+- title: menuwatch
+  image: /images/menuwatch.png
+  description: |
+    Menuwatch is a Django app building on the Bowdoin dining experience. Users can sign up and search a database of foods offered in Bowdoin's dining halls, then add their favorites to a list to recieve alerts the next time they're offered. I developed the site over eight months starting in the summer of 2013 and have now launched it on campus.
+  site: menuwatch.bjacobel.com
+  site_title: "Site:"
+  source: github.com/bjacobel/menuwatch
+  source_title: GitHub
+
+- title: serenity
+  image: /images/serenity.jpg
+  description: |
+    Serenity is a continuous integration system for the Northern Bites robotics team. The site listens for pull requests made to the team's GitHub account, then checks new code out to an EC2 instance and runs unit and integration tests on it. A Rails interface lets developers view the status of builds and their reasons for breaking. This project is still under active development.
+  site:
+  site_title: Site not yet live
+  source: github.com/bjacobel/menuwatch
+  source_title: GitHub
+
+- title: mchpp
+  image: /images/mchpp.png
+  description: |
+    Homebase is a system I developed as a part of a small team taking a course in open-source software development. Together, we developed software for a local food bank that allows volunteers to track and schedule shifts (an operational task previously done entirely on paper). This project has allowed the Midcoast Hunger Prevention Program to expand its hours and reach.
+  site:
+  site_title: Private site
+  source: code.google.com/p/mch-homebasecivi
+  source_title: Google Code

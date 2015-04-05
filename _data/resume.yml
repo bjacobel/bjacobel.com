@@ -1,0 +1,20 @@
+- title: raizlabs
+  image: /images/rzcode.png
+  description: |
+    I'm currently working at <a href="http://raizlabs.com">Raizlabs</a>, a Boston mobile development firm. As a member of the web development team, I create responsive web applications, scalable backend services, and APIs that drive awesome apps.
+  time_start: June 2014
+  time_stop: Present
+
+- title: atlantic
+  image: /images/wire.png
+  description: |
+    Over the summer of 2013, I worked at Atlantic Media on the development team behind <a href="http://theatlantic.com">TheAtlantic.com</a> and <a href="http://thewire.com">TheWire.com</a>. Using Django and PHP, I worked with a small, agile team of full-stack developers on projects including an interactive feature seen by 250,000 visitors. I continued to do freelance work for the Atlantic through the following school year.
+  time_start: June 2013
+  time_stop: February 2014
+
+- title: orient
+  image: /images/orient.png
+  description: |
+    Starting in the spring of 2013, I became the web developer for <a href="http://bowdoinorient.com">The Bowdoin Orient</a>, inheriting a large PHP code base that encompassed both the site's front-end and the newsroom CMS for editors. While maintaining that code base, I've been working on a next-generation system built on Django, Amazon Web Services, end-to-end testing and high scalability.
+  time_start: April 2013
+  time_stop: Present

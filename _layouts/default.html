@@ -11,7 +11,7 @@
     <script src="/js/ga.js"></script>
     <script src="/js/jquery-min.js"></script>
 </head>
-<body class="body index clearfix">
+<body>
     <div class="header">
         <div class="title">
             <h1 class="aboutme myname">Brian Jacobel</h1>
@@ -19,10 +19,7 @@
             <h2 class="aboutme mytitle">Web Developer in Boston, MA</h2>
         </div>
     </div>
-    <div class="body body-1 clearfix">
-        <div class="bodytext clearfix">
-            {{ content }}
-        </div>
+    <div class="main">
         <div class="sidebar">
             <div class="headshot"></div>
             <div class="container">
@@ -37,6 +34,9 @@
                 <a href='http://twitter.com/bjacobel' class="social-item twitter"></a>
                 <a href='https://www.linkedin.com/profile/view?id=208918485' class="social-item linkedin"></a>
             </div>
+        </div>
+        <div class="body-content">
+            {{ content }}
         </div>
     </div>
 </body>

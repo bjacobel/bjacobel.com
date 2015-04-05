@@ -6,19 +6,6 @@ a:visited {
     color:rgb(32, 54, 161);
 }
 
-.hand {
-    cursor:pointer;
-    cursor:hand;
-}
-
-body {
-    font:300 1.125em/1.38 'Merriweather Sans';
-}
-
-.body-2 p {
-    margin-bottom:1em;
-}
-
 .bodytext {
     position:absolute;
     top:50px;
@@ -29,7 +16,7 @@ body {
     padding-left:230px;
 }
 
-.bodytext .body {
+.bodytext {
     float:left;
     clear:both;
     width:100%;
@@ -56,22 +43,6 @@ body {
     color:rgb(85, 85, 85);
 }
 
-.header {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    z-index:21;
-    width:100%;
-    max-width:1200px;
-    height:346px;
-    margin:0 auto;
-    background:url('/images/header2.jpg') rgb(255, 255, 255);
-    background-repeat:no-repeat;
-    background-size:auto auto;
-    background-position:center top;
-}
-
 .list-item{
     margin:40px 20px 80px 20px;
 }
@@ -93,205 +64,199 @@ body {
     display:inline-block;
 }
 
-.posttitle {
-    float:left;
-    clear:both;
-    width:100%;
-    min-height:61px;
-    font:400 1.667em/1.38 Lato;
-}
-
-.body-1 {
-    position:absolute;
-    top:346px;
-    left:0;
-    right:0;
-    z-index:16;
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
-    padding-bottom:50px;
-}
-
 ul.posts li {
     padding-bottom:10px;
     border-bottom:2px solid rgb(34, 143, 196);
     margin-bottom:35px;
 }
 
-.header {
-    .title {
-        position:absolute;
-        top:137px;
-        left:0;
-        right:0;
-        width:326px;
-        height:86px;
-        margin:0 auto;
-
-        .aboutme {
-            position:relative;
-            text-shadow:0 3px 5px rgba(0, 0, 0, .5);
-            text-align:center;
-            text-transform:uppercase;
-            color:rgb(255, 255, 255);
-
-            &.myname {
-                width:326px;
-                min-height:73px;
-                margin:-4px 0 0 -0.9202453988%;
-                font-size:2.222em;
-            }
-
-            &.mytitle {
-                width:312px;
-                min-height:23px;
-                margin-top:-11px;
-                font-size:0.889em;
-                letter-spacing:1px;
-            }
-        }
-
-        .separator {
-            float: left;
-            position:relative;
-            width:308px;
-            height:3px;
-            margin:-19px 0 0 1.5337423312%;
-            background-color:rgb(34, 143, 196);
-        }
-    }
-}
-
-.sidebar {
-    position:relative;
-    float:left;
-    width:182px;
-    margin:50px 0 0 50px;
-    padding:0 30px 20px 0;
-    border-right:2px solid rgb(34, 143, 196);
-
-    .headshot {
-        float:left;
-        width:152px;
-        height:150px;
-        border-radius:500px;
-        background:url('/images/me.jpg') rgb(222, 222, 222);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center center;
-    }
-
-    .container {
-        float:left;
-        width:100%;
-        margin-top:15px;
-        border-bottom:2px solid rgb(34, 143, 196);
-
-        .nav-item {
-            float:left;
-            width:100%;
-            min-height:20px;
-            font:1.222em Lato;
-            text-align:center;
-            color:black;
-
-            &.about {
-                margin-top:11px;
-            }
-
-            &.projects,
-            &.resume,
-            &.blog,
-            &.activity {
-                margin-top:22px;
-            }
-
-            &.activity {
-                margin-bottom: 22px;
-            }
-
-            &:visited, &:hover {
-                color:rgb(0,0,0) !important;
-            }
-        }
-    }
-
-    .socialbuttons {
-        float: left;
-        width:100%;
-        margin-top:15px;
-
-        .social-item {
-            float: left;
-            width: 100%;
-            background-size:contain;
-            background-position:center;
-            background-repeat:no-repeat;
-
-            &.github {
-                height:53px;
-                background-image:url('/images/github.svg');
-            }
-
-            &.twitter {
-                clear:both;
-                height:45px;
-                margin-top:22px;
-                background-image:url('/images/twitter.svg');
-            }
-
-            &.linkedin {
-                clear:both;
-                height:53px;
-                margin-top:22px;
-                background-image:url('/images/linkedin.svg');
-            }
-        }
-    }
-}
-
-@media(max-width: 650px)  {
-    .body .bodytext {
-        top:20px;
-        padding-right:20px;
-        padding-left:20px;
-    }
-
-    .body .sidebar {
-        position:relative;
-        z-index:15;
-        width:0;
-        height:auto;
-        border-right-width:0;
-        border-right-style:none;
-    }
-
-    .body-1 {
-        top:235px;
-        left:0;
-        right:0;
-        margin-right:auto;
-        margin-left:auto;
-    }
-
-    .bodytext .text {
-        margin-top:66px;
-        margin-left:16.1538461538%;
-    }
+body {
+    font:300 1.125em/1.38 'Merriweather Sans';
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
 
     .header {
-        left:0;
-        right:0;
-        height:235px;
-        margin-right:auto;
-        margin-left:auto;
+        height:346px;
+        margin:0 auto;
+        background:url('/images/header2.jpg');
+        background-repeat:no-repeat;
+        background-size:auto auto;
+        background-position:center top;
 
         .title {
-            top:92px;
+            position:absolute;
+            top:137px;
             left:0;
             right:0;
+            width:326px;
+            height:86px;
+            margin:0 auto;
+
+            .aboutme {
+                position:relative;
+                text-shadow:0 3px 5px rgba(0, 0, 0, .5);
+                text-align:center;
+                text-transform:uppercase;
+                color:rgb(255, 255, 255);
+
+                &.myname {
+                    width:326px;
+                    min-height:73px;
+                    margin:-4px 0 0 -0.9202453988%;
+                    font-size:2.222em;
+                }
+
+                &.mytitle {
+                    width:312px;
+                    min-height:23px;
+                    margin-top:-11px;
+                    font-size:0.889em;
+                    letter-spacing:1px;
+                }
+            }
+
+            .separator {
+                float: left;
+                position:relative;
+                width:308px;
+                height:3px;
+                margin:-19px 0 0 1.5337423312%;
+                background-color:rgb(34, 143, 196);
+            }
+        }
+    }
+
+    .main {
+        div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .sidebar {
+            width:182px;
+            margin:50px 0 0 50px;
+            padding:0 30px 20px 0;
+            border-right:2px solid rgb(34, 143, 196);
+
+            .headshot {
+                float:left;
+                width:152px;
+                height:150px;
+                border-radius:500px;
+                background:url('/images/me.jpg') rgb(222, 222, 222);
+                background-repeat:no-repeat;
+                background-size:cover;
+                background-position:center center;
+            }
+
+            .container {
+                float:left;
+                width:100%;
+                margin-top:15px;
+                border-bottom:2px solid rgb(34, 143, 196);
+
+                .nav-item {
+                    float:left;
+                    width:100%;
+                    min-height:20px;
+                    font:1.222em Lato;
+                    text-align:center;
+                    color:black;
+
+                    &.about {
+                        margin-top:11px;
+                    }
+
+                    &.projects,
+                    &.resume,
+                    &.blog,
+                    &.activity {
+                        margin-top:22px;
+                    }
+
+                    &.activity {
+                        margin-bottom: 22px;
+                    }
+
+                    &:visited, &:hover {
+                        color:rgb(0,0,0) !important;
+                    }
+                }
+            }
+
+            .socialbuttons {
+                float: left;
+                width:100%;
+                margin-top:15px;
+
+                .social-item {
+                    float: left;
+                    width: 100%;
+                    background-size:contain;
+                    background-position:center;
+                    background-repeat:no-repeat;
+
+                    &.github {
+                        height:53px;
+                        background-image:url('/images/github.svg');
+                    }
+
+                    &.twitter {
+                        clear:both;
+                        height:45px;
+                        margin-top:22px;
+                        background-image:url('/images/twitter.svg');
+                    }
+
+                    &.linkedin {
+                        clear:both;
+                        height:53px;
+                        margin-top:22px;
+                        background-image:url('/images/linkedin.svg');
+                    }
+                }
+            }
+        }
+
+        .body-content {
+            width: calc(100% - 265px);
+            margin-top: 50px;
+            padding: 0 30px;
+
+            .post-title {
+                font:400 1.667em/1.38 Lato;
+                margin-bottom: 25px;
+            }
+            .post-content {
+                margin-bottom:25px;
+            }
+        }
+    }
+}
+
+
+
+@media(max-width: 650px)  {
+    body {
+        .header {
+            height:235px;
             margin: 0 auto;
+
+            .title {
+                top:92px;
+                margin: 0 auto;
+            }
+        }
+
+        .main {
+            .sidebar {
+                display: none;
+            }
+
+            .body-content {
+                width: 100%;
+            }
         }
     }
 }
