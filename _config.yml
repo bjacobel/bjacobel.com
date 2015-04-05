@@ -12,4 +12,7 @@ defaults:
       author: "Brian"
 
 gems:
-  - jekyll-compass
+  - sass
+
+sass:
+  style: compressed
