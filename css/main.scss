@@ -2,6 +2,9 @@
 # Sass stylesheets for bjacobel.com
 ---
 
+@import "colors";
+@import "mixins";
 @import "standardize";
 @import "syntax";
-@import "styles";
+@import "site";
+@import "mobile";

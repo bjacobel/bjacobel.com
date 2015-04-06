@@ -1,9 +1,9 @@
 a {
-    color:rgb(34, 143, 196);
+    color: $blue;
 }
 
 a:visited {
-    color:rgb(32, 54, 161);
+    color: $darkblue;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
     width:100%;
     max-width:1200px;
     margin:0 auto;
+    overflow-x:hidden;
 
     .header {
         height:346px;
@@ -28,13 +29,13 @@ body {
             width:326px;
             height:86px;
             margin:0 auto;
+            color: white;
 
             .aboutme {
                 position:relative;
                 text-shadow:0 3px 5px rgba(0, 0, 0, .5);
                 text-align:center;
                 text-transform:uppercase;
-                color:rgb(255, 255, 255);
 
                 &.myname {
                     width:326px;
@@ -58,7 +59,7 @@ body {
                 width:308px;
                 height:3px;
                 margin:-19px 0 0 1.5337423312%;
-                background-color:rgb(34, 143, 196);
+                background-color:$blue;
             }
         }
     }
@@ -73,14 +74,14 @@ body {
             width:182px;
             margin:50px 0 0 50px;
             padding:0 30px 20px 0;
-            border-right:2px solid rgb(34, 143, 196);
+            border-right:2px solid $blue;
 
             .headshot {
                 float:left;
                 width:152px;
                 height:150px;
                 border-radius:500px;
-                background:url('/images/me.jpg') rgb(222, 222, 222);
+                background:url('/images/me.jpg');
                 background-repeat:no-repeat;
                 background-size:cover;
                 background-position:center center;
@@ -90,7 +91,7 @@ body {
                 float:left;
                 width:100%;
                 margin-top:15px;
-                border-bottom:2px solid rgb(34, 143, 196);
+                border-bottom:2px solid $blue;
 
                 .nav-item {
                     float:left;
@@ -116,7 +117,7 @@ body {
                     }
 
                     &:visited, &:hover {
-                        color:rgb(0,0,0) !important;
+                        color:black !important;
                     }
                 }
             }
@@ -162,7 +163,7 @@ body {
 
             .date {
                 font:italic 1.111em/1.38 Lato;
-                color:rgb(85, 85, 85);
+                color:$lightgray;
                 margin-bottom: 10px;
             }
 
@@ -182,7 +183,7 @@ body {
 
             ul.posts li {
                 padding-bottom:10px;
-                border-bottom:2px solid rgb(34, 143, 196);
+                border-bottom:2px solid $blue;
                 margin-bottom:35px;
             }
 
@@ -210,50 +211,6 @@ body {
                 }
             }
 
-        }
-    }
-}
-
-
-
-@media(max-width: 650px)  {
-    body {
-        .header {
-            height:235px;
-            margin: 0 auto;
-
-            .title {
-                top:92px;
-                margin: 0 auto;
-            }
-        }
-
-        .main {
-            .sidebar {
-                display: none;
-            }
-
-            .body-content {
-                width: 100%;
-            }
-        }
-    }
-}
-
-@media(max-width: 850px)  {
-    body .main .body-content .list-item {
-        margin: 20px 0;
-
-        .list-img {
-            display: block;
-            width: 100%;
-            background-position: center;
-            margin-bottom: 20px;
-        }
-
-        .list-text {
-            width: 100%;
-            margin-left: 0;
         }
     }
 }
