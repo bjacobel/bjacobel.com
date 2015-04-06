@@ -1,15 +1,15 @@
 .mobile-burger {
     display: none;
-    width: 35px;
-    height: 35px;
-    padding: 5px 4px;
+    width: 45px;
+    height: 45px;
+    padding: 10px 4px;
     background-color: $blue;
-    top: calc(235px - 35px);
-    position: relative;
+    top: 30px;
+    position: fixed;
     cursor:pointer;
 
     .burger-lines {
-        width: 25px;
+        width: 35px;
         height: 3px;
         display: block;
         position: relative;
