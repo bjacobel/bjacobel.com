@@ -28,7 +28,7 @@
 - title: serenity
   image: /images/serenity.jpg
   description: |
-    Serenity is a continuous integration system for the Northern Bites robotics team. The site listens for pull requests made to the team's GitHub account, then checks new code out to an EC2 instance and runs unit and integration tests on it. A Rails interface lets developers view the status of builds and their reasons for breaking. This project is still under active development.
+    Serenity is a continuous integration system for the Northern Bites robotics team. The site listens for pull requests made to the team's GitHub account, then checks new code out to an EC2 instance and runs unit and integration tests on it. A Rails interface lets developers view the status of builds and their reasons for breaking.
   site:
   site_title: Site not yet live
   source: github.com/bjacobel/menuwatch
