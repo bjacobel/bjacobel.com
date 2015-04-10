@@ -13,3 +13,8 @@
          -o-#{$first}:      -o-#{$second} #{$params};
             #{$first}:         #{$second} #{$params};    
 }
+
+%blur-filter {
+    filter: url("/images/blur.svg#blur");
+    @include vendor-prefix("filter", "blur(2px)");
+}
