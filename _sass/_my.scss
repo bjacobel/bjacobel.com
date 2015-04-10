@@ -56,7 +56,7 @@ body {
 
             .aboutme {
                 position:relative;
-                text-shadow:0 3px 5px rgba(0, 0, 0, .5);
+                text-shadow:0 0 5px rgba(0, 0, 0, .7);
                 text-align:center;
                 text-transform:uppercase;
 
@@ -110,8 +110,8 @@ body {
                 border-radius:500px;
                 background:url('/images/me.jpg');
                 background-repeat:no-repeat;
-                background-size:cover;
-                background-position:center center;
+                background-size:110% 110%;
+                background-position:10% 0;
             }
 
             .container {
