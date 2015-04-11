@@ -15,34 +15,16 @@ body {
     font:300 1.125em/1.38 'Merriweather Sans';
     width:100%;
     margin:0 auto;
+    max-width:1200px;
     overflow-x:hidden;
 
     .header {
         height:346px;
         overflow: hidden;
-        background-color: black;
-
-        video {
-            width: 100%;
-            height: 100%;
-
-            @extend %blur-filter;
-
-            object-fit: cover;
-            object-position: 0 0;
-
-            // object-position doesn't work in Safari and neither -fit nor -position
-            // works in FFX, so were we go with haaaacks
-
-            @media (min-aspect-ratio: 16/9) {
-                width: 100%;
-                height: auto;
-            }
-            @media (max-aspect-ratio: 16/9) {
-                width: auto;
-                height: 100%;
-            }
-        }
+        background-image: url('/images/header2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
 
         .title {
             position:absolute;
@@ -88,9 +70,7 @@ body {
     }
 
     .main {
-        max-width:1200px;
         width: 100%;
-        margin: 0 auto;
 
         div {
             display: inline-block;
