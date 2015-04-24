@@ -11,6 +11,14 @@ p {
     margin-bottom: 20px;
 }
 
+pre {
+    font-family: courier;
+    background-color: rgb(220,220,220);
+    @include vendor-prefix("border-radius", "4px");
+    padding: 16px;
+    font-size: 14px;
+}
+
 body {
     font:300 1.125em/1.38 'Merriweather Sans';
     width:100%;
