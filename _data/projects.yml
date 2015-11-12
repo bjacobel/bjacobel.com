@@ -1,8 +1,43 @@
+- title: slact
+  image: https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.png
+  description: |
+    Slact started as a project for the Localytics Fall 2015 Hackathon with the idea of creating fun visualizations
+    around your team's usage of Slack Reactions. Slact is a Dockerized Go service that uses the Slack Real-Time
+    Messaging API to visualize the emoji your team use most.
+  source: github.com/bjacobel/slact
+  source_title: GitHub
+  site_title: Run it for your team!
+
+- title: piggydash
+  image: http://ecx.images-amazon.com/images/I/61yQ%2BKXCh3L._SL1000_.jpg
+  description: |
+    Piggydash uses an Amazon Dash button as a digital piggybank, transferring money to my savings account at the
+    press of a WiFi-enabled button. This project was written in Python and involved reverse-engineering the
+    undocumented Simple API.
+  source: github.com/bjacobel/piggydash
+  source_title: GitHub
+  site_title: Site coming soon
+
+- title: goggles
+  image: http://blogs.sitepointstatic.com/images/tech/201-google-go.png
+  description: |
+    Goggles looks for pictures in the Twitter Streaming API and runs them through a feature classification service to
+    determine the image's contents. I wrote Goggles to work on my skills in Go.
+    <a href="https://twitter.com/goggles_bot/status/631466889605218304">It successfully confused the hell out of some
+    Twitter users.</a>
+  site: twitter.com/goggles_bot
+  site_title: "Twitter:"
+  source: github.com/bjacobel/goggles
+  source_title: GitHub
+
 - title: bongo
   image: /images/orient.png
   description: |
-    Bongo is the third version of the Bowdoin Orient's newsroom CMS. The project aims to bring the Orient up to date with modern web application practices like unit testing and intelligent asset management. It also incorporates many fresh ideas from other digital journalism properties launched in 2013 and 2014, promoting longform and interactive content as first-class citizens. This project is under active development.
-  site: bowdoinorient.bjacobel.com
+    Bongo is the third version of the Bowdoin Orient's newsroom CMS. The project aims to bring the Orient up to date
+    with modern web application practices like unit testing and intelligent asset management. It also incorporates
+    many fresh ideas from other digital journalism properties launched in 2013 and 2014, promoting longform and
+    interactive content as first-class citizens. This project is under active development.
+  site: bowdoinorient.co
   site_title: "Beta:"
   source: http://github.com/bowdoinorient/bongo
   source_title: GitHub
@@ -10,7 +45,9 @@
 - title: timewarp
   image: /images/timewarp.png
   description: |
-    Timewarp is a JavaScript web application I built over two days in 2014. The site uses <a href="http://archive.org">Archive.org</a> to find a newsreel published on this date in history, with the option to select any day of the year. The results are entertaining and often surprising.
+    Timewarp is a JavaScript web application I built over two days in 2014. The site uses
+    <a href="http://archive.org">Archive.org</a> to find a newsreel published on this date in history, with the
+    option to select any day of the year. The results are entertaining and often surprising.
   site: bjacobel.com/timewarp
   site_title: "Site:"
   source: github.com/bjacobel/timewarp
@@ -19,7 +56,10 @@
 - title: menuwatch
   image: /images/menuwatch.png
   description: |
-    Menuwatch is a Django app building on the Bowdoin dining experience. Users can sign up and search a database of foods offered in Bowdoin's dining halls, then add their favorites to a list to recieve alerts the next time they're offered. I developed the site over eight months starting in the summer of 2013 and have now launched it on campus.
+    Menuwatch is a Django app building on the Bowdoin dining experience. Users can sign up and search a database of
+    foods offered in Bowdoin's dining halls, then add their favorites to a list to recieve alerts the next time
+    they're offered. I developed the site over eight months starting in the summer of 2013 and have now launched it
+    on campus.
   site: menuwatch.bjacobel.com
   site_title: "Site:"
   source: github.com/bjacobel/menuwatch
@@ -28,7 +68,10 @@
 - title: serenity
   image: /images/serenity.jpg
   description: |
-    Serenity is a continuous integration system for the Northern Bites robotics team. The site listens for pull requests made to the team's GitHub account, then checks new code out to an EC2 instance and runs unit and integration tests on it. A Rails interface lets developers view the status of builds and their reasons for breaking.
+    Serenity is a continuous integration system for the Northern Bites robotics team. The site listens for pull
+    requests made to the team's GitHub account, then checks new code out to an EC2 instance and runs unit and
+    integration tests on it. A Rails interface lets developers view the status of builds and their reasons for
+    breaking.
   site:
   site_title: Site not yet live
   source: github.com/bjacobel/menuwatch
@@ -37,7 +80,10 @@
 - title: mchpp
   image: /images/mchpp.png
   description: |
-    Homebase is a system I developed as a part of a small team taking a course in open-source software development. Together, we developed software for a local food bank that allows volunteers to track and schedule shifts (an operational task previously done entirely on paper). This project has allowed the Midcoast Hunger Prevention Program to expand its hours and reach.
+    Homebase is a system I developed as a part of a small team taking a course in open-source software development.
+    Together, we developed software for a local food bank that allows volunteers to track and schedule shifts
+    (an operational task previously done entirely on paper). This project has allowed the Midcoast Hunger Prevention
+    Program to expand its hours and reach.
   site:
   site_title: Private site
   source: code.google.com/p/mch-homebasecivi
