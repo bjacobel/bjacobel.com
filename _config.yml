@@ -1,5 +1,5 @@
 name: Brian Jacobel
-markdown: redcarpet
+markdown: kramdown
 timezone: America/New_York
 highlighter: pygments
 permalink: pretty
@@ -16,3 +16,6 @@ gems:
 
 sass:
   style: compressed
+
+kramdown:
+   input: GFM
