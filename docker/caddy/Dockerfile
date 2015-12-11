@@ -12,4 +12,6 @@ RUN mkdir /caddysrc \
 
 WORKDIR /bjdotcom
 
+COPY Caddyfile /bjdotcom/Caddyfile
+
 ENTRYPOINT ["/usr/bin/caddy"]
