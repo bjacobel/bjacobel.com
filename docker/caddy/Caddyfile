@@ -11,6 +11,7 @@ beta.bjacobel.com {
   startup cd /bjdotcom && jekyll build --incremental
   git {
     repo https://github.com/bjacobel/bjacobel.github.io.git
+    branch bjacobel.com
     clonepath ../
     command jekyll build --incremental
     path /jekyllbuild
