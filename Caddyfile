@@ -1,0 +1,18 @@
+www.bjacobel.com {
+  tls bjacobel@gmail.com
+  redir https://bjacobel.com{uri} 301
+}
+
+bjacobel.com {
+  gzip
+  tls bjacobel@gmail.com
+  root /bjdotcom/_site
+  ext .html
+  startup cd /bjdotcom && jekyll build --incremental
+  git {
+    repo git@github.com:bjacobel/bjacobel.com.git
+    clonepath ../
+    command jekyll build --incremental
+    path /jekyllbuild
+  }
+}
