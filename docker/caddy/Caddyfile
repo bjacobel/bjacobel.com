@@ -6,14 +6,13 @@ www.beta.bjacobel.com {
 beta.bjacobel.com {
   gzip
   tls bjacobel@gmail.com
-  root /bjdotcom/_site
+  root /var/www/bjacobel.com
   ext .html
-  startup cd /bjdotcom && jekyll build --incremental
   git {
     repo https://github.com/bjacobel/bjacobel.github.io.git
     branch bjacobel.com
-    clonepath ../
-    command jekyll build --incremental
+    clonepath /tmp/bjacobel.com
+    command cd /tmp/bjacobel.com & cp -r _site/* /var/www/bjacobel.com/
     path /jekyllbuild
   }
 }

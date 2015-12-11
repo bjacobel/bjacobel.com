@@ -1,20 +1,11 @@
 caddy:
   build: ./docker/caddy
-  command: "--conf=/bjdotcom/Caddyfile"
+  command: "--conf=/etc/caddy/Caddyfile"
   ports:
     - "80:80"
     - "443:443"
   volumes:
     - /bjdotcom
   container_name: bjdotcom_caddy
-  labels:
-    app: bjdotcom
-
-jekyll:
-  build: ./docker/jekyll
-  command: jekyll build
-  volumes:
-    - /bjdotcom
-  container_name: bjdotcom_jekyll
   labels:
     app: bjdotcom
