@@ -4,26 +4,17 @@ caddy:
   ports:
     - "80:80"
     - "443:443"
-  volumes_from:
-    - data
+  volumes:
+    - /bjdotcom
   container_name: bjdotcom_caddy
   labels:
     app: bjdotcom
 
 jekyll:
-  image: jekyll/jekyll:3.0
-  command: jekyll build --source /bjdotcom --destination /bjdotcom/_site
-  volumes_from:
-    - data
-  container_name: bjdotcom_jekyll
-  labels:
-    app: bjdotcom
-
-data:
-  image: samueldebruyn/debian-git
-  command: git clone https://github.com/bjacobel/bjacobel.github.io.git /bjdotcom
+  build: ./docker/jekyll
+  command: jekyll build
   volumes:
-   - .:/bjdotcom
-  container_name: bjdotcom_data
+    - /bjdotcom
+  container_name: bjdotcom_jekyll
   labels:
     app: bjdotcom
