@@ -23,8 +23,7 @@ kramdown:
 exclude:
   - .ruby-version
   - .ruby-gemset
-  - Caddyfile
-  - Dockerfile
+  - docker
   - docker-compose.yml
   - Gemfile
   - Gemfile.lock
