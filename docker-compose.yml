@@ -20,7 +20,8 @@ jekyll:
     app: bjdotcom
 
 data:
-  image: tianon/true:latest
+  image: samueldebruyn/debian-git
+  command: git clone https://github.com/bjacobel/bjacobel.github.io.git /bjdotcom
   volumes:
    - .:/bjdotcom
   container_name: bjdotcom_data

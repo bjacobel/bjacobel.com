@@ -1,16 +1,16 @@
-www.bjacobel.com {
+www.beta.bjacobel.com {
   tls bjacobel@gmail.com
-  redir https://bjacobel.com{uri} 301
+  redir https://beta.bjacobel.com{uri} 301
 }
 
-bjacobel.com {
+beta.bjacobel.com {
   gzip
   tls bjacobel@gmail.com
   root /bjdotcom/_site
   ext .html
   startup cd /bjdotcom && jekyll build --incremental
   git {
-    repo git@github.com:bjacobel/bjacobel.com.git
+    repo https://github.com/bjacobel/bjacobel.github.io.git
     clonepath ../
     command jekyll build --incremental
     path /jekyllbuild

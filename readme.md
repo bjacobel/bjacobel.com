@@ -21,4 +21,19 @@ Requirements:
     eval "$(docker-machine env default)"
     docker-compose up
 
-####Deploy
+####Deploy to production
+Requirements:
+  - Docker
+  - Docker Machine
+  - Docker Compose
+  - Running remote Docker host (DigitalOcean)
+  - SSH keys
+
+    docker-machine create \
+      --driver generic \
+      --generic-ip-address <production IP> \
+      --generic-ssh-key "/Users/bjacobel/.ssh/<production SSH key>" \
+      production
+    eval "$(docker-machine env production)"
+    docker-compose build
+    docker-compose up
