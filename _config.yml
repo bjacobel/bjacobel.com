@@ -1,7 +1,7 @@
 name: Brian Jacobel
 markdown: kramdown
 timezone: America/New_York
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 
 defaults:
@@ -19,3 +19,12 @@ sass:
 
 kramdown:
    input: GFM
+
+exclude:
+  - .ruby-version
+  - .ruby-gemset
+  - docker
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
+  - readme.md
