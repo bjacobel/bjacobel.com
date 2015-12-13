@@ -1,18 +1,17 @@
-www.beta.bjacobel.com {
-  tls bjacobel@gmail.com
-  redir https://beta.bjacobel.com{uri} 301
+http://www.bjacobel.com {
+  tls off
+  redir http://bjacobel.com{uri} 301
 }
 
-beta.bjacobel.com {
+http://bjacobel.com {
   gzip
-  tls bjacobel@gmail.com
-  root /var/www/bjacobel.com
+  tls off
+  root /var/www/bjacobel.com/_site
   ext .html
   git {
     repo https://github.com/bjacobel/bjacobel.github.io.git
-    branch bjacobel.com
-    clonepath /tmp/bjacobel.com
-    command cd /tmp/bjacobel.com & cp -r _site/* /var/www/bjacobel.com/
-    path /jekyllbuild
+    path ../../../../tmp/bjacobel.com
+    then cp -r /tmp/bjacobel.com/_site /var/www/bjacobel.com
+    hook /jekyllbuild
   }
 }

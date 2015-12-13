@@ -14,9 +14,4 @@ WORKDIR /var/www/bjacobel.com
 
 COPY Caddyfile /etc/caddy/Caddyfile
 
-RUN git clone https://github.com/bjacobel/bjacobel.github.io.git /tmp/bjacobel.com \
-  && cd /tmp/bjacobel.com \
-  && git checkout bjacobel.com \
-  && cp -r _site/* /var/www/bjacobel.com/
-
 ENTRYPOINT ["/usr/bin/caddy"]

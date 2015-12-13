@@ -4,8 +4,5 @@ caddy:
   ports:
     - "80:80"
     - "443:443"
-  volumes:
-    - /bjdotcom
-  container_name: bjdotcom_caddy
   labels:
     app: bjdotcom
