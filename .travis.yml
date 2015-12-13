@@ -1,6 +1,6 @@
 language: ruby
 script:
-- jekyll build --incremental
+-bundle exec jekyll build --incremental
 after_success:
 - git config user.email "bjacobel@gmail.com"
 - git config user.name "Brian Jacobel"
