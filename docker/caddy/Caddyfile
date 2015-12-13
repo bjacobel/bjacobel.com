@@ -1,0 +1,17 @@
+http://www.bjacobel.com {
+  tls off
+  redir http://bjacobel.com{uri} 301
+}
+
+http://bjacobel.com {
+  gzip
+  tls off
+  root /var/www/bjacobel.com/_site
+  ext .html
+  git {
+    repo https://github.com/bjacobel/bjacobel.github.io.git
+    path ../../../../tmp/bjacobel.com
+    then cp -r /tmp/bjacobel.com/_site /var/www/bjacobel.com
+    hook /jekyllbuild
+  }
+}
