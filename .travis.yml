@@ -6,11 +6,11 @@ after_success:
   - git config user.name "Brian Jacobel"
   - git config credential.helper "store --file=.git/credentials"
   - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-  - git add _site
+  - git add -f _site
   - |
     git commit -m "Jekyll build (automated commit made by Travis CI)
 
-    ci skip"
+    [ci skip]"
   - git push
 env:
   global:
