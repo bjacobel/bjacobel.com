@@ -1,11 +1,11 @@
-http://www.bjacobel.com {
-  tls off
-  redir http://bjacobel.com{uri} 301
+https://www.bjacobel.com {
+  tls bjacobel@gmail.com
+  redir https://bjacobel.com{uri} 301
 }
 
-http://bjacobel.com {
+https://bjacobel.com {
   gzip
-  tls off
+  tls bjacobel@gmail.com
   root /var/www/bjacobel.com/_site
   ext .html
   git {
