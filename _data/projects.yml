@@ -1,5 +1,5 @@
 - title: slact
-  image: https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/5478/large/1431127911/ship-it-squirrel.png
+  image: /images/ship-it-squirrel.png
   description: |
     <b>Slact</b> started as a project for the Localytics Fall 2015 Hackathon with the idea of creating fun visualizations
     around your team's usage of Slack Reactions. Slact is a Dockerized Go service that uses the Slack Real-Time
@@ -9,7 +9,7 @@
   site_title: Run it for your team!
 
 - title: piggydash
-  image: http://ecx.images-amazon.com/images/I/61yQ%2BKXCh3L._SL1000_.jpg
+  image: /images/dash.jpg
   description: |
     <b>Piggydash</b> uses an Amazon Dash button as a digital piggybank, transferring money to my savings account at the
     press of a WiFi-enabled button. This project was written in Python and involved reverse-engineering the
@@ -19,7 +19,7 @@
   site_title: Site coming soon
 
 - title: goggles
-  image: http://blogs.sitepointstatic.com/images/tech/201-google-go.png
+  image: /images/gopher.png
   description: |
     <b>Goggles</b> looks for pictures in the Twitter Streaming API and runs them through a feature classification service to
     determine the image's contents. I wrote Goggles to work on my skills in Go.
