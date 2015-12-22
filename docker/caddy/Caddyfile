@@ -1,11 +1,13 @@
 https://www.bjacobel.com {
   tls bjacobel@gmail.com
+  header / Strict-Transport-Security "max-age=10886400; includeSubDomains; preload"
   redir https://bjacobel.com{uri} 301
 }
 
 https://bjacobel.com {
   gzip
   tls bjacobel@gmail.com
+  header / Strict-Transport-Security "max-age=10886400; includeSubDomains; preload"
   root /var/www/bjacobel.com/_site
   ext .html
   git {
