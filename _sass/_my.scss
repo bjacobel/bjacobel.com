@@ -22,6 +22,15 @@ pre.highlight, code, figure.highlight {
     font-family: Inconsolata, courier;
 }
 
+.pgp {
+    max-width: 100%;
+    overflow: hidden;
+
+    pre {
+        white-space: pre !important;
+    }
+}
+
 body {
     font:300 1.125em/1.38 'Merriweather Sans';
     width:100%;
