@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=0.98,shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Brian Jacobel is a full-stack web developer in Boston, MA interested in media, journalism and quality software development.">
+    <title>Brian Jacobel</title>
+    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300|Lato:300,400|Inconsolata:400" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script async src="/js/ga.js"></script>
+    <script async src="/js/nr.js"></script>
+    <script src="/js/jquery-min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1 class="aboutme myname">Brian Jacobel</h1>
+            <div class="separator"></div>
+            <h2 class="aboutme mytitle">Web Developer in Boston, MA</h2>
+        </div>
+        <div class="mobile-burger">
+            <span class="burger-lines"></span>
+        </div>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <div class="headshot"></div>
+            <div class="container">
+                <a href='/' class="nav-item about">about</a>
+                <a href='/projects' class="nav-item projects">projects</a>
+                <a href='/activity' class="nav-item activity">activity</a>
+                <a href='/work' class="nav-item work">work</a>
+                <a href='/resume' class="nav-item resume">resume</a>
+                <a href='/blog' class="nav-item blog">blog</a>
+            </div>
+            <div class="socialbuttons">
+                <a href='https://github.com/bjacobel' class="social-item github"></a>
+                <a href='https://twitter.com/bjacobel' class="social-item twitter"></a>
+                <a href='https://www.linkedin.com/in/bjacobel' class="social-item linkedin"></a>
+            </div>
+        </div>
+        <div class="body-content">
+            <p class="date meta">28 Dec 2015</p>
+<p class="post-title">Serverless Twitterbots with AWS Lambda, KMS and DynamoDB</p>
+<div class="post-content">
+    <p>Writing bots for Twitter has always been one of my favorite ways to try out a new technology. When I was just first learning about building APIs I built <a href="https://twitter.com/orientku">Orient Haiku</a>, a Python script that looked for haikus in the text of <a href="http://bowdoinorient.com">Bowdoin Orient</a> articles (delivered over a brand-new JSON API). Later, while I was learning concurrency patterns in Go, I built <a href="https://twitter.com/gogglesbot">Goggles</a>, a Go program that consumed the Twitter Streaming API, ran any images it found through a feature classification service, and used its insights to spread a little positivity.</p>
+
+<p>These projects were fun to build and I learned a lot while creating them, but eventually I let both stop running for the same reason: the cost of running a server, both in terms of dollars and hours to maintain and secure it, was too high. AWS Lambda offers a way out of this pickle, providing computing resources on-demand without the need for either paying for or maintaining a persistent server. Lambda can spin up an execution environment based on various triggers, including <code class="highlighter-rouge">cron</code> - perfect for a Twitter bot.</p>
+
+<p>####The data<br />
+Boston maintains a website packed with interesting datasets, from <a href="https://data.cityofboston.gov/Public-Safety/Crime-Incident-Reports/7cdf-6fgx">crime statistics</a> to <a href="https://data.cityofboston.gov/Finance/Employee-Earnings-Report-2014/4swk-wcg8">employee salaries</a>. What’s more, the <a href="https://data.cityofboston.gov">data.cityofboston.gov</a> site features an API that provides programmatic access to all of this information. Browsing through the datasets in December of 2015, I came across the <a href="https://data.cityofboston.gov/Health/Food-Establishment-Inspections/qndu-wx8w">Food Establishment Inspections</a> log, which caught my interest because the Chipotle near my apartment had just been shut down by the city for <a href="http://www.nytimes.com/2015/12/10/business/officials-confirm-norovirus-in-a-chipotle-outbreak.html">infecting over 100 people with norovirus</a>. Clearly, knowing which restaurants fail food inspections was is in the public interest, but it wasn’t clear that the public knew that this data was available for free online. I thought building a service to relay this information through a website much more of the public checks every day – Twitter – might be fun, interesting, and even of some public value.</p>
+
+<p>####Key management<br />
+Because Lambda currently doesn’t have support for more conventional means of storing sensitive configuration secrets like environment variables, it’s necessary to get a little more creative. AWS Key Management Service (KMS) is a sub-feature of AWS’s larger Identity and Access Management (IAM) tools that allows you to store an encryption key in the cloud and recall it over the AWS API. Using KMS, it’s possible to devise a credential management system that’s secure, flexible, and can be committed straight to Git.</p>
+
+<p>To use KMS to store application secrets, first <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">create an encryption key</a>. Next, create a subfolder in your application called <code class="highlighter-rouge">/secrets</code> that will be used to store encrypted binary files. Next, write your secrets to this folder. As an example, we’d like to encrypt our Foursquare API client secret, <code class="highlighter-rouge">asdf-123987-lkjh</code>, and make it available in our application as <code class="highlighter-rouge">FoursquareClientSecret</code>. To write this secret to an encrypted binary file, execute the <code class="highlighter-rouge">aws kms encrypt</code> command. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>aws kms encrypt --key-id amzn-key-id --plaintext <span class="s2">"asdf-123987-lkjh"</span> --query CiphertextBlob --output text | base64 --decode &gt; ./secrets/FoursquareClientSecret
+</code></pre>
+</div>
+
+<p>In this example, replace <code class="highlighter-rouge">amzn-key-id</code> with the ID of the encryption key you created in KMS, <code class="highlighter-rouge">asdf-123987-lkjh</code> with the desired value of your secret, and <code class="highlighter-rouge">FoursquareClientSecret</code> with the name your application will refer to it by.</p>
+
+<p>(This assumes you have already configured the AWS CLI, if not, run <code class="highlighter-rouge">aws configure</code> or manually create a profile in <code class="highlighter-rouge">~/.aws/credentials</code> first.)</p>
+
+<p>Your secret is now safely encrypted - it can be committed to Git and pushed to GitHub, or included in a deployment bundle and sent to Lambda. To access the encrypted value inside your application, you will again need to use a KMS API client. Below is an example using <code class="highlighter-rouge">boto</code> and Python:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">class</span> <span class="nc">Secrets</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">secret</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'{}/secrets'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cwd</span><span class="p">)):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'{}/secrets/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="n">secret</span><span class="p">),</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">kms</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span>
+                    <span class="n">CiphertextBlob</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="p">)[</span><span class="s">'Plaintext'</span><span class="p">])</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Secrets</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>This code creates an instance of class <code class="highlighter-rouge">Config</code>, which on initialization scans through your <code class="highlighter-rouge">/secrets</code> directory, decrypts everything and stores the decrypted values as attributes of the <code class="highlighter-rouge">Config</code> instance. Now <code class="highlighter-rouge">config.FoursquareClientSecret == asdf-123987-lkjh</code>, and your Lambda code can use secret values with ease.</p>
+
+<p>####Data persistence<br />
+Because the Lambda is a Twitter bot, it’s fairly important that it never process (and thus tweet) the same data twice. To prevent this, a persistent record of the violations already known and tweeted was necessary. For this, I looked to AWS DynamoDB, a NoSQL database we use in many projects at <a href="https://localytics.com">Localytics</a>. Currently, the bot downloads the last day of violations every 20 minutes, then scans through each one and checks its id against Dynamo to see if it’s already been tweeted about. If not, the program saves the id in Dynamo and goes to press. This approach is a little naïve – for one thing, it puts an unnecessary load on the APIs Boston provides. I may refine this this workflow in the future into two tasks: one to download the previous day’s violations and save them to SQS, and another to burn down the queue over the course of the day. For now, though, Dynamo fits well with the need for a low-cost, simple database separated from the execution environment of the code.</p>
+
+<p>####Where next?<br />
+Given that working with Lambda, Dynamo and KMS has been so successful for this project, I’m interested in finding ways to refine this project or apply the stack to other scenarios.</p>
+
+<p>At <a href="https://localytics.com">Localytics</a>, we’re currently using a number of different Lambdas in production. For some of these projects, we’ve started to use the deployment framework <a href="https://github.com/serverless/serverless">Serverless</a> (formerly JAWS) to manage Lambdas and their associated CloudFormation resources. For this personal project I didn’t see the need to use something as heavy as Serverless for orchestration – I’m currently just deploying with a <a href="https://github.com/bjacobel/bosfoodfails/tree/master/deploy.sh">small bash script</a> – but I do have my eye on several other deployment tools built around the Lambda ecosystem like <a href="https://github.com/garnaat/kappa">Kappa</a> and <a href="https://github.com/apex/apex">Apex</a>.</p>
+
+<p>I’d also like to update some of my older projects to use Lambda. Goggles, the feature classification bot mentioned above in this post, currently isn’t running because of the pain of paying for and managing a server to run it. I’m hoping for first-party support of Golang on Lambda in the next year, but also looking into <a href="https://github.com/apex/apex">Apex</a>, a Lambda toolkit that provides a Node runner to invoke a Go binary and thus run Go on Lambda. This project’s dependence on Go won’t be the only difficulty in porting it to Lambda: it also consumes the Twitter Streaming API, which I haven’t yet figured out how to capture as a Lambda event stream. This project may involve learning some more about SNS or Kinesis, or may turn out not to be a good fit for Lambda at all.</p>
+
+<p>Speaking of Lambda support, I was pretty disappointed when I learned that Lambda would be launching supporting only Python 2.7. Python’s come a long way since the 2.7 days, but Lambda’s lack of support means that a number of language features I’d like to use in the food inspections bot just aren’t possible. Specifically, Python 3.5’s <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> coroutines may make it possible to restructure and parallelize some of the external API calls this bot must make, reducing execution time and lowering my AWS bill even further. I’m eagerly looking forward to Python 3.x support on Lambda, and will be rewriting the code that powers <a href="https://twitter.com/bosfoodfails">@bosfoodfails</a> as soon as it’s launched.</p>
+
+</div>
+<a href="/blog" class="text">⇽&nbsp;Back to posts</a>
+
+        </div>
+    </div>
+    <script src="/js/fastclick.js"></script>
+    <script src="/js/my.js"></script>
+</body>
+</html>
