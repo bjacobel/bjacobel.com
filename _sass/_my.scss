@@ -12,7 +12,10 @@ p {
 }
 
 body {
-    font:300 1.125em/1.38 'Merriweather Sans';
+    font-family: 'Merriweather Sans', 'Helvetica', 'Arial', sans-serif;
+    font-size: 1.125em;
+    font-weight: 300;
+    line-height: 1.38;
     width:100%;
     margin:0 auto;
     max-width:1200px;
@@ -38,7 +41,7 @@ body {
 
             .aboutme {
                 position:relative;
-                text-shadow:0 0 5px rgba(0, 0, 0, .7);
+                text-shadow:0 0 5px rgba(0,0,0,0.75);
                 text-align:center;
                 text-transform:uppercase;
 
@@ -47,6 +50,8 @@ body {
                     min-height:73px;
                     margin:-4px 0 0 -0.9202453988%;
                     font-size:2.222em;
+                    white-space: nowrap;
+                    letter-spacing: -0.5px
                 }
 
                 &.mytitle {
@@ -54,7 +59,6 @@ body {
                     min-height:23px;
                     margin-top:-11px;
                     font-size:0.889em;
-                    letter-spacing:1px;
                 }
             }
 
@@ -174,7 +178,10 @@ body {
             padding: 0 30px;
 
             .date {
-                font:italic 1.111em/1.38 Lato;
+                font-family: 'Lato';
+                font-style: italic;
+                font-size: 1.111em;
+                line-height: 1.38;
                 color:$lightgray;
                 margin-bottom: 10px;
             }
