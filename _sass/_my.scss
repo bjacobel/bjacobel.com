@@ -11,27 +11,6 @@ p {
     margin-bottom: 20px;
 }
 
-.highlighter-rouge {
-    width: 100%;
-    margin-bottom: 25px;
-}
-
-pre.highlight, code, figure.highlight {
-    background-color: $superlightgray;
-    @include vendor-prefix("border-radius", "3px");
-    padding: 3px;
-    font-family: Inconsolata, courier;
-}
-
-.pgp {
-    max-width: 100%;
-    overflow: hidden;
-
-    pre {
-        white-space: pre !important;
-    }
-}
-
 body {
     font:300 1.125em/1.38 'Merriweather Sans';
     width:100%;
@@ -207,6 +186,7 @@ body {
 
             .post-content {
                 margin-bottom:25px;
+                width: 100%;
             }
 
             ul.posts li {
