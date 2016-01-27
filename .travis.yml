@@ -18,5 +18,9 @@ deploy:
   local_dir: _site
   on:
     branch: cloudfront
+  secret_access_key:
+    secure: DfvHqK3Ql4xQQgbj9x3Vv1ItqWVvKURPJPsbg+BynV5cmil93r0M41k3vuCY+vRzlvh5dwT4Y2JRjcvdl9lmWjbtsDdywuxnVGpXoH9Uc116vmkDZLTs5IvkY/su/b1RVMbtnUmDGqnqq0rjE9zbAe2uP6TOlDvj0wWNKIjzyUk=
+  access_key_id:
+    secure: cly7wlUraYSzUWI/LgiV/eNT2h4lKw1FKKXFOFijF2damGlP9F3RXnVMeIBJXY5IsJEjKWj3012XQeyHdtQmSDnbnX5qOHPnPeDZDYhRNJ06BsfoPWbbVzeQTwYEDlL9k3AhChNkxSKk5TkunOoLTWWApv00gigN6o3601eGAKc=
 after_deploy:
 - aws cloudfront create-invalidation --distribution-id E3927Y42SF850N --paths /*
