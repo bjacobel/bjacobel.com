@@ -2,8 +2,9 @@ language: ruby
 sudo: false
 env:
   global:
-    secure: "Waw6E10XO5p58CPMyHmz0r+BXYcspQLCi0Sgz6tRdBZYy0z091Zm1wrKK0+MlkrQzN5ajft08/HXfzEOuu5yN7bg515sxzTkJqK5pH5O3GoOXDk0TSSZLCbRIbJY+0Xav5dhKHqhLaVJ0Cv5u0iy8KN/wr7Fe36nr1VCuQX2OE4="
-    secure: "iQsIZfLDr5XFULO502LkkNTW6RVcRDbbSwLNLz2WYWMXzxgshn8beEpMbxI1dWazprmUxWCrMZxR+jqrVpKS4qO5AE8i/n2jGGaS7dyYHoR/xbWn03HWpwqLKLYXPOnFGLkYyj+fqXk4o1qXPJzVC4HbRTxyt4ScKL7Dm5nyh0k="
+    secure:
+      - "Waw6E10XO5p58CPMyHmz0r+BXYcspQLCi0Sgz6tRdBZYy0z091Zm1wrKK0+MlkrQzN5ajft08/HXfzEOuu5yN7bg515sxzTkJqK5pH5O3GoOXDk0TSSZLCbRIbJY+0Xav5dhKHqhLaVJ0Cv5u0iy8KN/wr7Fe36nr1VCuQX2OE4="
+      - "iQsIZfLDr5XFULO502LkkNTW6RVcRDbbSwLNLz2WYWMXzxgshn8beEpMbxI1dWazprmUxWCrMZxR+jqrVpKS4qO5AE8i/n2jGGaS7dyYHoR/xbWn03HWpwqLKLYXPOnFGLkYyj+fqXk4o1qXPJzVC4HbRTxyt4ScKL7Dm5nyh0k="
 script:
 - bundle exec jekyll build --incremental
 before_deploy:
