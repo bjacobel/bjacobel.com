@@ -23,4 +23,4 @@ deploy:
   access_key_id:
     secure: cly7wlUraYSzUWI/LgiV/eNT2h4lKw1FKKXFOFijF2damGlP9F3RXnVMeIBJXY5IsJEjKWj3012XQeyHdtQmSDnbnX5qOHPnPeDZDYhRNJ06BsfoPWbbVzeQTwYEDlL9k3AhChNkxSKk5TkunOoLTWWApv00gigN6o3601eGAKc=
 after_deploy:
-- aws cloudfront create-invalidation --distribution-id E3927Y42SF850N --paths /*
+- "aws cloudfront create-invalidation --distribution-id E3927Y42SF850N --paths *"
