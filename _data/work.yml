@@ -1,9 +1,13 @@
 - title: localytics
   image: /images/localytics.png
   description: |
-    I'm currently working as a Software Engineer at Localytics, a Boston-area data marketing & analytics startup. My work is primarily Rails and Angular with some React and Scala thrown into the mix. I've just started - I'll add more details here as I tackle new projects!
+    Localytics pushed me to be more than just a can-do full-stack developer - to drill deep into an area that I'm interested in, grow those skills and take ownership. While at Localytics, I:<br>
+    <p>- helped build the Remarketing feature, which drove over a quarter million dollars in ARR in its first quarter</p>
+    <p>- worked on debt reduction across the Localytics stack, including migrating Remarketing's AngularJS code from Coffeescript to ES6 and from the Rails asset pipeline to Webpack</p>
+    <p>- built a React app (powered by AWS Lambda) that helps manage and secure access to a massive AWS fleet</p>
+    <p>- helped document and package that React work into a toolkit that will be used for future internal tools.</p>
   time_start: July 2015
-  time_stop: Present
+  time_stop: January 2015
 
 - title: raizlabs
   image: /images/rzcode.png
