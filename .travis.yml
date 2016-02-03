@@ -17,7 +17,7 @@ deploy:
   acl: public_read
   local_dir: _site
   on:
-    branch: cloudfront
+    branch: master
   secret_access_key:
     secure: DfvHqK3Ql4xQQgbj9x3Vv1ItqWVvKURPJPsbg+BynV5cmil93r0M41k3vuCY+vRzlvh5dwT4Y2JRjcvdl9lmWjbtsDdywuxnVGpXoH9Uc116vmkDZLTs5IvkY/su/b1RVMbtnUmDGqnqq0rjE9zbAe2uP6TOlDvj0wWNKIjzyUk=
   access_key_id:
