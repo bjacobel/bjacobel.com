@@ -1,20 +1,26 @@
 language: ruby
 sudo: false
-script:
-  - bundle exec jekyll build --incremental
-after_success:
-  - git config user.email "bjacobel@gmail.com"
-  - git config user.name "Brian Jacobel"
-  - git config push.default simple
-  - git config credential.helper "store --file=.git/credentials"
-  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-  - git checkout ${TRAVIS_BRANCH}
-  - git add -f _site
-  - |
-    git commit -m "Jekyll build (automated commit made by Travis CI)
-
-    [ci skip]"
-  - git push
 env:
   global:
-    secure: LB017WvO46i7dzVNsil80/SBs/G3G9qkkg2JTKkYRqpKx4YxXDcaAwPtPRXWmjMuggvUMeN6w0CcP5a1rr6DqJoVBbkE0wGiv3XOsid4f2cSGLEwWKEqwOlMOQIgrzohqEX1MGOJ7VEQWChHPseI3M/8OkT1UgKwz2Zi8xYevcg=
+    - secure: "Waw6E10XO5p58CPMyHmz0r+BXYcspQLCi0Sgz6tRdBZYy0z091Zm1wrKK0+MlkrQzN5ajft08/HXfzEOuu5yN7bg515sxzTkJqK5pH5O3GoOXDk0TSSZLCbRIbJY+0Xav5dhKHqhLaVJ0Cv5u0iy8KN/wr7Fe36nr1VCuQX2OE4="
+    - secure: "iQsIZfLDr5XFULO502LkkNTW6RVcRDbbSwLNLz2WYWMXzxgshn8beEpMbxI1dWazprmUxWCrMZxR+jqrVpKS4qO5AE8i/n2jGGaS7dyYHoR/xbWn03HWpwqLKLYXPOnFGLkYyj+fqXk4o1qXPJzVC4HbRTxyt4ScKL7Dm5nyh0k="
+script:
+- bundle exec jekyll build --incremental
+before_deploy:
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
+- aws configure set preview.cloudfront true
+deploy:
+  provider: s3
+  bucket: bjacobel.com
+  skip_cleanup: true
+  acl: public_read
+  local_dir: _site
+  on:
+    branch: master
+  secret_access_key:
+    secure: DfvHqK3Ql4xQQgbj9x3Vv1ItqWVvKURPJPsbg+BynV5cmil93r0M41k3vuCY+vRzlvh5dwT4Y2JRjcvdl9lmWjbtsDdywuxnVGpXoH9Uc116vmkDZLTs5IvkY/su/b1RVMbtnUmDGqnqq0rjE9zbAe2uP6TOlDvj0wWNKIjzyUk=
+  access_key_id:
+    secure: cly7wlUraYSzUWI/LgiV/eNT2h4lKw1FKKXFOFijF2damGlP9F3RXnVMeIBJXY5IsJEjKWj3012XQeyHdtQmSDnbnX5qOHPnPeDZDYhRNJ06BsfoPWbbVzeQTwYEDlL9k3AhChNkxSKk5TkunOoLTWWApv00gigN6o3601eGAKc=
+after_deploy:
+- aws cloudfront create-invalidation --distribution-id E3927Y42SF850N --paths "/*"
