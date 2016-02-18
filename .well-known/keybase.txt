@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/bjacobel
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bjacobel.com
+  * I am bjacobel (https://keybase.io/bjacobel) on keybase.
+  * I have a public key ASBtVZVha6bdx1Um-iAP457rKS7FYfdsYs3d_EqhP7F_5Ao
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01011c1641b0280974b32bbf3808f4fe06bf079678e02c181464cab8f6815bfb77890a",
+            "host": "keybase.io",
+            "kid": "01206d5595616ba6ddc75526fa200fe39eeb292ec561f76c62cdddfc4aa13fb17fe40a",
+            "uid": "7fb090117e11a76a970b283eb3e3d019",
+            "username": "bjacobel"
+        },
+        "service": {
+            "hostname": "bjacobel.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.9"
+    },
+    "ctime": 1455810675,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1455810541,
+        "hash": "fc20bce03afef6c97f9c53aa47601e38bb05c1769bc8c1cef12940c1adf77c022036f3b2904b7a1300707a161adcd7e3b2cae0b842d8f2fb8c49639c567fde96",
+        "seqno": 388600
+    },
+    "prev": "6c1364943bbdab7985858560466a7c2bfd466c740dee81e460ef5dd4ce3258aa",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgbVWVYWum3cdVJvogD+Oe6ykuxWH3bGLN3fxKoT+xf+QKp3BheWxvYWTFAvN7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMWMxNjQxYjAyODA5NzRiMzJiYmYzODA4ZjRmZTA2YmYwNzk2NzhlMDJjMTgxNDY0Y2FiOGY2ODE1YmZiNzc4OTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNmQ1NTk1NjE2YmE2ZGRjNzU1MjZmYTIwMGZlMzllZWIyOTJlYzU2MWY3NmM2MmNkZGRmYzRhYTEzZmIxN2ZlNDBhIiwidWlkIjoiN2ZiMDkwMTE3ZTExYTc2YTk3MGIyODNlYjNlM2QwMTkiLCJ1c2VybmFtZSI6ImJqYWNvYmVsIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJiamFjb2JlbC5jb20iLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC45In0sImN0aW1lIjoxNDU1ODEwNjc1LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NTU4MTA1NDEsImhhc2giOiJmYzIwYmNlMDNhZmVmNmM5N2Y5YzUzYWE0NzYwMWUzOGJiMDVjMTc2OWJjOGMxY2VmMTI5NDBjMWFkZjc3YzAyMjAzNmYzYjI5MDRiN2ExMzAwNzA3YTE2MWFkY2Q3ZTNiMmNhZTBiODQyZDhmMmZiOGM0OTYzOWM1NjdmZGU5NiIsInNlcW5vIjozODg2MDB9LCJwcmV2IjoiNmMxMzY0OTQzYmJkYWI3OTg1ODU4NTYwNDY2YTdjMmJmZDQ2NmM3NDBkZWU4MWU0NjBlZjVkZDRjZTMyNThhYSIsInNlcW5vIjo4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQKA4xk1DwkkcZE13KVavqI/olCi+p+TR18rpeEnbWESrLgvDqtupVgdg7PWqGEePIqSOZulMr5Ktt7q+2Tx5VAyoc2lnX3R5cGUgo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bjacobel
+
+==================================================================
