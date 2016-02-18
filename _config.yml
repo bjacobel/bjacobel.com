@@ -29,3 +29,5 @@ exclude:
   - Gemfile.lock
   - readme.md
   - vendor
+include:
+  - .well-known
