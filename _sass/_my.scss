@@ -111,20 +111,13 @@ body {
                     font:1.222em Lato;
                     text-align:center;
                     color:black;
+                    margin-top:22px;
 
-                    &.about {
+                    &:first-of-type {
                         margin-top:11px;
                     }
 
-                    &.projects,
-                    &.resume,
-                    &.work,
-                    &.blog,
-                    &.activity {
-                        margin-top:22px;
-                    }
-
-                    &.blog {
+                    &:last-of-type {
                         margin-bottom: 22px;
                     }
 
