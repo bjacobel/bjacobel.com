@@ -1,7 +1,3 @@
----
-layout: default
----
-
 <p class="date meta">{{ page.date | date_to_string }}</p>
 <p class="post-title">{{ page.title }}</p>
 <div class="post-content">

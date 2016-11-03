@@ -1,18 +1,3 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=0.98,shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="I'm a JavaScript developer in Boston, MA excited about changing media, education and government through the Open Web.">
-    <title>Brian Jacobel</title>
-    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300|Lato:300,400|Inconsolata:400" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script async src="/js/ga.js"></script>
-    <script async src="/js/nr.js"></script>
-    <script src="/js/jquery-min.js"></script>
-</head>
-<body>
     <div class="header">
         <div class="title">
             <h1 class="aboutme myname">Brian Jacobel</h1>
@@ -45,7 +30,3 @@
             {{ content }}
         </div>
     </div>
-    <script src="/js/fastclick.js"></script>
-    <script src="/js/my.js"></script>
-</body>
-</html>
