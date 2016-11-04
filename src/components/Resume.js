@@ -1,8 +1,3 @@
----
-layout: default
-title: Resume
----
-
 <object id="resume" data="https://files.bjacobel.com/resume.pdf"></object>
 
 <script>

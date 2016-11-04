@@ -1,8 +1,3 @@
----
-layout: default
-title: Work
----
-
 <p>This page describes my recent work experiences. You can also view my formal resume <a href="/files/resume.pdf">here.</a></p>
 
 <div class="list">

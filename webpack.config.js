@@ -24,8 +24,8 @@ const wpconfig = {
         loader: 'url?limit=64000',
       },
       {
-        test: /\.(ttf|eot|svg)(\?[a-z0-9=]+)?$/,
-        loader: 'file',
+        test: /\.(ttf|eot|svg|jpg|png)(\?[a-z0-9=]+)?$/,
+        loader: isProd ? 'file' : 'url',
       },
       {
         test: /\.js$/,
@@ -34,18 +34,22 @@ const wpconfig = {
       },
       {
         test: /\.md$/,
-        loader: 'html!markdown'
+        loader: 'html!markdown',
       },
       {
-        test: /\.css$/,
+        test: /\.yml$/,
+        loader: 'yaml',
+      },
+      {
+        test: /\.scss$/,
         loader: isProd ?
-          ExtractTextPlugin.extract('style', `css!sass`) :
-          `style!css?sourceMap!sass`,
+          ExtractTextPlugin.extract('style', 'css!sass') :
+          'style!css?sourceMap!sass',
       },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.md'],
+    extensions: ['', '.js', '.json', '.scss', '.md', '.yaml'],
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
@@ -57,6 +61,7 @@ const wpconfig = {
     hot: true,
     publicPath: '/',
     historyApiFallback: true,
+    contentBase: 'site',
   },
 };
 

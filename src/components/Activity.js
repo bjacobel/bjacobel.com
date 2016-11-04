@@ -1,16 +1,7 @@
----
-layout: default
-title: Activity
----
-
-<script type="text/javascript" src="/js/moment.min.js"></script>
-
 <p class="post-title">Here's what I'm working on, right now:</p>
 <div class="events">
 </div>
 <p><i>(data via the <a href="https://developer.github.com/v3/activity/events/">github public api</a>)</i></p>
-
-<!-- lol, inlined JS and CSS. Don't judge me, it's fast! -->
 
 <script type="text/javascript">
     $.ajax({

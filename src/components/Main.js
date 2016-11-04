@@ -1,32 +1,39 @@
-    <div class="header">
-        <div class="title">
-            <h1 class="aboutme myname">Brian Jacobel</h1>
-            <div class="separator"></div>
-            <h2 class="aboutme mytitle">Web Developer in Boston, MA</h2>
+import React, { Component } from 'react';
+import { Match, Miss, BrowserRouter } from 'react-router';
+
+import Header from './Header';
+import Sidebar from './Sidebar';
+import About from './About';
+import Activity from './Activity';
+import PGP from './PGP';
+import Projects from './Projects';
+import Resume from './Resume';
+import Work from './Work';
+import BlogIndex from './BlogIndex';
+import BlogPost from './BlogPost';
+
+export default class Main extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="body-content">
+          <Header />
+          <Sidebar />
+          <Match pattern="/activity" component={ Activity } />
+          <Match pattern="/blog" component={ BlogIndex } />
+          <Match pattern="/pgp" component={ PGP } />
+          <Match pattern="/projects" component={ Projects } />
+          <Match pattern="/resume" component={ Resume } />
+          <Match pattern="/work" component={ Work } />
+          <Match pattern="/" component={ About } />
+          <Match pattern="/:y/:m/:d/:slug" component={ BlogPost } />
+          <Miss
+            render={ () => (
+              <p>Not found.</p>
+            ) }
+          />
         </div>
-        <div class="mobile-burger">
-            <span class="burger-lines"></span>
-        </div>
-    </div>
-    <div class="main">
-        <div class="sidebar">
-            <div class="headshot"></div>
-            <div class="container">
-                <a href='/' class="nav-item about">about</a>
-                <a href='/projects' class="nav-item projects">projects</a>
-                <a href='/activity' class="nav-item activity">activity</a>
-                <a href='/work' class="nav-item work">work</a>
-                <a href='/resume' class="nav-item resume">resume</a>
-                <a href='/blog' class="nav-item blog">blog</a>
-                <a href='https://photos.bjacobel.com' class="nav-item photos">photos</a>
-            </div>
-            <div class="socialbuttons">
-                <a href='https://github.com/bjacobel' class="social-item github"></a>
-                <a href='https://twitter.com/bjacobel' class="social-item twitter"></a>
-                <a href='https://www.linkedin.com/in/bjacobel' class="social-item linkedin"></a>
-            </div>
-        </div>
-        <div class="body-content">
-            {{ content }}
-        </div>
-    </div>
+      </BrowserRouter>
+    );
+  }
+}

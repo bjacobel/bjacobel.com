@@ -1,8 +1,3 @@
----
-layout: default
-title: PGP
----
-
 <p>
   PGP public key for emails:
     <ul>
