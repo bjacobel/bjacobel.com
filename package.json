@@ -4,6 +4,7 @@
   "description": "personal website",
   "scripts": {
     "start": "webpack-dev-server",
+    "lint": "eslint . && sass-lint src/stylesheets/*",
     "build": "webpack -pc"
   },
   "repository": {
