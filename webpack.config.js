@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -81,6 +82,14 @@ if (!isProd) {
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
+    new StaticSiteGeneratorPlugin('main', [
+      'pgp',
+      'activity',
+      'projects',
+      'resume',
+      'work',
+      'blog',
+    ]),
     ...wpconfig.plugins,
   ];
 }
