@@ -3,16 +3,16 @@
   margin-bottom: 25px;
 }
 
-div.highlighter-rouge > .highlight, pre {
+pre, figure {
   white-space: pre !important;
-}
-
-pre.highlight, code, figure.highlight {
   background-color: $superlightgray;
   @include vendor-prefix("border-radius", "3px");
   padding: 3px;
-  font-family: Inconsolata, courier;
   overflow: scroll;
+
+  code {
+    font-family: Inconsolata, courier;
+  }
 }
 
 .pgp {

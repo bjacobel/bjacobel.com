@@ -1,3 +1,4 @@
+```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1
 
@@ -75,3 +76,4 @@ Lx6/842d4OSEmNE7FwjsZf2LKPReDyTbGaXzT/xtbDKB/scyy1coGY9ooG5TUUsg
 DaXxsayywAq6QHEpsT4=
 =0rLR
 -----END PGP PUBLIC KEY BLOCK-----
+```
