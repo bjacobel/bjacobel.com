@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class BlogIndex extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class BlogIndex extends Component {
             <li>
               <span>{ post.date }</span>
               <p className="posttitle">
-                <a href={ post.url }>{ post.title }</a>
+                <Link to={ post.url }>{ post.title }</Link>
               </p>
               <p>{ post.excerpt }</p>
             </li>

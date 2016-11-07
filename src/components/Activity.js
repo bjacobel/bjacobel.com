@@ -1,3 +1,9 @@
+import React, { Component } from 'react';
+
+export default class Activity extends Component {
+  render() {
+    return (
+
 <p class="post-title">Here's what I'm working on, right now:</p>
 <div class="events">
 </div>

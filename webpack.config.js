@@ -35,11 +35,7 @@ const wpconfig = {
       },
       {
         test: /\.md$/,
-        loader: 'html!markdown',
-      },
-      {
-        test: /\.yml$/,
-        loader: 'yaml',
+        loader: 'json!meta-marked',
       },
       {
         test: /\.scss$/,
@@ -50,7 +46,7 @@ const wpconfig = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.md', '.yaml'],
+    extensions: ['', '.js', '.json', '.scss', '.md'],
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
@@ -82,14 +78,14 @@ if (!isProd) {
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
-    new StaticSiteGeneratorPlugin('main', [
-      'pgp',
-      'activity',
-      'projects',
-      'resume',
-      'work',
-      'blog',
-    ]),
+    // new StaticSiteGeneratorPlugin('main', [
+    //   'pgp',
+    //   'activity',
+    //   'projects',
+    //   'resume',
+    //   'work',
+    //   'blog',
+    // ]),
     ...wpconfig.plugins,
   ];
 }

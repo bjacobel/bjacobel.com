@@ -1,3 +1,9 @@
+import React, { Component } from 'react';
+
+export default class PGP extends Component {
+  render() {
+    return (
+
 <p>
   PGP public key for emails:
     <ul>
