@@ -23,7 +23,6 @@ export default class Sidebar extends Component {
           <Link to="/projects" className="nav-item projects">projects</Link>
           <Link to="/activity" className="nav-item activity">activity</Link>
           <Link to="/work" className="nav-item work">work</Link>
-          <Link to="/resume" className="nav-item resume">resume</Link>
           <Link to="/blog" className="nav-item blog">blog</Link>
           <a href="https://photos.bjacobel.com" className="nav-item photos">photos</a>
         </div>

@@ -176,7 +176,7 @@ body {
   }
 
   .body-content {
-    width: calc(100% - 265px);
+    width: calc(100% - 232px);
     margin: 50px 0;
     padding: 0 30px;
     display: inline-block;
@@ -191,7 +191,6 @@ body {
     }
 
     .post-title, .posttitle {
-      // Can't change the Jekyll default class so have to specify both
       font: 400 1.667em/1.38 Lato;
       margin-bottom: 25px;
     }

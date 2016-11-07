@@ -7,7 +7,6 @@ import About from './About';
 import Activity from './Activity';
 import PGP from './PGP';
 import Projects from './Projects';
-import Resume from './Resume';
 import Work from './Work';
 import BlogIndex from './BlogIndex';
 import BlogPost from './BlogPost';
@@ -24,7 +23,6 @@ export default class Main extends Component {
             <Match pattern="/blog" component={ BlogIndex } />
             <Match pattern="/pgp" component={ PGP } />
             <Match pattern="/projects" component={ Projects } />
-            <Match pattern="/resume" component={ Resume } />
             <Match pattern="/work" component={ Work } />
             <Match pattern="/" exactly component={ About } />
             <Match pattern="/:y/:m/:d/:slug" component={ BlogPost } />
