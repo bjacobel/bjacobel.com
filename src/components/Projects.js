@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import projects from '../data/projects';
+import setTitle from '../services/windowTitle';
 
 export default class Projects extends Component {
+  componentDidMount() {
+    setTitle('Projects');
+  }
+
   render() {
     return (
       <div>

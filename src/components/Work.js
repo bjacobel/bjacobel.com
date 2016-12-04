@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import jobs from '../data/work';
+import setTitle from '../services/windowTitle';
 
 export default class Work extends Component {
+  componentDidMount() {
+    setTitle('Work');
+  }
+
   render() {
     return (
       <div>

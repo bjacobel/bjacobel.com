@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
+import setTitle from '../services/windowTitle';
+
+
 export default class StaticPage extends Component {
+  componentDidMount() {
+    setTitle('About');
+  }
+
   render() {
     return (
       <div>

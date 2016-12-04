@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import setTitle from '../services/windowTitle';
+
 const mkcommits = (timestamp, num, ref, reponame, commits) => {
   const commitS = (num === 1 ? '' : 's');
   const repolink = <a href={ `https://github.com/${reponame}` }>{ reponame }</a>;
@@ -43,6 +45,10 @@ export default class Activity extends Component {
       .then((commitHtml) => {
         this.setState({ commitHtml });
       });
+  }
+
+  componentDidMount() {
+    setTitle('Activity');
   }
 
   render() {
