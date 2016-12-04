@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import moment from 'moment';
+import hljs from 'highlight.js';
 
 export default class BlogPost extends Component {
+  componentDidMount() {
+    document.querySelectorAll('code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }
+
   render() {
     const { y, m, d, slug } = this.props.params;
 
     // @TODO: Use import() here once it lands in Webpack 2
     const post = require(`../posts/${y}-${m}-${d}-${slug}.md`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
-
-    console.log(post);
 
     return (
       <div>

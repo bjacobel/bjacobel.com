@@ -1,4 +1,4 @@
-```
+```text
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1
 
