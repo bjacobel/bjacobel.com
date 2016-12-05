@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { format } from 'date-fns';
-import hljs from 'highlight.js';
+import format from 'date-fns/format';
+import hljs from 'highlight.js/lib/highlight';
 
-import { DATE_FORMAT } from '../constants';
+import {
+  DATE_FORMAT,
+  LANGUAGES,
+} from '../constants';
 import setTitle from '../services/windowTitle';
+
+LANGUAGES.forEach((langName) => {
+  const langModule = require(`highlight.js/lib/languages/${langName}`); // eslint-disable-line global-require, import/no-dynamic-require, max-len
+  hljs.registerLanguage(langName, langModule);
+});
 
 export default class BlogPost extends Component {
   componentWillMount() {
@@ -18,6 +26,8 @@ export default class BlogPost extends Component {
 
   componentDidMount() {
     setTitle(this.state.post.meta.title);
+
+    hljs.
 
     document.querySelectorAll('code').forEach((block) => {
       hljs.highlightBlock(block);

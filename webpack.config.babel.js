@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
+const highlightConsts = require('./src/constants/highlight');
+
 const isProd = process.env.NODE_ENV === 'production';
 
 const wpconfig = {
@@ -53,6 +55,10 @@ const wpconfig = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
+    new webpack.ContextReplacementPlugin(
+      /highlight\.js\/lib\/languages$/,
+      new RegExp(`^./(${highlightConsts.LANGUAGES.join('|')})$`),
+    ),
   ],
   devServer: {
     hot: true,

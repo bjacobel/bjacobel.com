@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { parse, format } from 'date-fns';
+import parse from 'date-fns/parse';
+import format from 'date-fns/format';
 
 import setTitle from '../services/windowTitle';
 import { DATE_FORMAT } from '../constants';
