@@ -49,6 +49,10 @@ const wpconfig = {
   },
   resolve: {
     extensions: ['', '.js', '.json', '.scss', '.md'],
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat',
+    },
   },
   plugins: [
     new webpack.NoErrorsPlugin(),

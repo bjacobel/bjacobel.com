@@ -3,10 +3,8 @@ import { Link } from 'react-router';
 import format from 'date-fns/format';
 import hljs from 'highlight.js/lib/highlight';
 
-import {
-  DATE_FORMAT,
-  LANGUAGES,
-} from '../constants';
+import { DATE_FORMAT } from '../constants';
+import { LANGUAGES } from '../constants/highlight';
 import setTitle from '../services/windowTitle';
 
 LANGUAGES.forEach((langName) => {
@@ -26,8 +24,6 @@ export default class BlogPost extends Component {
 
   componentDidMount() {
     setTitle(this.state.post.meta.title);
-
-    hljs.
 
     document.querySelectorAll('code').forEach((block) => {
       hljs.highlightBlock(block);

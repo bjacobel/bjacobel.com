@@ -49,8 +49,8 @@
     "classnames": "^2.2.5",
     "date-fns": "^1.11.2",
     "highlight.js": "^9.8.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "preact": "^7.1.0",
+    "preact-compat": "^3.9.3",
     "react-router": "v4.0.0-alpha.5"
   }
 }
