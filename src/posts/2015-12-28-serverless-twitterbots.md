@@ -2,6 +2,7 @@
 layout: post
 title: "Serverless Twitterbots with AWS Lambda, KMS and DynamoDB"
 date: 2015-12-28 23:50:00
+url: /2015/12/28/serverless-twitterbots/
 
 ---
 

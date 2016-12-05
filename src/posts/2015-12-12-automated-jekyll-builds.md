@@ -2,6 +2,7 @@
 layout: post
 title: "Migrating from GitHub Pages, Part 1: Automated Jekyll builds with Travis CI"
 date: 2015-12-12 23:50:00
+url: /2015/12/12/automated-jekyll-builds/
 
 ---
 
