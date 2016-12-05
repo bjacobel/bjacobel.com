@@ -3,7 +3,7 @@
   display: none;
   width: 45px;
   height: 45px;
-  padding: 10px 4px;
+  padding: 10px 5px;
   background-color: $blue;
   top: 0;
   position: fixed;
@@ -73,52 +73,35 @@
         margin: 0 auto;
       }
     }
+  }
 
-    .main {
-      .sidebar, .body-content {
-        @include double-prefix("transition", "transform", ".2s ease-in-out");
-      }
+  .app {
+    .sidebar,
+    .body-content {
+      @include double-prefix("transition", "transform", ".2s ease-in-out");
+    }
 
+    .sidebar {
+      @include vendor-prefix("transform", "translate(-235px,0)");
+      position: absolute;
+    }
+
+    .body-content {
+      width: 100%;
+    }
+
+    &.menuActive {
       .sidebar {
-        position: absolute;
-        @include vendor-prefix("transform", "translate(-235px,0)");
+        @include vendor-prefix("transform", "translate(0,0)");
       }
 
       .body-content {
-        width: 100%;
-      }
-
-      &.slide-visible {
-        .sidebar {
-          @include vendor-prefix("transform", "translate(0,0)");
-        }
-
-        .body-content {
-          @include vendor-prefix("transform", "translate(235px,0)");
-        }
+        @include vendor-prefix("transform", "translate(235px,0)");
       }
     }
   }
 
   .mobile-burger {
     display: block;
-  }
-}
-
-@media(max-width: 850px) {
-  body .main .body-content .list-item {
-    margin: 20px 0;
-
-    .list-img {
-      display: block;
-      width: 100%;
-      background-position: center;
-      margin-bottom: 20px;
-    }
-
-    .list-text {
-      width: 100%;
-      margin-left: 0;
-    }
   }
 }

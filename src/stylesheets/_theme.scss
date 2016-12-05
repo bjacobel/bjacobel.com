@@ -210,30 +210,5 @@ body {
       border-bottom: 2px solid $blue;
       margin-bottom: 35px;
     }
-
-    .list-item {
-      margin: 40px 0;
-
-      div {
-        display: inline-block;
-      }
-
-      .list-img {
-        width: 100px;
-        height: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        vertical-align: top;
-      }
-
-      .list-text {
-        width: calc(100% - 150px);
-        margin-left: 40px;
-
-        p {
-          margin-bottom: 10px;
-        }
-      }
-    }
   }
 }
