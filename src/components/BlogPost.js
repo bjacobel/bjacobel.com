@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import moment from 'moment';
+import { format } from 'date-fns';
 import hljs from 'highlight.js';
 
 import { DATE_FORMAT } from '../constants';
@@ -29,7 +29,7 @@ export default class BlogPost extends Component {
 
     return (
       <div>
-        <p className="date meta">{ moment(post.meta.date).format(DATE_FORMAT) }</p>
+        <p className="date meta">{ format(post.meta.date, DATE_FORMAT) }</p>
         <p className="post-title">{ post.meta.title }</p>
         <div className="post-content" dangerouslySetInnerHTML={ { __html: post.html } } />
         <Link to="/blog" className="text">⇽&nbsp;Back to posts</Link>

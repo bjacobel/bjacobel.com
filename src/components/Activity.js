@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+import { distanceInWordsToNow } from 'date-fns';
 
 import setTitle from '../services/windowTitle';
 
@@ -7,7 +7,7 @@ const mkcommits = (timestamp, num, ref, reponame, commits) => {
   const commitS = (num === 1 ? '' : 's');
   const repolink = <a href={ `https://github.com/${reponame}` }>{ reponame }</a>;
   const branchlink = <a href={ `https://github.com/${reponame}/tree/${ref}` }>{ ref }</a>;
-  const mtimestamp = <p className="timestamp">{ moment(timestamp).fromNow() }</p>;
+  const mtimestamp = <p className="timestamp">{ distanceInWordsToNow(timestamp) }</p>;
 
   return (
     <div key={ timestamp }>

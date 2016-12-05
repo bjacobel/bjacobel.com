@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import moment from 'moment';
+import { parse, format } from 'date-fns';
 
 import setTitle from '../services/windowTitle';
 import { DATE_FORMAT } from '../constants';
@@ -19,10 +19,10 @@ export default class BlogIndex extends Component {
 
     return (
       <ul className="posts">
-        { posts.sort((a, b) => moment(b.meta.data) - moment(a.meta.date)).map((post) => {
+        { posts.sort((a, b) => parse(b.meta.data) - parse(a.meta.date)).map((post) => {
           return (
             <li key={ post.meta.url }>
-              <span>{ moment(post.meta.date).format(DATE_FORMAT) }</span>
+              <span>{ format(post.meta.date, DATE_FORMAT) }</span>
               <p className="posttitle">
                 <Link to={ post.meta.url }>{ post.meta.title }</Link>
               </p>
