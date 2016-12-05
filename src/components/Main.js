@@ -12,7 +12,7 @@ import Work from './Work';
 import BlogIndex from './BlogIndex';
 import BlogPost from './BlogPost';
 
-const MenuButton = ({toggleMenu, active}) => {
+const MenuButton = ({ toggleMenu, active }) => {
   return (
     <div className="mobile-burger" onClick={ toggleMenu }>
       <span className={ classNames('burger-lines', { active }) } />
