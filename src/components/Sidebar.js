@@ -29,9 +29,3 @@ export default class Sidebar extends Component {
     );
   }
 }
-
-// document.querySelector('.mobile-burger').on('click', () => {
-//     $(".main").toggleclass("slide-visible");
-//     $(".burger-lines").toggleclass("active");
-// });
-
