@@ -1,9 +1,7 @@
 ---
-layout: post
 title: "Migrating from GitHub Pages, Part 1: Automated Jekyll builds with Travis CI"
 date: 2015-12-12 23:50:00
 url: /2015/12/12/automated-jekyll-builds/
-
 ---
 
 This post is the first of two detailing the setup I've picked for hosting my Jekyll site. In the second, I'll dive into Docker, [Caddy](https://caddyserver.com) and Let's Encrypt. First, though, I wanted to share a cool little feature I built into my workflow with Git, Jekyll, and Travis CI.

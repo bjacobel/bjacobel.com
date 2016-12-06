@@ -1,9 +1,7 @@
 ---
-layout: post
 title:  "Site Redesign"
 date:   2014-04-28 14:43:36
 url: /2014/04/28/site-redesign/
-
 ---
 
 I've just launched a redesign of the site!

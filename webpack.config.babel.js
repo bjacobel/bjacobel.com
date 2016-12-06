@@ -69,6 +69,7 @@ const wpconfig = {
     publicPath: '/',
     historyApiFallback: true,
     contentBase: 'site',
+    compress: isProd,
   },
 };
 
