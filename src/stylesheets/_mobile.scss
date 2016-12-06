@@ -16,7 +16,7 @@
     display: block;
     position: relative;
     background-color: white;
-    top: 10px;
+    top: 0;
     right: 0;
     opacity: 1;
     @include vendor-prefix("user-select", "none");

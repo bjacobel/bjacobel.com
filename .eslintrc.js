@@ -15,9 +15,9 @@ module.exports = {
     'no-else-return': 0,
     'no-console': 0,
     'quote-props': [2, 'consistent-as-needed'],
-    'import/imports-first': 0,  // doesn't play nice with Jest
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [2, { devDependencies: true }],
+    'import/no-duplicates': 0,  // doesn't play nice with Preact
     'react/jsx-curly-spacing': [2, 'always'],
     'react/jsx-filename-extension': [2, { extensions: ['.js'] }],
     'react/no-unescaped-entities': 0,
@@ -36,5 +36,12 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
-  }
+  },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: 'webpack.config.babel.js',
+      },
+    },
+  },
 };

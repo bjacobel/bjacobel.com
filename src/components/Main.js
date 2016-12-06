@@ -14,9 +14,9 @@ import BlogPost from './BlogPost';
 
 const MenuButton = ({ toggleMenu, active }) => {
   return (
-    <div className="mobile-burger" onClick={ toggleMenu }>
+    <button className="mobile-burger" onClick={ toggleMenu }>
       <span className={ classNames('burger-lines', { active }) } />
-    </div>
+    </button>
   );
 };
 
