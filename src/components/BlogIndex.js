@@ -20,17 +20,21 @@ export default class BlogIndex extends Component {
 
     return (
       <ul className="posts">
-        { posts.sort((a, b) => parse(b.meta.date) - parse(a.meta.date)).map((post) => {
-          return (
-            <li key={ post.meta.url }>
-              <span>{ format(post.meta.date, DATE_FORMAT) }</span>
-              <p className="posttitle">
-                <Link to={ post.meta.url }>{ post.meta.title }</Link>
-              </p>
-              <p dangerouslySetInnerHTML={ { __html: `${post.html.split('</p>')[0]}</p>` } } />
-            </li>
-          );
-        }) }
+        { posts
+            .filter(x => !x.meta.draft)
+            .sort((a, b) => parse(b.meta.date) - parse(a.meta.date))
+            .map((post) => {
+              return (
+                <li key={ post.meta.url }>
+                  <span>{ format(post.meta.date, DATE_FORMAT) }</span>
+                  <p className="posttitle">
+                    <Link to={ post.meta.url }>{ post.meta.title }</Link>
+                  </p>
+                  <p dangerouslySetInnerHTML={ { __html: `${post.html.split('</p>')[0]}</p>` } } />
+                </li>
+              );
+            })
+         }
       </ul>
     );
   }
