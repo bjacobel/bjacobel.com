@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Match, Miss, BrowserRouter } from 'react-router';
+import { Miss, BrowserRouter } from 'react-router';
 import classNames from 'classnames';
+import ReactGA from 'react-ga';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -11,6 +12,11 @@ import Projects from './Projects';
 import Work from './Work';
 import BlogIndex from './BlogIndex';
 import BlogPost from './BlogPost';
+import AnalyticsMatch from './AnalyticsMatch';
+import {
+  GA_ID,
+  TRACK_ANALYTICS,
+} from '../constants';
 
 const MenuButton = ({ toggleMenu, active }) => {
   return (
@@ -22,8 +28,18 @@ const MenuButton = ({ toggleMenu, active }) => {
 
 export default class Main extends Component {
   componentWillMount() {
+    if (TRACK_ANALYTICS) {
+      ReactGA.initialize(GA_ID);
+    }
+
     this.setState({ menuActive: false });
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.pageLoad = this.pageLoad.bind(this);
+  }
+
+  pageLoad() {
+    this.setState({ menuActive: false });
+    document.querySelector('body').scrollToTop();
   }
 
   toggleMenu() {
@@ -40,13 +56,13 @@ export default class Main extends Component {
           <Sidebar />
           <MenuButton toggleMenu={ this.toggleMenu } active={ menuActive } />
           <div className="body-content">
-            <Match pattern="/activity" component={ Activity } />
-            <Match pattern="/blog" component={ BlogIndex } />
-            <Match pattern="/pgp" component={ PGP } />
-            <Match pattern="/projects" component={ Projects } />
-            <Match pattern="/work" component={ Work } />
-            <Match pattern="/" exactly component={ About } />
-            <Match pattern="/:y/:m/:d/:slug" component={ BlogPost } />
+            <AnalyticsMatch pattern="/activity" component={ Activity } />
+            <AnalyticsMatch pattern="/blog" component={ BlogIndex } />
+            <AnalyticsMatch pattern="/pgp" component={ PGP } />
+            <AnalyticsMatch pattern="/projects" component={ Projects } />
+            <AnalyticsMatch pattern="/work" component={ Work } />
+            <AnalyticsMatch pattern="/" exactly component={ About } />
+            <AnalyticsMatch pattern="/:y/:m/:d/:slug" component={ BlogPost } />
             <Miss
               render={ () => (
                 <p>Not found.</p>

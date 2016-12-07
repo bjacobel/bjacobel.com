@@ -51,6 +51,7 @@
     "highlight.js": "^9.8.0",
     "preact": "^7.1.0",
     "preact-compat": "^3.9.3",
-    "react-router": "v4.0.0-alpha.5"
+    "react-ga": "^2.1.2",
+    "react-router": "v4.0.0-alpha.6"
   }
 }

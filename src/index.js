@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
+import 'preact/devtools';
+
 import './stylesheets/index.scss';
 
 const rootEl = document.getElementById('main');
