@@ -1,0 +1,245 @@
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a:visited {
+  color: $darkblue;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.sr {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+body {
+  font-family: 'Merriweather Sans', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.125em;
+  font-weight: 300;
+  line-height: 1.38;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow-x: hidden;
+
+  #main {
+    width: 100%;
+  }
+
+  .header {
+    height: 346px;
+    overflow: hidden;
+    background-image: url('../images/header2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .title {
+      position: absolute;
+      top: 137px;
+      left: 0;
+      right: 0;
+      width: 326px;
+      height: 86px;
+      margin: 0 auto;
+      color: white;
+
+      .aboutme {
+        position: relative;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+        text-align: center;
+        text-transform: uppercase;
+
+        &.myname {
+          width: 326px;
+          min-height: 73px;
+          margin: -4px 0 0 -0.9202453988%;
+          font-size: 2.222em;
+          white-space: nowrap;
+          letter-spacing: -0.5px
+        }
+
+        &.mytitle {
+          width: 312px;
+          min-height: 23px;
+          margin-top: -11px;
+          font-size: 0.889em;
+        }
+      }
+
+      .separator {
+        float: left;
+        position: relative;
+        width: 308px;
+        height: 3px;
+        margin: -19px 0 0 1.5337423312%;
+        background-color: $blue;
+      }
+    }
+  }
+
+  .sidebar {
+    width: 182px;
+    margin: 50px 0 0 50px;
+    padding: 0 30px 20px 0;
+    border-right: 2px solid $blue;
+    display: inline-block;
+    vertical-align: top;
+
+    .headshot {
+      float: left;
+      width: 152px;
+      height: 150px;
+      border-radius: 500px;
+      background: url('../images/me.jpg');
+      background-repeat: no-repeat;
+      background-size: 110% 110%;
+      background-position: 10% 0;
+    }
+
+    .container {
+      float: left;
+      width: 100%;
+      margin-top: 15px;
+      border-bottom: 2px solid $blue;
+
+      .nav-item {
+        float: left;
+        width: 100%;
+        min-height: 20px;
+        font: 1.222em Lato;
+        text-align: center;
+        color: black;
+        margin-top: 22px;
+
+        &:first-of-type {
+          margin-top: 11px;
+        }
+        &:last-of-type {
+          margin-bottom: 22px;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .socialbuttons {
+      float: left;
+      width: 100%;
+      margin-top: 15px;
+
+      .social-item {
+        float: left;
+        width: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &.github {
+          height: 53px;
+          background-image: url('../images/github.svg');
+        }
+
+        &.twitter {
+          clear: both;
+          height: 45px;
+          margin-top: 22px;
+          background-image: url('../images/twitter.svg');
+        }
+
+        &.linkedin {
+          clear: both;
+          height: 53px;
+          margin-top: 22px;
+          background-image: url('../images/linkedin.svg');
+        }
+
+        &:hover {
+          @include vendor-prefix("filter", "drop-shadow(0px 0px 5px rgba(34, 143, 196, 0.65))");
+        }
+      }
+    }
+  }
+
+  .body-content {
+    width: calc(100% - 232px);
+    margin: 50px 0;
+    padding: 0 30px;
+    display: inline-block;
+
+    .date {
+      font-family: 'Lato';
+      font-style: italic;
+      font-size: 1.111em;
+      line-height: 1.38;
+      color: $lightgray;
+      margin-bottom: 10px;
+    }
+
+    .post-title, .posttitle {
+      font: 400 1.667em/1.38 Lato;
+      margin-bottom: 25px;
+    }
+
+    .post-content {
+      margin-bottom: 25px;
+      width: 100%;
+    }
+
+    ul.posts li {
+      padding-bottom: 10px;
+      border-bottom: 2px solid $blue;
+      margin-bottom: 35px;
+    }
+
+    .list-item {
+      margin: 40px 0;
+
+      div {
+        display: inline-block;
+      }
+
+      .list-img {
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        vertical-align: top;
+      }
+
+      .list-text {
+        width: calc(100% - 150px);
+        margin-left: 40px;
+
+        p {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

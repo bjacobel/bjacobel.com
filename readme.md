@@ -4,11 +4,10 @@ My personal website and blog.
 
 ####Run locally
 Requirements:
-- Ruby 2.2.1
-- Bundler
+- Node 6
 
-        bundle install
-        jekyll serve
+        yarn || npm install
+        yarn start || npm start
 
 ####Deploy
-Just push to GitHub, Travis will build the site with Jekyll, push it to S3 and then invalidate the CloudFront cache.
+Just push to GitHub. Travis will build the site, push it to S3 and then invalidate the CloudFront cache.
