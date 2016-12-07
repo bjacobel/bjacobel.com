@@ -12,12 +12,12 @@ export default class AnalyticsMatch extends Component {
       <Match
         pattern={ pattern }
         exactly={ exactly }
-        render={ () => {
+        render={ (matchProps) => {
           if (TRACK_ANALYTICS) {
             ReactGA.pageview(window.location.pathname);
           }
 
-          return createElement(component);
+          return createElement(component, matchProps);
         } }
       />
     );
