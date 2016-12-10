@@ -209,6 +209,11 @@ body {
     .post-content {
       margin-bottom: 25px;
       width: 100%;
+
+      img {
+        max-width: 500px;
+        right: 50%;
+      }
     }
 
     ul.posts li {

@@ -3,7 +3,6 @@ module.exports = {
     'bash',
     'css',
     'javascript',
-    'json',
     'python',
     'yaml',
   ],
