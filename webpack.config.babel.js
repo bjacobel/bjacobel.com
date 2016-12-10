@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
 const highlightConsts = require('./src/constants/highlight');
 
@@ -16,6 +17,7 @@ const wpconfig = {
     path: `${__dirname}/site`,
     publicPath: '/',
     filename: '[name].js',
+    libraryTarget: 'commonjs',
   },
   debug: true,
   devtool: isProd ? null : 'source-map',
@@ -86,8 +88,9 @@ if (!isProd) {
 } else {
   wpconfig.plugins = [
     new ExtractTextPlugin('[name].css'),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(true),
+    new StaticSiteGeneratorPlugin('main', ['/', '/projects', '/work', '/activity', '/blog', '/pgp']),
+    // new webpack.optimize.UglifyJsPlugin(),
+    // new webpack.optimize.OccurrenceOrderPlugin(true),
     ...wpconfig.plugins,
   ];
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Miss, BrowserRouter } from 'react-router';
+import { Miss, BrowserRouter, ServerRouter, createServerRenderContext } from 'react-router';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
 
@@ -26,6 +26,18 @@ const MenuButton = ({ toggleMenu, active }) => {
   );
 };
 
+class Router extends Component {
+  render() {
+    const { node } = this.props;
+
+    if (node) {
+      return <ServerRouter location={ this.props.path } context={ createServerRenderContext() } />;
+    } else {
+      return <BrowserRouter />;
+    }
+  }
+}
+
 export default class Main extends Component {
   componentWillMount() {
     if (TRACK_ANALYTICS) {
@@ -34,12 +46,6 @@ export default class Main extends Component {
 
     this.setState({ menuActive: false });
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.pageLoad = this.pageLoad.bind(this);
-  }
-
-  pageLoad() {
-    this.setState({ menuActive: false });
-    document.querySelector('body').scrollToTop();
   }
 
   toggleMenu() {
@@ -50,7 +56,7 @@ export default class Main extends Component {
     const { menuActive } = this.state;
 
     return (
-      <BrowserRouter>
+      <Router>
         <div className={ classNames('app', { menuActive }) }>
           <Header />
           <Sidebar />
@@ -70,7 +76,7 @@ export default class Main extends Component {
             />
           </div>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

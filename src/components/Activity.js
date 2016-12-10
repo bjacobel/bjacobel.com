@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import 'core-js/es6/promise';
+import 'isomorphic-fetch';
 
 import setTitle from '../services/windowTitle';
 
