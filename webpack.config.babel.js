@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
 const highlightConsts = require('./src/constants/highlight');
@@ -14,12 +15,12 @@ const wpconfig = {
     ],
   },
   output: {
-    path: `${__dirname}/site`,
+    path: `${__dirname}/dist`,
     publicPath: '/',
     filename: '[name].js',
-    libraryTarget: 'commonjs',
+    // libraryTarget: 'commonjs',
   },
-  debug: true,
+  debug: !isProd,
   devtool: isProd ? null : 'source-map',
   module: {
     loaders: [
@@ -64,13 +65,14 @@ const wpconfig = {
       /highlight\.js\/lib\/languages$/,
       new RegExp(`^./(${highlightConsts.LANGUAGES.join('|')})$`),
     ),
+    new CopyWebpackPlugin([{
+      from: 'src/static',
+    }]),
   ],
   devServer: {
     hot: true,
     publicPath: '/',
     historyApiFallback: true,
-    contentBase: 'site',
-    compress: isProd,
   },
 };
 
