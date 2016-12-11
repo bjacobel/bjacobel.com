@@ -6,10 +6,18 @@
     <meta name="google-site-verification" content="CR5WZO1Ek9ST1t8hNJyZkNVn3brfm0dP2bdewmGX5Q8" />
     <meta name="description" content="I'm a JavaScript developer in Boston, MA excited about changing media, education and government through the Open Web.">
     <title>Brian Jacobel</title>
-    <link rel="stylesheet preload" as="style" href="/main.css">
+    <% if (typeof serverRender !== 'undefined' && serverRender) { %>
+        <link rel="stylesheet preload" as="style" href="/main.css">
+    <% } %>
 </head>
 <body>
-    <div id="main"></div>
-    <script src="/main.js"></script>
+    <div id="main">
+        <% if (typeof serverRender !== 'undefined' && serverRender) { %>
+            <%= serverHtml %>
+        <% } %>
+    </div>
+    <% if (typeof serverRender !== 'undefined' && serverRender) { %>
+        <script src="/main.js"></script>
+    <% } %>
 </body>
 </html>

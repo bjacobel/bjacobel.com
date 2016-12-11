@@ -6,8 +6,8 @@ before_install:
 install:
   - yarn
 script:
-  - npm run lint
-  - NODE_ENV=production npm run build
+  - yarn run lint
+  - yarn run build
 before_deploy:
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin

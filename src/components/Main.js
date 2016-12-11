@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Miss } from 'react-router';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
 
-import {
-  GA_ID,
-  TRACK_ANALYTICS,
-} from '../constants';
+import { GA_ID } from '../constants';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -32,7 +28,7 @@ const MenuButton = ({ toggleMenu, active }) => {
 
 export default class Main extends Component {
   componentWillMount() {
-    if (TRACK_ANALYTICS) {
+    if (typeof window !== 'undefined') {
       ReactGA.initialize(GA_ID);
     }
 
@@ -46,26 +42,22 @@ export default class Main extends Component {
 
   render() {
     const { menuActive } = this.state;
+    const { path } = this.props;
 
     return (
-      <UniversalRouter>
+      <UniversalRouter path={ path }>
         <div className={ classNames('app', { menuActive }) }>
           <Header />
           <Sidebar />
           <MenuButton toggleMenu={ this.toggleMenu } active={ menuActive } />
           <div className="body-content">
-            <AnalyticsMatch pattern="/activity" component={ Activity } />
-            <AnalyticsMatch pattern="/blog" component={ BlogIndex } />
-            <AnalyticsMatch pattern="/pgp" component={ PGP } />
-            <AnalyticsMatch pattern="/projects" component={ Projects } />
-            <AnalyticsMatch pattern="/work" component={ Work } />
-            <AnalyticsMatch pattern="/" exactly component={ About } />
-            <AnalyticsMatch pattern="/:y/:m/:d/:slug" component={ BlogPost } />
-            <Miss
-              render={ () => (
-                <p>Not found.</p>
-              ) }
-            />
+            <AnalyticsMatch path={ path } pattern="/activity" component={ Activity } />
+            <AnalyticsMatch path={ path } pattern="/blog" component={ BlogIndex } />
+            <AnalyticsMatch path={ path } pattern="/pgp" component={ PGP } />
+            <AnalyticsMatch path={ path } pattern="/projects" component={ Projects } />
+            <AnalyticsMatch path={ path } pattern="/work" component={ Work } />
+            <AnalyticsMatch path={ path } pattern="/" exactly component={ About } />
+            <AnalyticsMatch path={ path } pattern="/:y/:m/:d/:slug" component={ BlogPost } />
           </div>
         </div>
       </UniversalRouter>

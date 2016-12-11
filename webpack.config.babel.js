@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const highlightConsts = require('./src/constants/highlight');
 
@@ -18,8 +19,9 @@ const wpconfig = {
     path: `${__dirname}/dist`,
     publicPath: '/',
     filename: '[name].js',
-    // libraryTarget: 'commonjs',
+    libraryTarget: 'umd',
   },
+  target: isProd ? 'node' : 'web',
   debug: !isProd,
   devtool: isProd ? null : 'source-map',
   module: {
@@ -38,6 +40,14 @@ const wpconfig = {
         loader: 'babel',
       },
       {
+        test: /\.json$/,
+        loader: 'json',
+      },
+      {
+        test: /\.ejs$/,
+        loader: 'ejs',
+      },
+      {
         test: /\.md$/,
         loader: 'json!meta-marked',
       },
@@ -50,7 +60,7 @@ const wpconfig = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.md'],
+    extensions: ['', '.js', '.ejs', '.json', '.scss', '.md'],
     alias: {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
@@ -85,14 +95,17 @@ if (!isProd) {
 
   wpconfig.plugins = [
     new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html.ejs',
+    }),
     ...wpconfig.plugins,
   ];
 } else {
   wpconfig.plugins = [
     new ExtractTextPlugin('[name].css'),
-    new StaticSiteGeneratorPlugin('main', ['/', '/projects', '/work', '/activity', '/blog', '/pgp']),
-    // new webpack.optimize.UglifyJsPlugin(),
-    // new webpack.optimize.OccurrenceOrderPlugin(true),
+    new StaticSiteGeneratorPlugin('main', ['/', '/projects', '/work', '/blog', '/pgp']),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(true),
     ...wpconfig.plugins,
   ];
 }

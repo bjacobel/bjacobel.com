@@ -3,11 +3,11 @@ import { BrowserRouter, ServerRouter, createServerRenderContext } from 'react-ro
 
 export default class UniversalRouter extends Component {
   render() {
-    const { node } = this.props;
+    const { path } = this.props;
 
-    if (node) {
+    if (typeof window === 'undefined') {
       return (
-        <ServerRouter location={ this.props.path } context={ createServerRenderContext() }>
+        <ServerRouter location={ path } context={ createServerRenderContext() }>
           { this.props.children }
         </ServerRouter>
       );
@@ -15,4 +15,4 @@ export default class UniversalRouter extends Component {
       return <BrowserRouter>{ this.props.children }</BrowserRouter>;
     }
   }
-};
+}

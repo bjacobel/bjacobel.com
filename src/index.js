@@ -4,6 +4,8 @@ import serverRender from 'preact-render-to-string';
 import 'preact/devtools';
 
 import './stylesheets/index.scss';
+import Main from './components/Main';
+import template from './index.html.ejs';
 
 if (typeof document !== 'undefined') {
   const rootEl = document.getElementById('main');
@@ -11,10 +13,10 @@ if (typeof document !== 'undefined') {
   const renderToDOM = () => {
     // See here for explanation of why this require() is needed:
     // https://github.com/reactjs/redux/pull/1455/files#r54380102
-    const Main = require('./components/Main').default; // eslint-disable-line global-require
+    const HotMain = require('./components/Main').default; // eslint-disable-line global-require
 
     render(
-      <Main />,
+      <HotMain />,
       rootEl,
     );
   };
@@ -29,9 +31,8 @@ if (typeof document !== 'undefined') {
 }
 
 export default (locals) => {
-  // See here for explanation of why this require() is needed:
-  // https://github.com/reactjs/redux/pull/1455/files#r54380102
-  const Main = require('./components/Main').default; // eslint-disable-line global-require
-
-  return serverRender(<Main path={ locals.path } />);
+  return template({
+    serverHtml: serverRender(<Main path={ locals.path } />),
+    serverRender: true,
+  });
 };
