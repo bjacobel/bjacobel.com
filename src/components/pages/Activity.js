@@ -3,7 +3,7 @@ import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import 'core-js/es6/promise';
 import 'isomorphic-fetch';
 
-import setTitle from '../services/windowTitle';
+import setTitle from '../../services/windowTitle';
 
 const mkcommits = (timestamp, num, ref, reponame, commits) => {
   const commitS = (num === 1 ? '' : 's');

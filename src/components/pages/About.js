@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import setTitle from '../services/windowTitle';
+import setTitle from '../../services/windowTitle';
 
 
 export default class StaticPage extends Component {

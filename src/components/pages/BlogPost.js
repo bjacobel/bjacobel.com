@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 import format from 'date-fns/format';
 import hljs from 'highlight.js/lib/highlight';
 
-import { DATE_FORMAT } from '../constants';
-import { LANGUAGES } from '../constants/highlight';
-import setTitle from '../services/windowTitle';
+import { DATE_FORMAT } from '../../constants';
+import { LANGUAGES } from '../../constants/highlight';
+import setTitle from '../../services/windowTitle';
 
 LANGUAGES.forEach((langName) => {
   const langModule = require(`highlight.js/lib/languages/${langName}`); // eslint-disable-line global-require, import/no-dynamic-require, max-len
@@ -18,7 +18,7 @@ export default class BlogPost extends Component {
 
     // @TODO: Use import() here once it lands in Webpack 2
     this.setState({
-      post: require(`../posts/${y}-${m}-${d}-${slug}.md`),  // eslint-disable-line global-require, import/no-dynamic-require, max-len
+      post: require(`../../posts/${y}-${m}-${d}-${slug}.md`),  // eslint-disable-line global-require, import/no-dynamic-require, max-len
     });
   }
 

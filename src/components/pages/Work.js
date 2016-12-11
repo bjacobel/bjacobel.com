@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import jobs from '../data/work';
-import setTitle from '../services/windowTitle';
+import jobs from '../../data/work';
+import setTitle from '../../services/windowTitle';
 
 export default class Work extends Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ export default class Work extends Component {
 
         <div className="list">
           { jobs.map((job) => {
-            const image = require(`../images/${job.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
+            const image = require(`../../images/${job.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
             return (
               <div className="list-item" key={ job.meta.title }>
                 <div className="list-img" style={ { backgroundImage: `url('${image}')` } } />

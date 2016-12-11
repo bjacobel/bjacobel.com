@@ -2,7 +2,7 @@ import React, { Component, createElement } from 'react';
 import { Match } from 'react-router';
 import ReactGA from 'react-ga';
 
-import { TRACK_ANALYTICS } from '../constants';
+import { TRACK_ANALYTICS } from '../../constants';
 
 export default class AnalyticsMatch extends Component {
   render() {

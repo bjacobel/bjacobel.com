@@ -3,21 +3,24 @@ import { Miss } from 'react-router';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
 
-import Header from './Header';
-import Sidebar from './Sidebar';
-import About from './About';
-import Activity from './Activity';
-import PGP from './PGP';
-import Projects from './Projects';
-import Work from './Work';
-import BlogIndex from './BlogIndex';
-import BlogPost from './BlogPost';
-import AnalyticsMatch from './AnalyticsMatch';
-import UniversalRouter from './UniversalRouter';
 import {
   GA_ID,
   TRACK_ANALYTICS,
 } from '../constants';
+
+import Header from './Header';
+import Sidebar from './Sidebar';
+
+import AnalyticsMatch from './framework/AnalyticsMatch';
+import UniversalRouter from './framework/UniversalRouter';
+
+import About from './pages/About';
+import Activity from './pages/Activity';
+import PGP from './pages/PGP';
+import Projects from './pages/Projects';
+import Work from './pages/Work';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 
 const MenuButton = ({ toggleMenu, active }) => {
   return (

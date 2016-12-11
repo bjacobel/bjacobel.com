@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import pgp from '../data/pgp.md';
+import pgp from '../../data/pgp.md';
 
-import setTitle from '../services/windowTitle';
+import setTitle from '../../services/windowTitle';
 
 export default class PGP extends Component {
   componentDidMount() {
