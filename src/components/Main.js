@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Miss, BrowserRouter, ServerRouter, createServerRenderContext } from 'react-router';
+import { Miss } from 'react-router';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
 
@@ -13,6 +13,7 @@ import Work from './Work';
 import BlogIndex from './BlogIndex';
 import BlogPost from './BlogPost';
 import AnalyticsMatch from './AnalyticsMatch';
+import UniversalRouter from './UniversalRouter';
 import {
   GA_ID,
   TRACK_ANALYTICS,
@@ -25,18 +26,6 @@ const MenuButton = ({ toggleMenu, active }) => {
     </button>
   );
 };
-
-class Router extends Component {
-  render() {
-    const { node } = this.props;
-
-    if (node) {
-      return <ServerRouter location={ this.props.path } context={ createServerRenderContext() } />;
-    } else {
-      return <BrowserRouter />;
-    }
-  }
-}
 
 export default class Main extends Component {
   componentWillMount() {
@@ -56,7 +45,7 @@ export default class Main extends Component {
     const { menuActive } = this.state;
 
     return (
-      <Router>
+      <UniversalRouter>
         <div className={ classNames('app', { menuActive }) }>
           <Header />
           <Sidebar />
@@ -76,7 +65,7 @@ export default class Main extends Component {
             />
           </div>
         </div>
-      </Router>
+      </UniversalRouter>
     );
   }
 }
