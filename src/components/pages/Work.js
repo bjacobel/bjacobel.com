@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 
 import jobs from '../../data/work';
 import setTitle from '../../services/windowTitle';
@@ -14,7 +13,7 @@ export default class Work extends Component {
       <div>
         <p>
           <span>This page describes my recent work experiences. </span>
-          <span>You can also view my formal resume <Link to="/resume">here.</Link></span>
+          <span>You can also view my formal resume <a href="https://files.bjacobel.com/resume.pdf">here.</a></span>
         </p>
 
         <div className="list">
