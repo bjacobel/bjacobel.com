@@ -106,7 +106,7 @@ if (!isProd) {
 } else {
   wpconfig.plugins = [
     new ExtractTextPlugin('[name].css'),
-    new StaticSiteGeneratorPlugin('main', ['/', '/projects', '/work', '/blog', '/pgp', ...posts]),
+    new StaticSiteGeneratorPlugin('main', ['/', '/projects/', '/work/', '/blog/', '/pgp/', ...posts]),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     ...wpconfig.plugins,
