@@ -1,7 +1,6 @@
 ---
 title: "Reducing bundle size of Highlight.js with Webpack"
 date: 2016-12-04 09:33:00
-url: /2016/12/04/highlight-bundle-size/
 ---
 
 A basic requirement for a developer's blog is syntax highlighting, and one of the most recommended library for doing syntax highlighting in JavaScript is [Highlight.js](https://highlightjs.org/). However, Highlight's uncustomizable builds and large size make it difficult to work with on high-performing websites. Here's how I tamed the default Highlight.js build using Webpack's `ContextReplacementPlugin`, an approach which may generalize to other libraries.

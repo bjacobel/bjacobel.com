@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import projects from '../../data/projects';
+import { projects } from '../../services/requireAll';
 import setTitle from '../../services/windowTitle';
 
 export default class Projects extends Component {
@@ -18,7 +18,7 @@ export default class Projects extends Component {
         </p>
 
         <div className="list">
-          { projects.map((project) => {
+          { projects().map((project) => {
             const image = require(`../../images/${project.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
             return (
               <div className="list-item" key={ project.meta.title }>

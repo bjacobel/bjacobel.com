@@ -1,7 +1,6 @@
 ---
 title: "Serverless Twitterbots with AWS Lambda, KMS and DynamoDB"
 date: 2015-12-28 23:50:00
-url: /2015/12/28/serverless-twitterbots/
 ---
 
 Writing bots for Twitter has always been one of my favorite ways to try out a new technology. When I was just first learning about building APIs I built [Orient Haiku](https://twitter.com/orientku), a Python script that looked for haikus in the text of [Bowdoin Orient](http://bowdoinorient.com) articles (delivered over a brand-new JSON API). Later, while I was learning concurrency patterns in Go, I built [Goggles](https://twitter.com/gogglesbot), a Go program that consumed the Twitter Streaming API, ran any images it found through a feature classification service, and used its insights to spread a little positivity.

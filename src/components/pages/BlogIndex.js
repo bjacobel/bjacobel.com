@@ -4,11 +4,8 @@ import parse from 'date-fns/parse';
 import format from 'date-fns/format';
 
 import setTitle from '../../services/windowTitle';
+import { posts } from '../../services/requireAll';
 import { DATE_FORMAT } from '../../constants';
-
-const requireAll = (requireContext) => {
-  return requireContext.keys().map(requireContext);
-};
 
 export default class BlogIndex extends Component {
   componentDidMount() {
@@ -16,19 +13,17 @@ export default class BlogIndex extends Component {
   }
 
   render() {
-    const posts = requireAll(require.context('../../posts/', true, /\.md$/));
-
     return (
       <ul className="posts">
-        { posts
+        { posts()
             .filter(x => !x.meta.draft)
             .sort((a, b) => parse(b.meta.date) - parse(a.meta.date))
             .map((post) => {
               return (
-                <li key={ post.meta.url }>
+                <li key={ post.url }>
                   <span>{ format(post.meta.date, DATE_FORMAT) }</span>
                   <p className="posttitle">
-                    <Link to={ post.meta.url }>{ post.meta.title }</Link>
+                    <Link to={ post.url }>{ post.meta.title }</Link>
                   </p>
                   <p dangerouslySetInnerHTML={ { __html: `${post.html.split('</p>')[0]}</p>` } } />
                 </li>

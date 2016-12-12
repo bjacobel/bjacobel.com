@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import jobs from '../../data/work';
+import { work } from '../../services/requireAll';
 import setTitle from '../../services/windowTitle';
 
 export default class Work extends Component {
@@ -17,7 +17,7 @@ export default class Work extends Component {
         </p>
 
         <div className="list">
-          { jobs.map((job) => {
+          { work().map((job) => {
             const image = require(`../../images/${job.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
             return (
               <div className="list-item" key={ job.meta.title }>
