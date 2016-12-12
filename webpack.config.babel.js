@@ -1,13 +1,16 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const highlightConsts = require('./src/constants/highlight');
+const { LANGUAGES } = require('./src/constants');
+const { urlFor } = require('./src/services/requireAll');
 
 const isProd = process.env.NODE_ENV === 'production';
+const posts = fs.readdirSync('src/posts').map(file => urlFor(`./${file}`));
 
 const wpconfig = {
   entry: {
@@ -73,7 +76,7 @@ const wpconfig = {
     }),
     new webpack.ContextReplacementPlugin(
       /highlight\.js\/lib\/languages$/,
-      new RegExp(`^./(${highlightConsts.LANGUAGES.join('|')})$`),
+      new RegExp(`^./(${LANGUAGES.join('|')})$`),
     ),
     new CopyWebpackPlugin([{
       from: 'src/static',
@@ -103,7 +106,7 @@ if (!isProd) {
 } else {
   wpconfig.plugins = [
     new ExtractTextPlugin('[name].css'),
-    new StaticSiteGeneratorPlugin('main', ['/', '/projects', '/work', '/blog', '/pgp']),
+    new StaticSiteGeneratorPlugin('main', ['/', '/projects', '/work', '/blog', '/pgp', ...posts]),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     ...wpconfig.plugins,

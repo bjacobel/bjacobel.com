@@ -3,8 +3,10 @@ import { Link } from 'react-router';
 import format from 'date-fns/format';
 import hljs from 'highlight.js/lib/highlight';
 
-import { DATE_FORMAT } from '../../constants';
-import { LANGUAGES } from '../../constants/highlight';
+import {
+  DATE_FORMAT,
+  LANGUAGES,
+} from '../../constants';
 import setTitle from '../../services/windowTitle';
 
 LANGUAGES.forEach((langName) => {
@@ -38,7 +40,7 @@ export default class BlogPost extends Component {
         <p className="date meta">{ format(post.meta.date, DATE_FORMAT) }</p>
         <p className="post-title">{ post.meta.title }</p>
         <div className="post-content" dangerouslySetInnerHTML={ { __html: post.html } } />
-        <Link to="/blog" className="text">⇽&nbsp;Back to posts</Link>
+        <Link to="/blog/" className="text">⇽&nbsp;Back to posts</Link>
       </div>
     );
   }

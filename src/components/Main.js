@@ -51,13 +51,13 @@ export default class Main extends Component {
           <Sidebar />
           <MenuButton toggleMenu={ this.toggleMenu } active={ menuActive } />
           <div className="body-content">
-            <AnalyticsMatch path={ path } pattern="/activity" component={ Activity } />
-            <AnalyticsMatch path={ path } pattern="/blog" component={ BlogIndex } />
-            <AnalyticsMatch path={ path } pattern="/pgp" component={ PGP } />
-            <AnalyticsMatch path={ path } pattern="/projects" component={ Projects } />
-            <AnalyticsMatch path={ path } pattern="/work" component={ Work } />
+            <AnalyticsMatch path={ path } pattern="/activity/" component={ Activity } />
+            <AnalyticsMatch path={ path } pattern="/blog/" component={ BlogIndex } />
+            <AnalyticsMatch path={ path } pattern="/pgp/" component={ PGP } />
+            <AnalyticsMatch path={ path } pattern="/projects/" component={ Projects } />
+            <AnalyticsMatch path={ path } pattern="/work/" component={ Work } />
             <AnalyticsMatch path={ path } pattern="/" exactly component={ About } />
-            <AnalyticsMatch path={ path } pattern="/:y/:m/:d/:slug" component={ BlogPost } />
+            <AnalyticsMatch path={ path } pattern="/:y/:m/:d/:slug/" component={ BlogPost } />
           </div>
         </div>
       </UniversalRouter>

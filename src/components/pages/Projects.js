@@ -14,7 +14,7 @@ export default class Projects extends Component {
       <div>
         <p>
           This page describes some projects outside my professional life I've worked which were fun or I'm proud of.
-          Head over to <Link to="/activity">my Activity page</Link> to see what I'm working on right now.
+          Head over to <Link to="/activity/">my Activity page</Link> to see what I'm working on right now.
         </p>
 
         <div className="list">
