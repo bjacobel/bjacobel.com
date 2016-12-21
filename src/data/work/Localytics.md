@@ -5,7 +5,7 @@ time_start: July 2015
 time_stop: January 2015
 ---
 
-Localytics pushed me to be more than just a can-do full-stack developer - to drill deep into an area that I'm interested in, grow those skills and take ownership. While at Localytics, I:
+At Localytics I started as a generalist, but found a passion for frontend development in JavaScript and grew those skills to take ownership of parts of Localytics' frontend code. While at Localytics, I:
 
 - helped build the Remarketing feature, which drove over a quarter million dollars in ARR in its first quarter
 - worked on debt reduction across the Localytics stack, including migrating Remarketing's AngularJS code from Coffeescript to ES6 and from the Rails asset pipeline to Webpack.

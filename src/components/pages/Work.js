@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import parse from 'date-fns/parse';
 
 import { work } from '../../services/requireAll';
 import setTitle from '../../services/windowTitle';
@@ -17,7 +18,7 @@ export default class Work extends Component {
         </p>
 
         <div className="list">
-          { work().map((job) => {
+          { work().sort((a, b) => parse(b.meta.time_start) - parse(a.meta.time_start)).map((job) => {
             const image = require(`../../images/${job.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
             return (
               <div className="list-item" key={ job.meta.title }>
