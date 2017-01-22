@@ -12,7 +12,7 @@ import UniversalRouter from './framework/UniversalRouter';
 
 import About from './pages/About';
 import Activity from './pages/Activity';
-import PGP from './pages/PGP';
+import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Work from './pages/Work';
 import BlogIndex from './pages/BlogIndex';
@@ -53,7 +53,7 @@ export default class Main extends Component {
           <div className="body-content">
             <AnalyticsMatch path={ path } pattern="/activity/" component={ Activity } />
             <AnalyticsMatch path={ path } pattern="/blog/" component={ BlogIndex } />
-            <AnalyticsMatch path={ path } pattern="/pgp/" component={ PGP } />
+            <AnalyticsMatch path={ path } pattern="/contact/" component={ Contact } />
             <AnalyticsMatch path={ path } pattern="/projects/" component={ Projects } />
             <AnalyticsMatch path={ path } pattern="/work/" component={ Work } />
             <AnalyticsMatch path={ path } pattern="/" exactly component={ About } />

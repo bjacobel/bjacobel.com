@@ -12,6 +12,7 @@ export default class Sidebar extends Component {
           <Link to="/activity/" className="nav-item activity">activity</Link>
           <Link to="/work/" className="nav-item work">work</Link>
           <Link to="/blog/" className="nav-item blog">blog</Link>
+          <Link to="/contact/" className="nav-item contact">contact</Link>
           <a href="https://photos.bjacobel.com" className="nav-item photos">photos</a>
         </div>
         <div className="socialbuttons">

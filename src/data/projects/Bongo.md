@@ -5,6 +5,7 @@ site: http://bowdoinorient.co
 site_title: "Beta:"
 source: https://github.com/bowdoinorient/bongo
 source_title: GitHub
+date: July 2015
 ---
 
 **Bongo** is the third version of the Bowdoin Orient's newsroom CMS. The project aims to bring the Orient up to date

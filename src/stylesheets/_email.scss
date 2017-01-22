@@ -1,0 +1,11 @@
+.email {
+  color: $blue;
+
+  &::after {
+    content: attr(data-domain);
+  }
+
+  &::before {
+    content: attr(data-user) "\0040";
+  }
+}
