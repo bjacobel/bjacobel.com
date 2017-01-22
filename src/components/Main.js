@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
+import { Match, Redirect } from 'react-router';
 
 import { GA_ID } from '../constants';
 
@@ -58,6 +59,7 @@ export default class Main extends Component {
             <AnalyticsMatch path={ path } pattern="/work/" component={ Work } />
             <AnalyticsMatch path={ path } pattern="/" exactly component={ About } />
             <AnalyticsMatch path={ path } pattern="/:y/:m/:d/:slug/" component={ BlogPost } />
+            <Match pattern="/pgp/" render={ () => <Redirect to="/contact/#pgp" /> } />
           </div>
         </div>
       </UniversalRouter>
