@@ -7,16 +7,33 @@ const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin'
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const { LANGUAGES } = require('./src/constants');
-const { urlFor } = require('./src/services/requireAll');
+const urlFor = require('./src/services/urlFor');
 
 const isProd = process.env.NODE_ENV === 'production';
 const posts = fs.readdirSync('src/posts').map(file => urlFor(`./${file}`));
 
+const devCssConfig = [
+  { loader: 'style-loader' },
+  {
+    loader: 'css-loader',
+    options: {
+      sourceMap: true,
+    },
+  },
+  { loader: 'sass-loader' },
+];
+
+const prodCssConfig = ExtractTextPlugin.extract({
+  fallback: 'style-loader',
+  use: [
+    { loader: 'css-loader' },
+    { loader: 'sass-loader' },
+  ],
+});
+
 const wpconfig = {
   entry: {
-    main: [
-      './src/index.js',
-    ],
+    main: './src/index.js',
   },
   output: {
     path: `${__dirname}/dist`,
@@ -25,58 +42,63 @@ const wpconfig = {
     libraryTarget: 'umd',
   },
   target: isProd ? 'node' : 'web',
-  debug: !isProd,
-  devtool: isProd ? null : 'source-map',
+  devtool: isProd ? false : 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.woff(2)?(\?[a-z0-9=]+)?$/,
-        loader: 'url?limit=64000',
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 64000,
+          },
+        },
       },
       {
         test: /\.(ttf|eot|svg|jpg|png)(\?[a-z0-9=]+)?$/,
-        loader: isProd ? 'file' : 'url',
+        use: isProd ? 'file-loader' : 'url-loader',
       },
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
-        loader: 'babel',
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
+        use: 'babel-loader',
       },
       {
         test: /\.ejs$/,
-        loader: 'ejs',
+        use: 'ejs-loader',
       },
       {
         test: /\.md$/,
-        loader: 'json!meta-marked',
+        use: [
+          { loader: 'json-loader' },
+          { loader: 'meta-marked-loader' },
+        ],
       },
       {
         test: /\.scss$/,
-        loader: isProd ?
-          ExtractTextPlugin.extract('style', 'css!sass') :
-          'style!css?sourceMap!sass',
+        use: isProd ? prodCssConfig : devCssConfig,
       },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.ejs', '.json', '.scss', '.md'],
+    extensions: ['.js', '.ejs', '.json', '.scss', '.md'],
     alias: {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
     },
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      debug: !isProd,
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
     new webpack.ContextReplacementPlugin(
       /highlight\.js\/lib\/languages$/,
-      new RegExp(`^./(${LANGUAGES.join('|')})$`),
+      new RegExp(`^./(${LANGUAGES.join('|')})$`)  // eslint-disable-line comma-dangle
     ),
     new CopyWebpackPlugin([{
       from: 'src/static',
@@ -86,16 +108,11 @@ const wpconfig = {
     hot: true,
     publicPath: '/',
     historyApiFallback: true,
+    overlay: true,
   },
 };
 
 if (!isProd) {
-  wpconfig.entry.main = [
-    'webpack-dev-server/client',
-    'webpack/hot/only-dev-server',
-    ...wpconfig.entry.main,
-  ];
-
   wpconfig.plugins = [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -106,9 +123,22 @@ if (!isProd) {
 } else {
   wpconfig.plugins = [
     new ExtractTextPlugin('[name].css'),
-    new StaticSiteGeneratorPlugin('main', ['/', '/projects/', '/work/', '/blog/', '/contact/', ...posts]),
+    new StaticSiteGeneratorPlugin(
+      'main',
+      [
+        '/',
+        '/projects/',
+        '/work/',
+        '/blog/',
+        '/contact/',
+        ...posts,
+      ]  // eslint-disable-line comma-dangle
+    ),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
     ...wpconfig.plugins,
   ];
 }

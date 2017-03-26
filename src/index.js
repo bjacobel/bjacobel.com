@@ -1,5 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from 'react';  // eslint-disable-line import/no-duplicates
+import { render } from 'react-dom';  // eslint-disable-line import/no-duplicates
 import serverRender from 'preact-render-to-string';
 import 'preact/devtools';
 

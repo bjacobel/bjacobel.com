@@ -1,8 +1,21 @@
 {
   "presets": [
-    "react",
-    "es2015",
-    "es2016",
-    "es2017"
+    ["env", {
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "IE >= 10"
+        ]
+      },
+      "useBuiltIns": true,
+      "modules": false,
+      "exclude": [
+        "transform-regenerator"
+      ]
+    }],
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
   ]
 }
