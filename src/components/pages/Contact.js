@@ -24,11 +24,11 @@ export default class Contact extends Component {
         <p>I'm <a href="https://keybase.io/bjacobel">bjacobel</a> on Keybase.</p>
 
         <h2 id="pgp">Email</h2>
-        <p>You can also use Keybase to get my PGP key and send me email at the appropriate address below.</p>
+        <p>You can also use Keybase or my key below to send me email at the appropriate address.</p>
         <ul>
           <li><Email user="bjacobel" domain="gmail.com" /> (personal)</li>
-          <li><Email user="brian" domain="bjacobel.com" /> (professional)</li>
-          <li><Email user="bjacobel" domain="edx.org" /> (current work)</li>
+          <li><Email user="brian" domain="bjacobel.com" /> (work inquiries)</li>
+          <li><Email user="bjacobel" domain="edx.org" /> (current employer)</li>
         </ul>
         <p>Don't email me if you're a staffing agency, I only work with internal recruiters.</p>
         <div className="pgp" dangerouslySetInnerHTML={ { __html: pgp.html } } />
