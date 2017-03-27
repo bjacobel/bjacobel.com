@@ -20,8 +20,7 @@ export default class Projects extends Component {
 
         <div className="list">
           { projects().sort((a, b) => parse(b.meta.date) - parse(a.meta.date)).map((project) => {
-            const image = require(`../../images/${project.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
-            return (
+            return import(`../../images/${project.meta.image}`).then(image => (
               <div className="list-item" key={ project.meta.title }>
                 <div className="list-img" style={ { backgroundImage: `url('${image}')` } } />
                 <div className="list-text">
@@ -33,7 +32,7 @@ export default class Projects extends Component {
                   </p>
                 </div>
               </div>
-            );
+            ));
           }) }
         </div>
       </div>

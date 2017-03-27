@@ -10,17 +10,15 @@ import {
 import setTitle from '../../services/windowTitle';
 
 LANGUAGES.forEach((langName) => {
-  const langModule = require(`highlight.js/lib/languages/${langName}`); // eslint-disable-line global-require, import/no-dynamic-require, max-len
-  hljs.registerLanguage(langName, langModule);
+  import(`highlight.js/lib/languages/${langName}`).then(langModule => hljs.registerLanguage(langName, langModule));
 });
 
 export default class BlogPost extends Component {
   componentWillMount() {
     const { y, m, d, slug } = this.props.params;
 
-    // @TODO: Use import() here once it lands in Webpack 2
-    this.setState({
-      post: require(`../../posts/${y}-${m}-${d}-${slug}.md`),  // eslint-disable-line global-require, import/no-dynamic-require, max-len
+    import(`../../posts/${y}-${m}-${d}-${slug}.md`).then((post) => {
+      this.setState({ post });
     });
   }
 

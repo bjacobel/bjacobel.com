@@ -19,8 +19,7 @@ export default class Work extends Component {
 
         <div className="list">
           { work().sort((a, b) => parse(b.meta.time_start) - parse(a.meta.time_start)).map((job) => {
-            const image = require(`../../images/${job.meta.image}`);  // eslint-disable-line global-require, import/no-dynamic-require, max-len
-            return (
+            return import(`../../images/${job.meta.image}`).then(image => (
               <div className="list-item" key={ job.meta.title }>
                 <div className="list-img" style={ { backgroundImage: `url('${image}')` } } />
                 <div className="list-text">
@@ -28,7 +27,7 @@ export default class Work extends Component {
                   <p>{ job.meta.time_start } &nbsp;•&nbsp; { job.meta.time_stop }</p>
                 </div>
               </div>
-            );
+            ));
           }) }
         </div>
       </div>
