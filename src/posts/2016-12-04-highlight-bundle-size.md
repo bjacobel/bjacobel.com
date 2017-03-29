@@ -50,7 +50,7 @@ import hljs from 'highlight.js/lib/highlight';
 });
 ```
 
-At this point, only the languages you want are imported in your application - but all languages will still be present in the Webpack production bundle*. The final piece we need to drop them completely is Webpack's [`ContextReplacementPlugin`](https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin), which intercepts requests for non-whitelisted modules, disallowing them from the build. Using the same list of whitelisted languages as an example, the following Webpack config file's plugins array will only allow those four languages to be required, and will replace requests to all other languages with an empty module.
+At this point, only the languages you want are imported in your application - but all languages will still be present in the Webpack production bundle. The final piece we need to drop them completely is Webpack's [`ContextReplacementPlugin`](https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin), which intercepts requests for non-whitelisted modules, disallowing them from the build. Using the same list of whitelisted languages as an example, the following Webpack config file's plugins array will only allow those four languages to be required, and will replace requests to all other languages with an empty module.
 
 ```javascript
 module.exports = {
@@ -70,7 +70,19 @@ Here's the same site, with those Highlight.js configurations applied. We've elim
 
 ![highlight.js built size, after configuration](https://i.bjacobel.com/20161209-4e6nd.png)
 
-&#42; Using Webpack 2, these non-imported languages may be eliminated automatically through tree shaking. I'll revisit this one Webpack 2 is released.
+[**Edit**, 3/28/3017]: Webpack 2 has been out for a bit now and I thought I'd revisit one of my comments above. Now that support for the [`import()` function](https://webpack.js.org/guides/code-splitting-import/#dynamic-import) has been added, code to load individual languages can now be written like this:
+
+```javascript
+import hljs from 'highlight.js/lib/highlight';
+
+LANGUAGES.forEach((langName) => {
+  import(`highlight.js/lib/languages/${langName}`).then((langModule) => {
+    hljs.registerLanguage(langName, langModule);
+  });
+});
+```
+
+You'll need a little Babel and ESLint magic to make everything flow smoothly. Check out [the commit where I added this feature to this website](https://github.com/bjacobel/bjacobel.com/commit/491c316a41c6e814cb724b2530ed96bb67e7d047) for more details.
 
 
 
