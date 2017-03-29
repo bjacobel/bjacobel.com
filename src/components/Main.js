@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
-import { Match, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 
 import { GA_ID } from '../constants';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
 
-import AnalyticsMatch from './framework/AnalyticsMatch';
+import GARoute from './framework/GARoute';
 import UniversalRouter from './framework/UniversalRouter';
 
 import About from './pages/About';
@@ -52,14 +52,14 @@ export default class Main extends Component {
           <Sidebar />
           <MenuButton toggleMenu={ this.toggleMenu } active={ menuActive } />
           <div className="body-content">
-            <AnalyticsMatch path={ path } pattern="/activity/" component={ Activity } />
-            <AnalyticsMatch path={ path } pattern="/blog/" component={ BlogIndex } />
-            <AnalyticsMatch path={ path } pattern="/contact/" component={ Contact } />
-            <AnalyticsMatch path={ path } pattern="/projects/" component={ Projects } />
-            <AnalyticsMatch path={ path } pattern="/work/" component={ Work } />
-            <AnalyticsMatch path={ path } pattern="/" exactly component={ About } />
-            <AnalyticsMatch path={ path } pattern="/:y/:m/:d/:slug/" component={ BlogPost } />
-            <Match pattern="/pgp/" render={ () => <Redirect to="/contact/#pgp" /> } />
+            <GARoute path={ path } pattern="/activity/" component={ Activity } />
+            <GARoute path={ path } pattern="/blog/" component={ BlogIndex } />
+            <GARoute path={ path } pattern="/contact/" component={ Contact } />
+            <GARoute path={ path } pattern="/projects/" component={ Projects } />
+            <GARoute path={ path } pattern="/work/" component={ Work } />
+            <GARoute path={ path } pattern="/" exact component={ About } />
+            <GARoute path={ path } pattern="/:y/:m/:d/:slug/" component={ BlogPost } />
+            <GARoute path={ path } pattern="/pgp/" render={ () => <Redirect to="/contact/#pgp" /> } />
           </div>
         </div>
       </UniversalRouter>

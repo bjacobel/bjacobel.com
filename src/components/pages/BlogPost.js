@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
 import hljs from 'highlight.js/lib/highlight';
 
@@ -16,7 +16,8 @@ LANGUAGES.forEach((langName) => {
 
 export default class BlogPost extends Component {
   componentWillMount() {
-    const { y, m, d, slug } = this.props.params;
+    const { match } = this.props;
+    const { y, m, d, slug } = match.params;
 
     // @TODO: Use import() here once it lands in Webpack 2
     this.setState({

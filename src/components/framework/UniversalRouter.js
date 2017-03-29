@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, ServerRouter, createServerRenderContext } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router';
 
 export default class UniversalRouter extends Component {
   render() {
@@ -7,9 +8,9 @@ export default class UniversalRouter extends Component {
 
     if (typeof window === 'undefined') {
       return (
-        <ServerRouter location={ path } context={ createServerRenderContext() }>
+        <StaticRouter location={ path } context={ {} }>
           { this.props.children }
-        </ServerRouter>
+        </StaticRouter>
       );
     } else {
       return <BrowserRouter>{ this.props.children }</BrowserRouter>;
