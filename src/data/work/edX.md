@@ -2,7 +2,7 @@
 title: edX
 image: edx.png
 time_start: April 2016
-time_stop: Present
+time_stop: May 2017
 ---
 
-I'm currently working at edX, a nonprofit dedicated to making higher education affordable, effective and ubiquitous. I'm working on the frontend platform team modernizing the edX JavaScript developer experience, including laying the groundwork for new development in React, Redux and ES6. I've just started at edX - check back soon for more details.
+At [edX](https://edx.org), I worked on modernizing the edX JavaScript developer experience, including laying the groundwork for new development in React, Redux and ES6. In addition, I built and maintained features for educators and learners, like a major overhaul of the discussion forums and a new course navigation experience.
