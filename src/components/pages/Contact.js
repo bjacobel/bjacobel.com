@@ -28,7 +28,7 @@ export default class Contact extends Component {
         <ul>
           <li><Email user="bjacobel" domain="gmail.com" /> (personal)</li>
           <li><Email user="brian" domain="bjacobel.com" /> (work inquiries)</li>
-          <li><Email user="bjacobel" domain="edx.org" /> (current employer)</li>
+          <li><Email user="brian" domain="axios.com" /> (current employer)</li>
         </ul>
         <p>Don't email me if you're a staffing agency, I only work with internal recruiters.</p>
         <div className="pgp" dangerouslySetInnerHTML={ { __html: pgp.html } } />
