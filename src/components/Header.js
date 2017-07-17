@@ -7,7 +7,7 @@ export default class Header extends Component {
         <div className="title">
           <h1 className="aboutme myname">Brian Jacobel</h1>
           <div className="separator" />
-          <h2 className="aboutme mytitle">Web Developer in Boston, MA</h2>
+          <h2 className="aboutme mytitle">Web Developer in Washington, D.C.</h2>
         </div>
       </div>
     );
