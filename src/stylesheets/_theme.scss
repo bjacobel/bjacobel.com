@@ -26,8 +26,17 @@ p {
 }
 
 ul {
-  list-style: none;
   padding-left: 0;
+  list-style-type: none;
+}
+
+.list-text ul {
+  padding-left: 20px;
+  list-style-type: disc;
+
+  li {
+    margin-bottom: 10px;
+  }
 }
 
 button {
