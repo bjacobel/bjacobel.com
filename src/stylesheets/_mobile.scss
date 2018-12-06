@@ -19,20 +19,20 @@
     top: 0;
     right: 0;
     opacity: 1;
-    @include vendor-prefix("user-select", "none");
-    @include vendor-prefix("transition", "all .25s ease");
+    user-select: none;
+    transition: all .25s ease;
 
     &.active {
       background: transparent;
 
       &:before {
-        @include vendor-prefix("transform", "rotate3d(0,0,1,-45deg)");
+        transform: rotate3d(0,0,1,-45deg);
         background-color: white;
         top: 0px;
       }
 
       &:after {
-        @include vendor-prefix("transform", "rotate3d(0,0,1,45deg)");
+        transform: rotate3d(0,0,1,45deg);
         background-color: white;
         top: -3px;
       }
@@ -46,8 +46,8 @@
     position: relative;
     background-color: white;
     top: -9px;
-    @include vendor-prefix("user-select", "none");
-    @include vendor-prefix("transition", "all .25s ease");
+    user-select: none;
+    transition: all .25s ease;
   }
 
   .burger-lines:after {
@@ -57,8 +57,8 @@
     position: relative;
     background-color: white;
     top: 6px;
-    @include vendor-prefix("user-select", "none");
-    @include vendor-prefix("transition", "all .25s ease");
+    user-select: none;
+    transition: all .25s ease;
   }
 }
 
@@ -78,11 +78,11 @@
   .app {
     .sidebar,
     .body-content {
-      @include double-prefix("transition", "transform", ".2s ease-in-out");
+      transition: transform .2s ease-in-out;
     }
 
     .sidebar {
-      @include vendor-prefix("transform", "translate(-235px,0)");
+      transform: translate(-235px,0);
       position: absolute;
     }
 
@@ -92,11 +92,11 @@
 
     &.menuActive {
       .sidebar {
-        @include vendor-prefix("transform", "translate(0,0)");
+        transform: translate(0,0);
       }
 
       .body-content {
-        @include vendor-prefix("transform", "translate(235px,0)");
+        transform: translate(235px,0);
       }
     }
   }

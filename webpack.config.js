@@ -59,7 +59,7 @@ const wpconfig = {
         loader: [
           isProd ? MiniCssExtractPlugin.loader : { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' },
+          { loader: 'postcss-loader' },
         ],
       },
     ],

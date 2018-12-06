@@ -9,7 +9,7 @@ pre code.hljs {
 pre, figure {
   white-space: pre !important;
   background-color: $superlightgray;
-  @include vendor-prefix("border-radius", "3px");
+  border-radius: 3px;
   padding: 3px;
   overflow: scroll;
 

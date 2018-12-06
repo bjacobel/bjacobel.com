@@ -1,6 +1,6 @@
 import React from 'react';  // eslint-disable-line import/no-duplicates
 import { render } from 'react-dom';  // eslint-disable-line import/no-duplicates
-import serverRender from 'preact-render-to-string';
+import serverRender from 'preact-render-to-string';  // eslint-disable-line import/extensions
 import 'preact/devtools';
 
 import './stylesheets/index.scss';

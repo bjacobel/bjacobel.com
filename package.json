@@ -21,9 +21,11 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.2",
     "babel-loader": "^8.0.4",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.27.3",
+    "cssnano": "^4.1.7",
     "ejs-loader": "^0.3.1",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -38,12 +40,15 @@
     "json-loader": "^0.5.7",
     "meta-marked-loader": "^1.1.0",
     "mini-css-extract-plugin": "^0.4.5",
-    "node-sass": "^4.5.1",
+    "postcss": "^7.0.6",
+    "postcss-loader": "^3.0.0",
     "preact-render-to-string": "^4.1.0",
+    "precss": "^4.0.0",
     "sass-lint": "^1.10.2",
-    "sass-loader": "^7.1.0",
     "static-site-generator-webpack-plugin": "^3.4.2",
     "style-loader": "^0.16.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
     "url-loader": "^0.5.8",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
@@ -59,5 +64,11 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "whatwg-fetch": "^2.0.3"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "safari 10",
+    "IE 11",
+    "not dead"
+  ]
 }
