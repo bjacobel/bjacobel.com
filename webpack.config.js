@@ -28,17 +28,15 @@ const wpconfig = {
   module: {
     rules: [
       {
-        test: /\.woff(2)?(\?[a-z0-9=]+)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 64000,
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          { loader: 'file-loader' },
+          { loader: 'image-webpack-loader',
+            options: {
+              disable: !isProd,
+            },
           },
-        },
-      },
-      {
-        test: /\.(ttf|eot|svg|jpg|png)(\?[a-z0-9=]+)?$/,
-        use: isProd ? 'file-loader' : 'url-loader',
+        ],
       },
       {
         test: /\.js$/,
