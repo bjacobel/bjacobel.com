@@ -80,6 +80,9 @@ const wpconfig = {
     },
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      _: 'lodash',
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
@@ -118,17 +121,17 @@ if (!isProd) {
     new MiniCssExtractPlugin({
       filename: isProd ? '[name].[contenthash].css' : '[name].css',
     }),
-    new StaticSiteGeneratorPlugin(
-      'main',
-      [
+    new StaticSiteGeneratorPlugin({
+      entry: 'main',
+      paths: [
         '/',
         '/projects/',
         '/work/',
         '/blog/',
         '/contact/',
         ...posts,
-      ]  // eslint-disable-line comma-dangle
-    ),
+      ],
+    }),
     ...wpconfig.plugins,
   ];
 }

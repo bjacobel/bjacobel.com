@@ -6,18 +6,18 @@
     <meta name="google-site-verification" content="CR5WZO1Ek9ST1t8hNJyZkNVn3brfm0dP2bdewmGX5Q8" />
     <meta name="description" content="I'm a JavaScript developer in D.C. excited about changing media, education and government through the Open Web.">
     <title>Brian Jacobel</title>
-    <% if (typeof serverRender !== 'undefined' && serverRender) { %>
-        <link rel="stylesheet preload" as="style" href="/main.css">
-    <% } %>
+    <% typeof css !== 'undefined' && css.forEach((file) => { %>
+        <link href="/<%- file %>" rel="stylesheet preload" as="style">
+    <% }); %>
 </head>
 <body>
     <div id="main">
-        <% if (typeof serverRender !== 'undefined' && serverRender) { %>
-            <%= serverHtml %>
+        <% if (typeof html !== 'undefined') { %>
+            <%= html %>
         <% } %>
     </div>
-    <% if (typeof serverRender !== 'undefined' && serverRender) { %>
-        <script src="/main.js"></script>
-    <% } %>
+    <% typeof js !== 'undefined' && js.forEach((file) => { %>
+        <script src="/<%- file %>" defer></script>
+    <% }); %>
 </body>
 </html>

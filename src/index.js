@@ -27,8 +27,10 @@ if (typeof document !== 'undefined') {
 }
 
 export default (locals) => {
+  const assets = Object.keys(locals.webpackStats.compilation.assets);
   return template({
-    serverHtml: serverRender(<Main path={ locals.path } />),
-    serverRender: true,
+    html: serverRender(<Main path={ locals.path } />),
+    css: assets.filter(value => value.match(/\.css$/)),
+    js: assets.filter(value => value.match(/\.js$/)),
   });
 };
