@@ -20,11 +20,19 @@ const wpconfig = {
   output: {
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: '[name].js',
+    filename: isProd ? '[name].[chunkhash].js' : '[name].js',
     libraryTarget: 'umd',
   },
   target: isProd ? 'node' : 'web',
   devtool: isProd ? false : 'source-map',
+  optimization: {
+    noEmitOnErrors: true,
+    splitChunks: {
+      // @TODO: This doesn't work right now - probably because of weird require things
+      // Convert to import() and then try enabling this.
+      // chunks: 'all',
+    },
+  },
   module: {
     rules: [
       {
@@ -72,8 +80,6 @@ const wpconfig = {
     },
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
@@ -110,7 +116,7 @@ if (!isProd) {
 } else {
   wpconfig.plugins = [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: isProd ? '[name].[contenthash].css' : '[name].css',
     }),
     new StaticSiteGeneratorPlugin(
       'main',
