@@ -18,7 +18,7 @@ deploy:
   on:
     branch: master
 after_deploy:
-  - aws cloudfront create-invalidation --distribution-id E3927Y42SF850N --paths "/index.html" "/**/index.html"
+  - aws cloudfront create-invalidation --distribution-id E3927Y42SF850N --paths "/*"
 notifications:
   email: false
   slack: bjacobel:xasDl3nTxo2feJGba70E43oR
