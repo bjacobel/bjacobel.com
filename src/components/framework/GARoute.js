@@ -4,15 +4,15 @@ import ReactGA from 'react-ga';
 
 export default class GARoute extends Component {
   render() {
-    const { path, pattern, exact, component } = this.props;
+    const { path, ssrPathContext, exact, component } = this.props;
 
     return (
       <Route
-        path={ pattern }
+        path={ path }
         exact={ exact }
         render={ (matchProps) => {
           if (typeof window !== 'undefined') {
-            ReactGA.pageview(path || window.location.pathname);
+            ReactGA.pageview(ssrPathContext || window.location.pathname);
           }
 
           return createElement(component, matchProps);

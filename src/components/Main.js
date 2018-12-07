@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
-import { Redirect } from 'react-router';
+import { Redirect, Switch } from 'react-router';
 
 import { GA_ID } from '../constants';
 
@@ -18,6 +18,7 @@ import Projects from './pages/Projects';
 import Work from './pages/Work';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
+import NotFound from './framework/NotFound';
 
 const MenuButton = ({ toggleMenu, active }) => {
   return (
@@ -52,14 +53,17 @@ export default class Main extends Component {
           <Sidebar />
           <MenuButton toggleMenu={ this.toggleMenu } active={ menuActive } />
           <div className="body-content">
-            <GARoute path={ path } pattern="/activity/" component={ Activity } />
-            <GARoute path={ path } pattern="/blog/" component={ BlogIndex } />
-            <GARoute path={ path } pattern="/contact/" component={ Contact } />
-            <GARoute path={ path } pattern="/projects/" component={ Projects } />
-            <GARoute path={ path } pattern="/work/" component={ Work } />
-            <GARoute path={ path } pattern="/" exact component={ About } />
-            <GARoute path={ path } pattern="/:y/:m/:d/:slug/" component={ BlogPost } />
-            <GARoute path={ path } pattern="/pgp/" render={ () => <Redirect to="/contact/#pgp" /> } />
+            <Switch>
+              <GARoute ssrPathContext={ path } path="/activity/" component={ Activity } />
+              <GARoute ssrPathContext={ path } path="/blog/" component={ BlogIndex } />
+              <GARoute ssrPathContext={ path } path="/contact/" component={ Contact } />
+              <GARoute ssrPathContext={ path } path="/projects/" component={ Projects } />
+              <GARoute ssrPathContext={ path } path="/work/" component={ Work } />
+              <GARoute ssrPathContext={ path } path="/" exact component={ About } />
+              <GARoute ssrPathContext={ path } path="/:y/:m/:d/:slug/" component={ BlogPost } />
+              <GARoute ssrPathContext={ path } path="/pgp/" render={ () => <Redirect to="/contact/#pgp" /> } />
+              <GARoute ssrPathContext={ path } component={ NotFound } />
+            </Switch>
           </div>
         </div>
       </UniversalRouter>
