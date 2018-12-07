@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="CR5WZO1Ek9ST1t8hNJyZkNVn3brfm0dP2bdewmGX5Q8" />
     <meta name="description" content="I'm a JavaScript developer in D.C. excited about changing media, education and government through the Open Web.">
     <title>Brian Jacobel</title>
-    <% typeof css !== 'undefined' && css.forEach((file) => { %>
+    <% typeof css !== 'undefined' && css.forEach(function(file) { %>
         <link href="/<%- file %>" rel="stylesheet preload" as="style">
     <% }); %>
 </head>
@@ -16,7 +16,7 @@
             <%= html %>
         <% } %>
     </div>
-    <% typeof js !== 'undefined' && js.forEach((file) => { %>
+    <% typeof js !== 'undefined' && js.forEach(function(file) { %>
         <script src="/<%- file %>" defer></script>
     <% }); %>
 </body>

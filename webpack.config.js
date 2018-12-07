@@ -53,7 +53,7 @@ const wpconfig = {
       },
       {
         test: /\.ejs$/,
-        use: 'ejs-loader',
+        use: 'ejs-webpack-loader',
       },
       {
         test: /\.md$/,
@@ -80,9 +80,6 @@ const wpconfig = {
     },
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      _: 'lodash',
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
