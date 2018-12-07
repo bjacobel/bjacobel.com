@@ -20,26 +20,26 @@
     right: 0;
     opacity: 1;
     user-select: none;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
 
     &.active {
       background: transparent;
 
-      &:before {
-        transform: rotate3d(0,0,1,-45deg);
+      &::before {
+        transform: rotate3d(0, 0, 1, -45deg);
         background-color: white;
-        top: 0px;
+        top: 0;
       }
 
-      &:after {
-        transform: rotate3d(0,0,1,45deg);
+      &::after {
+        transform: rotate3d(0, 0, 1, 45deg);
         background-color: white;
         top: -3px;
       }
     }
   }
 
-  .burger-lines:before {
+  .burger-lines::before {
     content: '\00A0';
     height: 3px;
     display: block;
@@ -47,10 +47,10 @@
     background-color: white;
     top: -9px;
     user-select: none;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
   }
 
-  .burger-lines:after {
+  .burger-lines::after {
     content: '\00A0';
     height: 3px;
     display: block;
@@ -58,11 +58,11 @@
     background-color: white;
     top: 6px;
     user-select: none;
-    transition: all .25s ease;
+    transition: all 0.25s ease;
   }
 }
 
-@media(max-width: 650px) {
+@media (max-width: 650px) {
   body {
     .header {
       height: 235px;
@@ -78,11 +78,11 @@
   .app {
     .sidebar,
     .body-content {
-      transition: transform .2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
     }
 
     .sidebar {
-      transform: translate(-235px,0);
+      transform: translate(-235px, 0);
       position: absolute;
     }
 
@@ -92,11 +92,11 @@
 
     &.menuActive {
       .sidebar {
-        transform: translate(0,0);
+        transform: translate(0, 0);
       }
 
       .body-content {
-        transform: translate(235px,0);
+        transform: translate(235px, 0);
       }
     }
   }
