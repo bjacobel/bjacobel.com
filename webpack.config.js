@@ -22,6 +22,7 @@ const wpconfig = {
     publicPath: '/',
     filename: isProd ? '[name].[chunkhash].js' : '[name].js',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   target: isProd ? 'node' : 'web',
   devtool: isProd ? false : 'source-map',
