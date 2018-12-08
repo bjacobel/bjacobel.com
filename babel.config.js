@@ -1,13 +1,13 @@
-module.exports = api => ({
+module.exports = {
   presets: [
     [
       '@babel/preset-env',
       {
         useBuiltIns: 'entry',
-        modules: api.env('test') ? 'commonjs' : false,
+        modules: false,
         exclude: ['transform-regenerator'],
       },
     ],
     '@babel/preset-react',
   ],
-});
+};
