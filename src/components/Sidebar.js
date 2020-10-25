@@ -9,7 +9,6 @@ export default class Sidebar extends Component {
         <div className="container">
           <Link to="/" className="nav-item about">about</Link>
           <Link to="/projects/" className="nav-item projects">projects</Link>
-          <Link to="/activity/" className="nav-item activity">activity</Link>
           <Link to="/work/" className="nav-item work">work</Link>
           <Link to="/blog/" className="nav-item blog">blog</Link>
           <Link to="/contact/" className="nav-item contact">contact</Link>
