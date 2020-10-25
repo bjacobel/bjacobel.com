@@ -54,7 +54,6 @@ export default class Main extends Component {
           <MenuButton toggleMenu={ this.toggleMenu } active={ menuActive } />
           <div className="body-content">
             <Switch>
-              <GARoute ssrPathContext={ path } path="/activity/" component={ Activity } />
               <GARoute ssrPathContext={ path } path="/blog/" component={ BlogIndex } />
               <GARoute ssrPathContext={ path } path="/contact/" component={ Contact } />
               <GARoute ssrPathContext={ path } path="/projects/" component={ Projects } />
