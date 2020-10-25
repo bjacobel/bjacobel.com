@@ -12,7 +12,6 @@ import GARoute from './framework/GARoute';
 import UniversalRouter from './framework/UniversalRouter';
 
 import About from './pages/About';
-import Activity from './pages/Activity';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Work from './pages/Work';
