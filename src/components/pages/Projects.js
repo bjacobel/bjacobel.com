@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import parse from 'date-fns/parse';
 
 import { projects } from '../../services/requireAll';
