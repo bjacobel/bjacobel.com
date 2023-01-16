@@ -1,0 +1,50 @@
+name: 'Deployment'
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: 'Build and deploy static site'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Build
+        run: yarn webpack
+        env:
+          NODE_ENV: production
+      - name: Upload dist to bucket
+        run: |
+          aws s3 sync dist s3://bjacobel.com \
+            --acl public-read \
+            --cache-control max-age=31536000
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ./dist
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: E3927Y42SF850N
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
