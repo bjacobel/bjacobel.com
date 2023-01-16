@@ -12,10 +12,10 @@ export default class StaticPage extends Component {
     return (
       <div>
         <p className="post-title">
-          Hi, I'm Brian. I'm a web developer excited about journalism, education, agile government and privacy.
+          Hi, I'm Brian. I'm a software excited about performance, reliability, accessibility and frontend infrastructure.
         </p>
         <p>
-          I'm currently working as a software engineer in New Hampshire. In my free time, I don't stop writing code:
+          I'm currently working full-time remote in New Hampshire. In my free time, I don't stop writing code:
           my projects have included an open-source newsroom CMS and a bookmarking tool for animated GIFs.
           I'm passionate about quality software that makes an impact, modern web features and standards,
           and the idea of transforming areas like media and government through the Open Web.
