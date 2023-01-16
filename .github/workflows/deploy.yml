@@ -11,6 +11,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+      - name: Install image libraries
+        run: sudo apt-get install -y libglu1
       - name: 'Checkout'
         uses: actions/checkout@master
       - uses: aws-actions/configure-aws-credentials@v1-node16
