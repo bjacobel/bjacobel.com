@@ -18,9 +18,6 @@ export default class Sidebar extends Component {
           <a href="https://github.com/bjacobel" className="social-item github">
             <span className="sr">GitHub</span>
           </a>
-          <a href="https://twitter.com/bjacobel" className="social-item twitter">
-            <span className="sr">Twitter</span>
-          </a>
           <a href="https://www.linkedin.com/in/bjacobel" className="social-item linkedin">
             <span className="sr">LinkedIn</span>
           </a>
