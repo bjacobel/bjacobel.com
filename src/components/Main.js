@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
-import { Redirect, Switch, Router } from 'wouter';
+import { Redirect, Switch, Router } from 'wouter-preact';
 
 import { GA_ID } from '../constants';
 

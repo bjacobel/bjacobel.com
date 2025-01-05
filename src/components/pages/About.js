@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
 
 import setTitle from '../../services/windowTitle';
@@ -12,7 +13,8 @@ export default class StaticPage extends Component {
     return (
       <div>
         <p className="post-title">
-          Hi, I'm Brian. I'm a software engineer excited about performance, reliability, accessibility and frontend infrastructure.
+          Hi, I'm Brian. I'm a software engineer excited about performance, reliability,
+          accessibility and frontend infrastructure.
         </p>
         <p>
           I'm currently working full-time remote in New Hampshire. In my free time, I don't stop writing code:

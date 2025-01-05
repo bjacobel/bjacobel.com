@@ -15,6 +15,7 @@ module.exports = {
     'react/jsx-filename-extension': [2, { extensions: ['.js'] }],
     'react/prefer-stateless-function': 0,
     'react/prop-types': 0,
+    'react/no-danger': 0
   },
   parserOptions: {
     ecmaVersion: 8,

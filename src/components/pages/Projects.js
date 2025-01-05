@@ -13,7 +13,8 @@ export default class Projects extends Component {
     return (
       <div>
         <p>
-          This page describes some projects outside my professional life I've worked which were fun or I'm proud of.
+          This page describes some projects outside my professional life
+          I&#8217;ve worked which were fun or I&#8217;m proud of.
         </p>
 
         <div className="list">

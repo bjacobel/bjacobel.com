@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'wouter';
+import { Link } from 'wouter-preact';
 import parse from 'date-fns/parse';
 import format from 'date-fns/format';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'wouter';
+import { Link } from 'wouter-preact';
 
 export default class Sidebar extends Component {
   render() {

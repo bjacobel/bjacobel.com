@@ -78,7 +78,6 @@ const wpconfig = {
     alias: {
       'react': 'preact/compat',
       'react-dom': 'preact/compat',
-      'wouter': 'wouter-preact',
     },
   },
   plugins: [

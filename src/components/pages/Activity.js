@@ -55,7 +55,7 @@ export default class Activity extends Component {
   render() {
     return (
       <div className="activity">
-        <p className="post-title">Here's what I'm working on, right now:</p>
+        <p className="post-title">Here&#8217;s what I&#8217;m working on, right now:</p>
         <div className="events">{ this.state.commitHtml }</div>
         <p><i>(data via the <a href="https://developer.github.com/v3/activity/events/">github public api</a>)</i></p>
       </div>
