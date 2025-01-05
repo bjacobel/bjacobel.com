@@ -49,7 +49,7 @@ const wpconfig = {
       },
       {
         test: /\.js$/,
-        include: path.join(__dirname, 'src'),
+        include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules/wouter')],
         use: 'babel-loader',
       },
       {
@@ -76,8 +76,9 @@ const wpconfig = {
   resolve: {
     extensions: ['.js', '.ejs', '.json', '.scss', '.md'],
     alias: {
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat',
+      'react': 'preact/compat',
+      'react-dom': 'preact/compat',
+      'wouter': 'wouter-preact',
     },
   },
   plugins: [

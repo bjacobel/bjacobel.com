@@ -1,5 +1,5 @@
 import React, { Component, createElement } from 'react';
-import { Route } from 'react-router-dom';
+import { Route } from 'wouter';
 import ReactGA from 'react-ga';
 
 export default class GARoute extends Component {

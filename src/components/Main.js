@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactGA from 'react-ga';
-import { Redirect, Switch } from 'react-router';
+import { Redirect, Switch, Router } from 'wouter';
 
 import { GA_ID } from '../constants';
 
@@ -9,7 +9,6 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 
 import GARoute from './framework/GARoute';
-import UniversalRouter from './framework/UniversalRouter';
 
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -46,7 +45,7 @@ export default class Main extends Component {
     const { path } = this.props;
 
     return (
-      <UniversalRouter path={ path }>
+      <Router ssrPath={ path }>
         <div className={ classNames('app', { menuActive }) }>
           <Header />
           <Sidebar />
@@ -64,7 +63,7 @@ export default class Main extends Component {
             </Switch>
           </div>
         </div>
-      </UniversalRouter>
+      </Router>
     );
   }
 }

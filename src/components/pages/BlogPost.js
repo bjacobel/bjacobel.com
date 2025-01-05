@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import format from 'date-fns/format';
 import hljs from 'highlight.js/lib/highlight';
 

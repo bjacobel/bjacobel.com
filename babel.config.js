@@ -5,6 +5,7 @@ module.exports = {
       {
         useBuiltIns: 'entry',
         modules: false,
+        corejs: 3,
         exclude: ['transform-regenerator'],
       },
     ],

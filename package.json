@@ -18,9 +18,10 @@
   "license": "MIT",
   "homepage": "https://github.com/bjacobel/bjacobel.com#readme",
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.0.0",
+    "@webpack-cli/serve": "^3.0.1",
     "autoprefixer": "^9.4.2",
     "babel-loader": "^8.0.4",
     "copy-webpack-plugin": "^4.6.0",
@@ -42,8 +43,9 @@
     "meta-marked-loader": "^1.1.0",
     "mini-css-extract-plugin": "^0.4.5",
     "postcss-loader": "^3.0.0",
-    "preact-render-to-string": "^4.1.0",
+    "preact-render-to-string": "^6.5.12",
     "precss": "^4.0.0",
+    "prop-types": "^15.8.1",
     "static-site-generator-webpack-plugin": "^3.4.2",
     "style-loader": "^0.16.0",
     "stylelint": "^9.9.0",
@@ -55,14 +57,13 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "core-js": "3",
     "date-fns": "^1.28.1",
     "highlight.js": "^9.10.0",
-    "preact": "^8.4.1",
-    "preact-compat": "^3.18.4",
-    "react-ga": "^2.1.2",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "whatwg-fetch": "^2.0.3"
+    "preact": "^10.25.4",
+    "react-ga": "^3.3.1",
+    "whatwg-fetch": "^2.0.3",
+    "wouter-preact": "^3.3.5"
   },
   "browserslist": [
     "last 2 versions",
