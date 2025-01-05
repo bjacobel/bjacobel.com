@@ -16,8 +16,7 @@ LANGUAGES.forEach((langName) => {
 
 export default class BlogPost extends Component {
   componentWillMount() {
-    const { match } = this.props;
-    const { y, m, d, slug } = match.params;
+    const { y, m, d, slug } = this.props;
 
     // @TODO: Use import() here once it lands in Webpack 2
     this.setState({
