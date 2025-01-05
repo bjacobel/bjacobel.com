@@ -10,14 +10,15 @@ export default class GARoute extends Component {
       <Route
         path={ path }
         exact={ exact }
-        render={ (matchProps) => {
+      >
+        { (matchProps) => {
           if (typeof window !== 'undefined') {
             ReactGA.pageview(ssrPathContext || window.location.pathname);
           }
 
           return createElement(component, matchProps);
         } }
-      />
+      </Route>
     );
   }
 }
