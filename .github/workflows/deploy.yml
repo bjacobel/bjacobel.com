@@ -36,7 +36,7 @@ jobs:
           aws s3 sync dist s3://bjacobel.com \
             --acl public-read \
             --cache-control max-age=31536000
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: dist
           path: ./dist
